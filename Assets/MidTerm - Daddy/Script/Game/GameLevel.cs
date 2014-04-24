@@ -60,8 +60,15 @@ public class GameLevel : MonoBehaviour {
 		Runity.Messenger<GameColor>.Reset();
 		Runity.Messenger<string>.Reset();
 
-		this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
-			as GameObject;
+
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+
+		if (player == null) {
+			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
+				as GameObject;
+		} else {
+			this.Player = player;
+		}
 	}
 
 	private	void	Start() {
