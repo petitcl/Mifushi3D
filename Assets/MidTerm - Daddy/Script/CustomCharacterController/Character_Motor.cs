@@ -131,6 +131,7 @@ public class Character_Motor : MonoBehaviour {
 	public void Jump() {
 		if (Character_Manager.CharacterControllerComponent.isGrounded) {
 			Character_Manager.Instance.VerticalVelocity = this.JumpImpulse;
+			Animation_Manager.Instance.CharacterMotionState = Animation_Manager.MotionStateList.Jump;
 		}
 	}
 

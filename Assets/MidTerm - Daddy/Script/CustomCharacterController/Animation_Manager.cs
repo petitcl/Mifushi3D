@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class Animation_Manager : MonoBehaviour {
 
@@ -11,7 +13,8 @@ public class Animation_Manager : MonoBehaviour {
 	public MotionStateList CharacterMotionState = MotionStateList.Stationary;
 
 	public static Animation_Manager Instance;
-
+	
+	[System.Serializable]
 	public enum MotionStateList {
 		Stationary,
 		Forward,
@@ -21,15 +24,42 @@ public class Animation_Manager : MonoBehaviour {
 		LeftForward,
 		RightForward,
 		LeftBackward,
-		RightBackward
+		RightBackward,
+		Jump
 	}
+	[System.Serializable]
+	public class AnimationStateDefinition
+	{
+		public MotionStateList state;
+		public AnimationClip clip;
+	};
 
+	public List<AnimationStateDefinition> animations = new List<AnimationStateDefinition>();
+	
 	private void Awake() {
 		Instance = this;
 	}
-		
+	private void update() {
+		this.CurrentMotionState ();
+	}
+	public void CurrentAnimation() {
+		foreach (AnimationStateDefinition st in this.animations) {
+			if (this.CharacterMotionState == st.state) {
+				this.animation.playAutomatically = true;
+				if (!this.animation.IsPlaying(st.clip.name)) {
+					this.animation.Play(st.clip.name);
+				}
+			}
+		}
+	}
 	public void CurrentMotionState() {
-
+		if (this.CharacterMotionState == Animation_Manager.MotionStateList.Jump) {
+			if (Mathf.Abs(Character_Manager.Instance.VerticalVelocity) > 0.1) {
+				this.CurrentAnimation();
+				return ;
+			}
+			this.CharacterMotionState = Animation_Manager.MotionStateList.Stationary;
+		}
 		this.Left = false;
 		this.Right = false;
 		this.Forward = false;
@@ -74,5 +104,6 @@ public class Animation_Manager : MonoBehaviour {
 			this.CharacterMotionState = MotionStateList.Stationary;
 		}
 		Debug.Log(this.CharacterMotionState);
+		this.CurrentAnimation();
 	}
 }
