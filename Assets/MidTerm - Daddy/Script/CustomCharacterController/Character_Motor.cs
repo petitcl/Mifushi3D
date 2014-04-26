@@ -63,7 +63,7 @@ public class Character_Motor : MonoBehaviour {
 		RaycastHit hit;
 		if (!Physics.Raycast(this.transform.position + Vector3.up,
 		                    Vector3.down,
-		                    out hit, this.SlidingLayerMask)) {
+		                    out hit, Mathf.Infinity, this.SlidingLayerMask)) {
 			return;
 		}
 		this.SlideVector = hit.normal.normalized;
