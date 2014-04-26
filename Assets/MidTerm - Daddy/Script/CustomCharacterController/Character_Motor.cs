@@ -29,17 +29,7 @@ public class Character_Motor : MonoBehaviour {
 
 	// Update is called once per frame
 	public void ControlledUpdate() {
-		if (Character_Manager.Instance.InputUpdated) {
-			AlignCharacterToCameraDirection();
-		}
 		ProcessMotion();
-	}
-
-	private void AlignCharacterToCameraDirection() {
-		Vector3 lookAt = Camera.main.transform.forward;
-		lookAt.y = 0;
-		Quaternion lookAtRotation = Quaternion.LookRotation(lookAt);
-		this.gameObject.transform.rotation = lookAtRotation * MODEL_3DSMAX;
 	}
 
 	private void ProcessMotion() {
@@ -124,7 +114,7 @@ public class Character_Motor : MonoBehaviour {
 				MoveVector.y += Character_Manager.Instance.Gravity * Time.deltaTime;
 			}
 		} else if (!Character_Manager.Instance.isJumping()) {
-			MoveVector.y = -1;
+			MoveVector.y = -0.1f;
 		}
 	}
 

@@ -34,7 +34,6 @@ public class Character_Manager : MonoBehaviour {
 		if (CharacterControllerComponent == null) {
 			//Handle error when no CharacterController Component
 		}
-		Camera_Manager.InitialCameraCheck();
 	}
 	
 	// Update is called once per frame
