@@ -51,12 +51,22 @@ public class Animation_Manager : MonoBehaviour {
 				}
 			}
 		}
+		Debug.Log(this.CharacterMotionState);
 	}
 	public void CurrentMotionState() {
 		if (this.CharacterMotionState == Animation_Manager.MotionStateList.Jump) {
-			if (Mathf.Abs(Character_Manager.Instance.VerticalVelocity) > 0.1) {
-				this.CurrentAnimation();
-				return ;
+			Debug.Log("jumping");
+			GameObject l_go = GameObject.FindGameObjectWithTag("Player");
+			if (l_go != null) {
+				CharacterController cc = l_go.GetComponent<CharacterController>();
+				if (Character_Manager.Instance.isJumping()) {
+					CurrentAnimation();
+					return ;
+				}
+				if (!cc.isGrounded) {
+					CurrentAnimation();
+					return ;
+				}
 			}
 			this.CharacterMotionState = Animation_Manager.MotionStateList.Stationary;
 		}
@@ -103,7 +113,6 @@ public class Animation_Manager : MonoBehaviour {
 		if (!this.Left && !this.Right && !this.Forward && !this.Backward) {
 			this.CharacterMotionState = MotionStateList.Stationary;
 		}
-		Debug.Log(this.CharacterMotionState);
 		this.CurrentAnimation();
 	}
 }
