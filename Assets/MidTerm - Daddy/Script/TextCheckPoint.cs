@@ -10,7 +10,6 @@ public class TextCheckPoint : MonoBehaviour {
 		this.GetComponent<Renderer>().enabled = false;
 	}
 
-	// Use this for initialization
 	void CheckPointActivated () {
 		animator.SetBool("Activated", true);
 		this.GetComponent<Renderer>().enabled = true;

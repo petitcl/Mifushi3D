@@ -77,7 +77,7 @@ public class GameLevel : MonoBehaviour {
 
 	//public events
 	public	void	onPlayerWalkedOnCheckPoint(CheckPoint checkPoint) {
-		if (this.lastCheckPoint && checkPoint.order < this.lastCheckPoint.order) {
+		if (this.lastCheckPoint && checkPoint.order <= this.lastCheckPoint.order) {
 			return;
 		}
 		this.lastCheckPoint = checkPoint;
@@ -99,6 +99,11 @@ public class GameLevel : MonoBehaviour {
 //		Camera.main.transform.position = new Vector3(this.Player.transform.position.x,
 //		                                             this.Player.transform.position.y,
 //		                                             Camera.main.transform.position.z);
+	}
+
+	public	void	onPlayerWalkedOnTrigger(SceneTrigger trigger) {
+		Runity.Messenger<string>.Broadcast("Player.WalkedOnTrigger", trigger.Label,
+		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
 	//private callbacks
