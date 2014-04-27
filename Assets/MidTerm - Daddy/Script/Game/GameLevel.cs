@@ -56,6 +56,10 @@ public class GameLevel : MonoBehaviour {
 	//private attributes
 	private CheckPoint	lastCheckPoint;
 
+	//Pause
+	public GameObject pauseScreen;
+	private bool paused = false;
+
 	//private Unity methods 
 	private	void	Awake() {
 
@@ -129,6 +133,36 @@ public class GameLevel : MonoBehaviour {
 		if (trigger.Trigger()) {
 			Runity.Messenger<string>.Broadcast("Player.WalkedOnTrigger", trigger.Label,
 			                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		}
+	}
+
+	public bool IsPaused() {
+		return paused;
+	}
+
+	public void TogglePause() {
+		if (this.IsPaused()) {
+			Resume();
+		} else {
+			Pause();
+		}
+	}
+
+	public void Pause() {
+		paused = true;
+		Time.timeScale = 0.0f;
+		pauseScreen.SetActive(true);
+	}
+
+	public void Resume() {
+		paused = false;
+		Time.timeScale = 1.0f;
+		pauseScreen.SetActive(false);
+	}
+
+	public void ReturnMainMenu() {
+		if (this.IsPaused()) {
+			//TODO load main menu
 		}
 	}
 
