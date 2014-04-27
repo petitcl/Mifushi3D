@@ -9,6 +9,7 @@ public class CheckPoint : MonoBehaviour {
 	private	void	OnTriggerEnter(Collider collider) {
 		if (collider.tag == "Player") {
 			GameLevel.Instance.onPlayerWalkedOnCheckPoint(this);
+			this.BroadcastMessage("CheckPointActivated");
 		}
 	}
 }
