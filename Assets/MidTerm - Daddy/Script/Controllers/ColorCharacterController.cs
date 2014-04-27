@@ -6,6 +6,7 @@ public class ColorCharacterController : MonoBehaviour {
 	//public attributes
 	public	GameLevel.GameColor	CurrentColor = GameLevel.GameColor.Default;
 	public	Material	playerMaterial;
+	public	LayerMask	PlayerCollisionMask;
 	
 	//private attributes
 	private	LayerMask	defaultPlatformHit;

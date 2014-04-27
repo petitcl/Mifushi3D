@@ -3,6 +3,14 @@ using System.Collections;
 
 public class GameLevel : MonoBehaviour {
 
+	//public types
+	public	enum GameColor {
+		Red,
+		Green,
+		Blue,
+		Default
+	}
+
 	//static attributes
 	private	static	GameLevel	_instance = null;
 	public	static	GameLevel	Instance {
@@ -12,13 +20,6 @@ public class GameLevel : MonoBehaviour {
 			}
 			return GameLevel._instance;
 		}
-	}
-	//public types
-	public	enum GameColor {
-		Red,
-		Green,
-		Blue,
-		Default
 	}
 
 	//public attributes
@@ -43,6 +44,15 @@ public class GameLevel : MonoBehaviour {
 	public	int		BlueLayerMask {get; private set;}
 	public	int		PlayerLayerMask {get; private set;}
 
+	public	bool	Started {get; private set;}
+	public	bool	Paused {get; private set;}
+	public	bool	Finished {get; private set;}
+	public	bool	Running {
+	get {
+			return this.Started && !this.Paused && !this.Finished;
+		}
+	}
+
 	//private attributes
 	private CheckPoint	lastCheckPoint;
 
@@ -61,7 +71,7 @@ public class GameLevel : MonoBehaviour {
 		Runity.Messenger<string>.Reset();
 
 
-		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
 
 		if (player == null) {
 			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
@@ -69,13 +79,27 @@ public class GameLevel : MonoBehaviour {
 		} else {
 			this.Player = player;
 		}
+		this.Started = false;
+		this.Finished = false;
+		this.Paused = false;
 	}
 
 	private	void	Start() {
-		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		this.startGame();
 	}
 
 	//public events
+
+	public	void	startGame() {
+		this.Started = true;
+		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+	}
+
+	public	void	endGame() {
+		this.Finished = true;
+		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+	}
+
 	public	void	onPlayerWalkedOnCheckPoint(CheckPoint checkPoint) {
 		if (this.lastCheckPoint && checkPoint.order <= this.lastCheckPoint.order) {
 			return;
@@ -102,8 +126,10 @@ public class GameLevel : MonoBehaviour {
 	}
 
 	public	void	onPlayerWalkedOnTrigger(SceneTrigger trigger) {
-		Runity.Messenger<string>.Broadcast("Player.WalkedOnTrigger", trigger.Label,
-		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		if (trigger.Trigger()) {
+			Runity.Messenger<string>.Broadcast("Player.WalkedOnTrigger", trigger.Label,
+			                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		}
 	}
 
 	//private callbacks
