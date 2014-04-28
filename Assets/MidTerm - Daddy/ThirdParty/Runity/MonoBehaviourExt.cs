@@ -8,16 +8,15 @@ namespace Runity {
 		//public types
 		public	delegate	void	SimpleCallback();
 
-		//public attributes
-
-		public	string		timeLayerName = "default";
-
-		//public properties
-		public	float		customDeltaTime {
-			get {
-				return Runity.TimeManager.Instance.GetDeltaTime(this.timeLayerName);
-			}
-		}
+//		//public attributes
+//		public	string		timeLayerName = "default";
+//
+//		//public properties
+//		public	float		customDeltaTime {
+//			get {
+//				return Runity.TimeManager.Instance.GetDeltaTime(this.timeLayerName);
+//			}
+//		}
 
 		//public methods
 		public	void		WaitForAnimation(Animation anim, SimpleCallback cb) {

@@ -15,9 +15,9 @@ public class GameLevel : MonoBehaviour {
 	private	static	GameLevel	_instance = null;
 	public	static	GameLevel	Instance {
 		get {
-			if (GameLevel._instance == null) {
-				GameLevel._instance = new GameLevel();
-			}
+//			if (GameLevel._instance == null) {
+//				GameLevel._instance = new GameLevel();
+//			}
 			return GameLevel._instance;
 		}
 	}
@@ -26,7 +26,12 @@ public class GameLevel : MonoBehaviour {
 	public	Color	Red;
 	public	Color	Green;
 	public	Color	Blue;
+	public	Color	White;
 	
+	public	Color	FadedRed;
+	public	Color	FadedGreen;
+	public	Color	FadedBlue;
+
 	public	string	RedLayerName = "Physics_Red";
 	public	string	GreenLayerName = "Physics_Green";
 	public	string	BlueLayerName = "Physics_Blue";
@@ -58,7 +63,6 @@ public class GameLevel : MonoBehaviour {
 
 	//Pause
 	public GameObject pauseScreen;
-	private bool paused = false;
 
 	//private Unity methods 
 	private	void	Awake() {
@@ -78,6 +82,7 @@ public class GameLevel : MonoBehaviour {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 
 		if (player == null) {
+			Debug.Log("GameLevel.Awake: Player object not found, creating it!");
 			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
 				as GameObject;
 		} else {
@@ -89,17 +94,18 @@ public class GameLevel : MonoBehaviour {
 	}
 
 	private	void	Start() {
-		this.startGame();
+		//this.StartGame();
 	}
 
 	//public events
 
-	public	void	startGame() {
+	public	void	StartGame() {
 		this.Started = true;
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		Debug.Log("Game.Start");
 	}
 
-	public	void	endGame() {
+	public	void	EndGame() {
 		this.Finished = true;
 		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
@@ -137,25 +143,25 @@ public class GameLevel : MonoBehaviour {
 	}
 
 	public bool IsPaused() {
-		return paused;
+		return this.Paused;
 	}
 
 	public void TogglePause() {
-		if (this.IsPaused()) {
-			Resume();
+		if (this.Paused) {
+			this.Resume();
 		} else {
-			Pause();
+			this.Pause();
 		}
 	}
 
 	public void Pause() {
-		paused = true;
+		this.Paused = true;
 		Time.timeScale = 0.0f;
 		pauseScreen.SetActive(true);
 	}
 
 	public void Resume() {
-		paused = false;
+		this.Paused = false;
 		Time.timeScale = 1.0f;
 		pauseScreen.SetActive(false);
 	}
