@@ -6,6 +6,7 @@ public class ColorChanger : MonoBehaviour {
 	//public attributes
 	public	float	fadeTime = 0.5f;
 	public	bool	sharedMaterial;
+	public	bool	allMaterials;
 
 	//private attributes
 	private	float	startTime;
@@ -26,7 +27,8 @@ public class ColorChanger : MonoBehaviour {
 		float currTime = Time.time - this.startTime;
 		float offset = currTime / this.fadeTime;
 		Color nColor = Color.Lerp(this.startColor, this.endColor, offset);
-		this.GetMaterial().color = nColor;
+		this.SetColor(nColor);
+//		this.GetMaterial().color = nColor;
 		if (nColor.Equals(this.enabled)) {
 			this.enabled = false;
 		}
@@ -38,6 +40,17 @@ public class ColorChanger : MonoBehaviour {
 			return this.renderer.sharedMaterial;
 		} else {
 			return this.renderer.material;
+		}
+	}
+
+	private	void		SetColor(Color ncolor) {
+		Material[] materials = (this.sharedMaterial ? this.renderer.sharedMaterials : this.renderer.materials);
+		if (this.allMaterials) {
+			for (int i = 0; i < materials.Length; ++i) {
+				materials[i].color = ncolor;
+			}
+		} else {
+			materials[0].color = ncolor;
 		}
 	}
 }

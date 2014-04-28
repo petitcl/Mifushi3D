@@ -51,18 +51,21 @@ public class ColorCharacterController : MonoBehaviour {
 		switch (newColor) {
 		case GameLevel.GameColor.Blue:
 			this.SetupPhysicsLayers(GameLevel.Instance.BlueLayerMask, GameLevel.Instance.RedLayerMask, GameLevel.Instance.GreenLayerMask);
-			playerMaterial.color = GameLevel.Instance.Blue;
+//			playerMaterial.color = GameLevel.Instance.Blue;
+			this.gameObject.BroadcastMessage("FadeTo", GameLevel.Instance.Blue, SendMessageOptions.DontRequireReceiver);
 			//			this.GetComponent<SpriteRenderer>().color = GameLevel.Instance.Blue;
 			break;
 		case GameLevel.GameColor.Red:
 			this.SetupPhysicsLayers(GameLevel.Instance.RedLayerMask, GameLevel.Instance.GreenLayerMask, GameLevel.Instance.BlueLayerMask);
 			//			this.GetComponent<SpriteRenderer>().color = GameLevel.Instance.Red;
-			playerMaterial.color = GameLevel.Instance.Red;
+//			playerMaterial.color = GameLevel.Instance.Red;
+			this.gameObject.BroadcastMessage("FadeTo", GameLevel.Instance.Red, SendMessageOptions.DontRequireReceiver);
 			break;
 		case GameLevel.GameColor.Green:
 			this.SetupPhysicsLayers(GameLevel.Instance.GreenLayerMask, GameLevel.Instance.RedLayerMask, GameLevel.Instance.BlueLayerMask);
 			//			this.GetComponent<SpriteRenderer>().color = GameLevel.Instance.Green;
-			playerMaterial.color = GameLevel.Instance.Green;
+//			playerMaterial.color = GameLevel.Instance.Green;
+			this.gameObject.BroadcastMessage("FadeTo", GameLevel.Instance.Green, SendMessageOptions.DontRequireReceiver);
 			break;
 		default:
 			//physics

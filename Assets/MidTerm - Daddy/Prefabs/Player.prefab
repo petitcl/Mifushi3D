@@ -12,8 +12,6 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 143: {fileID: 14300000}
-  - 114: {fileID: 11400012}
-  - 114: {fileID: 11400010}
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400014}
   m_Layer: 8
@@ -1237,8 +1235,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400162}
   - 111: {fileID: 11100000}
-  - 114: {fileID: 11400006}
-  - 114: {fileID: 11400008}
   - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: MaleCharacter
@@ -2365,60 +2361,6 @@ MonoBehaviour:
     clip: {fileID: 7400000, guid: a246736d87314ff4fa5fcf10551a6e0f, type: 3}
   - state: 8
     clip: {fileID: 7400000, guid: a1e63f81f7c8e3942ab433c25ad7ce54, type: 3}
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d1bb19a224f87429ad0a7fff5a6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartColor: 3
-  playerMaterial: {fileID: 2100000, guid: 0f12e5790d93ba9429fa1405ac9c58b4, type: 2}
-  PlayerCollisionMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3832a843472d94a9f58e6bd2245da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11400010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d1bb19a224f87429ad0a7fff5a6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartColor: 3
-  playerMaterial: {fileID: 2100000, guid: 0f12e5790d93ba9429fa1405ac9c58b4, type: 2}
-  PlayerCollisionMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &11400012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3832a843472d94a9f58e6bd2245da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2430,7 +2372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d1bb19a224f87429ad0a7fff5a6cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartColor: 2
+  StartColor: 0
   playerMaterial: {fileID: 2100000, guid: 0f12e5790d93ba9429fa1405ac9c58b4, type: 2}
   PlayerCollisionMask:
     serializedVersion: 2
