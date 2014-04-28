@@ -24,15 +24,15 @@ public class SceneObject : MonoBehaviour {
 	}
 
 	protected virtual	void	onPlayerChangeColor(GameLevel.GameColor c) {
-		if (this.gameColor == GameLevel.GameColor.Default) {
-			return;
-		}
-		Color nColor = this.GetComponent<SpriteRenderer>().color;
-		if (this.gameColor == c) {
-			nColor.a = 1.0f;
-		} else {
-			nColor.a = 0.5f;
-		}
-		this.GetComponent<SpriteRenderer>().color = nColor;
+//		if (this.gameColor == GameLevel.GameColor.Default) {
+//			return;
+//		}
+//		Color nColor = this.GetComponent<SpriteRenderer>().color;
+//		if (this.gameColor == c) {
+//			nColor.a = 1.0f;
+//		} else {
+//			nColor.a = 0.5f;
+//		}
+//		this.GetComponent<SpriteRenderer>().color = nColor;
 	}
 }
