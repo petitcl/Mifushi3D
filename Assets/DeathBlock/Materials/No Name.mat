@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MaleCharacter_color
+  m_Name: No Name
   m_Shader: {fileID: 4800000, guid: 054a31a99d11e49d110086ba44295342, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -18,13 +18,6 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 2800000, guid: 411e91d53ab7fef4cbe49e75662c52f1, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -43,11 +36,7 @@ Material:
       data:
         first:
           name: _Color
-<<<<<<< HEAD
-        second: {r: .128406152, g: .91911763, b: .39561221, a: 1}
-=======
-        second: {r: .963235319, g: .242469564, b: .120404415, a: 1}
->>>>>>> adf953e3e0190ce6befe552393c7483bf00f2aa4
+        second: {r: 1, g: 0, b: 0, a: 1}
       data:
         first:
           name: _OutlineColor

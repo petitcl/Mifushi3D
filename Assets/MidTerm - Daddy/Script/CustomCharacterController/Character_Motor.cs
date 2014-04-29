@@ -42,7 +42,7 @@ public class Character_Motor : MonoBehaviour {
 
 		this.Slide();
 		this.ApplyGravity();
-		Character_Manager.CharacterControllerComponent.Move(this.MoveVector);
+		Character_Manager.CharacterControllerComponent.Move(this.MoveVector * Time.timeScale);
 	}
 
 	private void Slide() {

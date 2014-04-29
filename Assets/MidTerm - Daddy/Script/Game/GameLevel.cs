@@ -168,7 +168,7 @@ public class GameLevel : MonoBehaviour {
 
 	public void ReturnMainMenu() {
 		if (this.IsPaused()) {
-			//TODO load main menu
+		Application.LoadLevel("MainMenu");
 		}
 	}
 
