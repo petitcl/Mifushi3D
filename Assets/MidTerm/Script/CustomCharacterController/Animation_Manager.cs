@@ -51,11 +51,11 @@ public class Animation_Manager : MonoBehaviour {
 				}
 			}
 		}
-		Debug.Log(this.CharacterMotionState);
+		//Debug.Log(this.CharacterMotionState);
 	}
 	public void CurrentMotionState() {
 		if (this.CharacterMotionState == Animation_Manager.MotionStateList.Jump) {
-			Debug.Log("jumping");
+			//Debug.Log("jumping");
 			GameObject l_go = GameObject.FindGameObjectWithTag("Player");
 			if (l_go != null) {
 				CharacterController cc = l_go.GetComponent<CharacterController>();

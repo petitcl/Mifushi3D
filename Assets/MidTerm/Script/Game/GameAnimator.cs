@@ -16,13 +16,36 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 	}
 
 	//public attributes
-	public	Runity.FadeInOut	FadeInOut;
+	public	Runity.FadeInOut			FadeInOut;
 	public	Runity.MaterialAnimator		MatAnimator;
+
+	public	Material	Red;
+	public	Material	Green;
+	public	Material	Blue;
+	public	Material	White;
 
 	//private attributes
 	private	Dictionary<string, AnimationMethod>	animations = new Dictionary<string, AnimationMethod>();
 
 	//public methods
+	public	Material	GameColorToMaterial(GameLevel.GameColor color) {
+		switch (color) {
+		case GameLevel.GameColor.Red:
+			return this.Red;
+			break;
+		case GameLevel.GameColor.Green:
+			return this.Green;
+			break;
+		case GameLevel.GameColor.Blue:
+			return this.Blue;
+			break;
+		default:
+			//TODO : fix this thing (flemme)
+			return this.White;
+			break;
+		}
+	}
+
 	public	void	PlayAnimation(string animationName, SimpleCallback callback) {
 		if (!this.animations.ContainsKey(animationName)) {
 			callback();

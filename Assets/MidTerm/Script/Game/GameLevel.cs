@@ -97,7 +97,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
-	//public events
+	//public methods
 	public	void	StartGame() {
 		this.Started = true;
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
@@ -164,9 +164,46 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	public void ReturnMainMenu() {
 		if (this.IsPaused()) {
-		Application.LoadLevel("MainMenu");
+			Application.LoadLevel("MainMenu");
 		}
 	}
+
+	public	int		GameColorToLayerMask(GameColor color) {
+		switch (color) {
+		case GameColor.Red:
+			return this.RedLayerMask;
+			break;
+		case GameColor.Green:
+			return this.GreenLayerMask;
+			break;
+		case GameColor.Blue:
+			return this.BlueLayerMask;
+			break;
+		default:
+			//TODO : fix this thing (flemme)
+			return this.PlayerLayerMask;
+			break;
+		}
+	}
+
+	public	Color	GameColorToColor(GameColor color) {
+		switch (color) {
+		case GameColor.Red:
+			return this.Red;
+			break;
+		case GameColor.Green:
+			return this.Green;
+			break;
+		case GameColor.Blue:
+			return this.Blue;
+			break;
+		default:
+			//TODO : fix this thing (flemme)
+			return this.White;
+			break;
+		}
+	}
+
 
 	//private callbacks
 	private	void	onStartAnimationDone() {

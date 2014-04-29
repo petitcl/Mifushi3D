@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 //TODO : Change List<MaterialAnimation> to HashTable for optimization
 //TODO : Change MaterialAnimation.TargetMaterial to Array<Material> for scalability
+//TODO : add method AddMaterial (string, Material, float)
 namespace Runity {
-	public class MaterialAnimator : MonoBehaviour {
+	public class MaterialAnimator : MonoBehaviourExt {
 		
 		//public types
 		[System.Serializable]
@@ -20,6 +21,7 @@ namespace Runity {
 			private	float		startTime = 0.0f;
 			private	Color		startColor;
 			private	Color		endColor;
+			private	SimpleCallback	callback = null;
 			
 
 			public	void		FadeTo(Color newColor) {
@@ -28,6 +30,11 @@ namespace Runity {
 				this.endColor = newColor;
 				this.startTime = Time.time;
 				this.Enabled = true;
+			}
+
+			public	void		FadeTo(Color newColor, SimpleCallback cb) {
+				this.FadeTo(newColor);
+				this.callback = cb;
 			}
 
 			public	void		Update() {
@@ -39,6 +46,7 @@ namespace Runity {
 				this.TargetMaterial.color = nColor;
 				if (nColor.Equals(this.endColor)) {
 					this.Enabled = false;
+					if (this.callback != null) this.callback();
 				}
 			}
 		}
@@ -46,6 +54,9 @@ namespace Runity {
 		
 		//public attributes
 		public	List<MaterialAnimation>	Materials = new List<MaterialAnimation>();
+
+		//private attributes
+		private	List<MaterialAnimation>	TemporaryMaterials = new List<MaterialAnimation>();
 
 		//public methods
 
@@ -56,13 +67,46 @@ namespace Runity {
 				return;
 			}
 		}
+
+		public void		FadeTo(string label, Color newColor, SimpleCallback cb) {
+			foreach (MaterialAnimation matAnim in this.Materials) {
+				if (!matAnim.Name.Equals(label)) continue;
+				matAnim.FadeTo(newColor, cb);
+				return;
+			}
+		}
+
+		public	void	TempFade(Material mat, Color newColor, float time) {
+			MaterialAnimation newMatAnim = new MaterialAnimation();
+			newMatAnim.Enabled = true;
+			newMatAnim.TargetMaterial = mat;
+			newMatAnim.FadeTime = time;
+			newMatAnim.Name = "tmp";
+			newMatAnim.FadeTo(newColor);
+			this.TemporaryMaterials.Add(newMatAnim);
+		}
 		
+		public	void	TempFade(Material mat, Color newColor, float time, SimpleCallback cb) {
+			MaterialAnimation newMatAnim = new MaterialAnimation();
+			newMatAnim.Enabled = true;
+			newMatAnim.TargetMaterial = mat;
+			newMatAnim.FadeTime = time;
+			newMatAnim.Name = "tmp";
+			newMatAnim.FadeTo(newColor, cb);
+			this.TemporaryMaterials.Add(newMatAnim);
+		}
+
 		//private Unity callbacks
 		private	void	Update() {
 			foreach (MaterialAnimation matAnim in this.Materials) {
 				if (!matAnim.Enabled) continue;
 				matAnim.Update();
 			}
+			foreach (MaterialAnimation matAnim in this.TemporaryMaterials) {
+				if (!matAnim.Enabled) continue;
+				matAnim.Update();
+			}
+			this.TemporaryMaterials.RemoveAll(matAnim => !matAnim.Enabled);
 		}
 	}
 }

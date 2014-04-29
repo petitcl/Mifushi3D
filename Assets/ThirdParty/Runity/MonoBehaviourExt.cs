@@ -2,7 +2,8 @@
 using System.Collections;
 
 namespace Runity {
-	
+
+	//TODO : maybe refactor this class into a static extension class
 	public class MonoBehaviourExt : MonoBehaviour {
 		
 		//public types
@@ -19,6 +20,13 @@ namespace Runity {
 //		}
 
 		//public methods
+//		public	void		SetLayerRecursively(int layer) {
+//			this.gameObject.layer = layer;
+//			foreach (Transform child in this.gameObject.transform) {
+//				child.gameObject
+//			}
+//		}
+
 		public	void		WaitForAnimation(Animation anim, SimpleCallback cb) {
 			this.StartCoroutine(this._WaitForAnimation(anim, cb));
 		}
