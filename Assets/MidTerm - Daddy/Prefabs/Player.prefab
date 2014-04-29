@@ -12,8 +12,8 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 143: {fileID: 14300000}
-  - 114: {fileID: 11400012}
-  - 114: {fileID: 11400010}
+  - 114: {fileID: 11400016}
+  - 114: {fileID: 11400014}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1235,11 +1235,25 @@ GameObject:
   m_Component:
   - 4: {fileID: 400162}
   - 111: {fileID: 11100000}
-  - 114: {fileID: 11400006}
-  - 114: {fileID: 11400008}
   - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: MaleCharacter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400164}
+  - 119: {fileID: 11900000}
+  m_Layer: 0
+  m_Name: FloorSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,11 +1266,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .707106829, y: 2.40439149e-05, z: 2.40286699e-05, w: -.707106829}
-  m_LocalPosition: {x: -31.0980587, y: -5.78713083, z: -100.551193}
+  m_LocalPosition: {x: -22.828989, y: -5.78713083, z: -113.474388}
   m_LocalScale: {x: .999999046, y: .999999046, z: .999999046}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400162}
+  - {fileID: 400164}
   m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
@@ -2228,6 +2243,17 @@ Transform:
   - {fileID: 400160}
   - {fileID: 400158}
   m_Father: {fileID: 400000}
+--- !u!4 &400164
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100164}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: -4.37113883e-08}
+  m_LocalPosition: {x: .0280023832, y: -.117713287, z: 10.391119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -2335,31 +2361,7 @@ MonoBehaviour:
     clip: {fileID: 7400000, guid: a246736d87314ff4fa5fcf10551a6e0f, type: 3}
   - state: 8
     clip: {fileID: 7400000, guid: a1e63f81f7c8e3942ab433c25ad7ce54, type: 3}
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d1bb19a224f87429ad0a7fff5a6cc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentColor: 0
-  playerMaterial: {fileID: 0}
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3832a843472d94a9f58e6bd2245da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11400010
+--- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2370,9 +2372,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d1bb19a224f87429ad0a7fff5a6cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentColor: 3
+  StartColor: 0
   playerMaterial: {fileID: 2100000, guid: 0f12e5790d93ba9429fa1405ac9c58b4, type: 2}
---- !u!114 &11400012
+  PlayerCollisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2383,6 +2388,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3832a843472d94a9f58e6bd2245da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!119 &11900000
+Projector:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100164}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_NearClipPlane: .800000012
+  m_FarClipPlane: 82.6100006
+  m_FieldOfView: 20.9400005
+  m_AspectRatio: 1
+  m_Orthographic: 0
+  m_OrthographicSize: 6.03000021
+  m_Material: {fileID: 0}
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -3,16 +3,6 @@ using System.Collections;
 
 public class GameLevel : MonoBehaviour {
 
-	//static attributes
-	private	static	GameLevel	_instance = null;
-	public	static	GameLevel	Instance {
-		get {
-			if (GameLevel._instance == null) {
-				GameLevel._instance = new GameLevel();
-			}
-			return GameLevel._instance;
-		}
-	}
 	//public types
 	public	enum GameColor {
 		Red,
@@ -21,11 +11,27 @@ public class GameLevel : MonoBehaviour {
 		Default
 	}
 
+	//static attributes
+	private	static	GameLevel	_instance = null;
+	public	static	GameLevel	Instance {
+		get {
+//			if (GameLevel._instance == null) {
+//				GameLevel._instance = new GameLevel();
+//			}
+			return GameLevel._instance;
+		}
+	}
+
 	//public attributes
 	public	Color	Red;
 	public	Color	Green;
 	public	Color	Blue;
+	public	Color	White;
 	
+	public	Color	FadedRed;
+	public	Color	FadedGreen;
+	public	Color	FadedBlue;
+
 	public	string	RedLayerName = "Physics_Red";
 	public	string	GreenLayerName = "Physics_Green";
 	public	string	BlueLayerName = "Physics_Blue";
@@ -43,8 +49,20 @@ public class GameLevel : MonoBehaviour {
 	public	int		BlueLayerMask {get; private set;}
 	public	int		PlayerLayerMask {get; private set;}
 
+	public	bool	Started {get; private set;}
+	public	bool	Paused {get; private set;}
+	public	bool	Finished {get; private set;}
+	public	bool	Running {
+	get {
+			return this.Started && !this.Paused && !this.Finished;
+		}
+	}
+
 	//private attributes
 	private CheckPoint	lastCheckPoint;
+
+	//Pause
+	public GameObject pauseScreen;
 
 	//private Unity methods 
 	private	void	Awake() {
@@ -61,23 +79,39 @@ public class GameLevel : MonoBehaviour {
 		Runity.Messenger<string>.Reset();
 
 
-		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
 
 		if (player == null) {
+			Debug.Log("GameLevel.Awake: Player object not found, creating it!");
 			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
 				as GameObject;
 		} else {
 			this.Player = player;
 		}
+		this.Started = false;
+		this.Finished = false;
+		this.Paused = false;
 	}
 
 	private	void	Start() {
-		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		//this.StartGame();
 	}
 
 	//public events
+
+	public	void	StartGame() {
+		this.Started = true;
+		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		Debug.Log("Game.Start");
+	}
+
+	public	void	EndGame() {
+		this.Finished = true;
+		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+	}
+
 	public	void	onPlayerWalkedOnCheckPoint(CheckPoint checkPoint) {
-		if (this.lastCheckPoint && checkPoint.order < this.lastCheckPoint.order) {
+		if (this.lastCheckPoint && checkPoint.order <= this.lastCheckPoint.order) {
 			return;
 		}
 		this.lastCheckPoint = checkPoint;
@@ -99,6 +133,43 @@ public class GameLevel : MonoBehaviour {
 //		Camera.main.transform.position = new Vector3(this.Player.transform.position.x,
 //		                                             this.Player.transform.position.y,
 //		                                             Camera.main.transform.position.z);
+	}
+
+	public	void	onPlayerWalkedOnTrigger(SceneTrigger trigger) {
+		if (trigger.Trigger()) {
+			Runity.Messenger<string>.Broadcast("Player.WalkedOnTrigger", trigger.Label,
+			                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		}
+	}
+
+	public bool IsPaused() {
+		return this.Paused;
+	}
+
+	public void TogglePause() {
+		if (this.Paused) {
+			this.Resume();
+		} else {
+			this.Pause();
+		}
+	}
+
+	public void Pause() {
+		this.Paused = true;
+		Time.timeScale = 0.0f;
+		pauseScreen.SetActive(true);
+	}
+
+	public void Resume() {
+		this.Paused = false;
+		Time.timeScale = 1.0f;
+		pauseScreen.SetActive(false);
+	}
+
+	public void ReturnMainMenu() {
+		if (this.IsPaused()) {
+			//TODO load main menu
+		}
 	}
 
 	//private callbacks

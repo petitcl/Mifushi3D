@@ -16,8 +16,9 @@ public class ColorInputReader : MonoBehaviour {
 			this.gameController.ChangeColor(GameLevel.GameColor.Green);
 		} else if (Input.GetButton("Blue")) {
 			this.gameController.ChangeColor(GameLevel.GameColor.Blue);
-		} else if (Input.GetButton("Default")) {
-			this.gameController.ChangeColor(GameLevel.GameColor.Default);
 		}
+//		} else if (Input.GetButton("Default")) {
+//			this.gameController.ChangeColor(GameLevel.GameColor.Default);
+//		}
 	}
 }
