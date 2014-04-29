@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameLevel : MonoBehaviour {
+public class GameLevel : Runity.MonoBehaviourExt {
 
 	//public types
 	public	enum GameColor {
@@ -94,11 +94,10 @@ public class GameLevel : MonoBehaviour {
 	}
 
 	private	void	Start() {
-		//this.StartGame();
+		GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
 	//public events
-
 	public	void	StartGame() {
 		this.Started = true;
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
@@ -130,9 +129,6 @@ public class GameLevel : MonoBehaviour {
 			playerRespawnPoint = this.lastCheckPoint.transform;
 		}
 		this.Player.transform.position = playerRespawnPoint.position;
-//		Camera.main.transform.position = new Vector3(this.Player.transform.position.x,
-//		                                             this.Player.transform.position.y,
-//		                                             Camera.main.transform.position.z);
 	}
 
 	public	void	onPlayerWalkedOnTrigger(SceneTrigger trigger) {
@@ -173,4 +169,7 @@ public class GameLevel : MonoBehaviour {
 	}
 
 	//private callbacks
+	private	void	onStartAnimationDone() {
+		this.StartGame();
+	}
 }

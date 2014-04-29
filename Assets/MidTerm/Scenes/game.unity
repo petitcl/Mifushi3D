@@ -1716,6 +1716,18 @@ MonoBehaviour:
     TargetMaterial: {fileID: 2100000, guid: 0f12e5790d93ba9429fa1405ac9c58b4, type: 2}
     FadeTime: .300000012
     Enabled: 0
+  - Name: Red
+    TargetMaterial: {fileID: 2100000, guid: 3c6d9a10ce4793048bd40c75bd4129a0, type: 2}
+    FadeTime: .300000012
+    Enabled: 0
+  - Name: Green
+    TargetMaterial: {fileID: 2100000, guid: 8bdd58cb01006354eb112be108df9764, type: 2}
+    FadeTime: .300000012
+    Enabled: 0
+  - Name: Blue
+    TargetMaterial: {fileID: 2100000, guid: 4022554bf168c4f4586a1d1dabc21023, type: 2}
+    FadeTime: .300000012
+    Enabled: 0
 --- !u!1 &429727094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,7 +3770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1288174315
 Transform:
   m_ObjectHideFlags: 0
