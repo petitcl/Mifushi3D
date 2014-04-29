@@ -15,15 +15,18 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 	}
 
 	//public attributes
-	public	Runity.FadeInOut	fadeInOut;
+	public	Runity.FadeInOut	FadeInOut;
+	public	Runity.MaterialAnimator		MatAnimator;
 
 
 	//private Unity callbacks
 	private	void	Start() {
 
-		float fadeTime = this.fadeInOut.fadeTime;
-		this.fadeInOut.gameObject.SetActive(true);
-		this.fadeInOut.FadeIn();
+		Runity.Messenger<GameLevel.GameColor>.AddListener("Player.ChangeColor", this.onPlayerChangeColor);
+
+		float fadeTime = this.FadeInOut.fadeTime;
+		this.FadeInOut.gameObject.SetActive(true);
+		this.FadeInOut.FadeIn();
 		this.WaitForNSeconds(fadeTime, this.onStartAnimationDone);
 
 	}
@@ -33,5 +36,20 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		GameLevel.Instance.StartGame();
 	}
 
-	//private 
+	//TODO : GameAnimator.PlayAnim(name, callback)
+	private	void	onPlayerChangeColor(GameLevel.GameColor newColor) {
+		switch (newColor) {
+		case GameLevel.GameColor.Blue:
+			this.MatAnimator.FadeTo("Player", GameLevel.Instance.Blue);
+			break;
+		case GameLevel.GameColor.Red:
+			this.MatAnimator.FadeTo("Player", GameLevel.Instance.Red);
+			break;
+		case GameLevel.GameColor.Green:
+			this.MatAnimator.FadeTo("Player", GameLevel.Instance.Green);
+			break;
+		default:
+			break;
+		}
+	}
 }

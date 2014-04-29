@@ -28,7 +28,7 @@ public class ColorChanger : MonoBehaviour {
 		float offset = currTime / this.fadeTime;
 		Color nColor = Color.Lerp(this.startColor, this.endColor, offset);
 		this.SetColor(nColor);
-//		this.GetMaterial().color = nColor;
+		//this.GetMaterial().color = nColor;
 		if (nColor.Equals(this.enabled)) {
 			this.enabled = false;
 		}
