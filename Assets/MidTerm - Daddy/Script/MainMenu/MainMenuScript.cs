@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour {
 	private int indexSelected = 0;
 
 	public void Start() {
-		menuItemList[indexSelected].Select();
+		this.UpdateMenu();
 	}
 
 	public void RunSelection() {
