@@ -3835,7 +3835,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1311878378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.0605545, z: 0}
+  m_LocalPosition: {x: 9.15522323e-05, y: -3.95344543, z: 7.63557273e-06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1623195714}
@@ -3848,15 +3848,15 @@ TextMesh:
   m_GameObject: {fileID: 1311878378}
   m_Text: Press ENTER to return to the main menu
   m_OffsetZ: 0
-  m_CharacterSize: .280000001
+  m_CharacterSize: .100000001
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 67
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 619143473320b4379935fa2815adb224, type: 3}
+  m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -3872,7 +3872,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 619143473320b4379935fa2815adb224, type: 3}
+  - {fileID: 2100000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4888,7 +4888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1623195714
 Transform:
   m_ObjectHideFlags: 0
@@ -4896,7 +4896,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623195713}
   m_LocalRotation: {x: 0, y: -.707082927, z: 0, w: .70713073}
-  m_LocalPosition: {x: -34.2632523, y: -23.1232452, z: -14.2687893}
+  m_LocalPosition: {x: -34.2355919, y: 178.213455, z: 396.105377}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 218730261}
@@ -5672,7 +5672,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831553272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.15522323e-05, y: 1.73573303, z: 7.63557273e-06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1623195714}
@@ -5685,15 +5685,15 @@ TextMesh:
   m_GameObject: {fileID: 1831553272}
   m_Text: Pause
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: .100000001
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 233
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 619143473320b4379935fa2815adb224, type: 3}
+  m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -5709,7 +5709,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 619143473320b4379935fa2815adb224, type: 3}
+  - {fileID: 2100000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
