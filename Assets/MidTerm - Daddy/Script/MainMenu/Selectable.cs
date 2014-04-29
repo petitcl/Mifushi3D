@@ -5,6 +5,7 @@ abstract public class Selectable : MonoBehaviour {
 
 	public GameObject map;
 	public GameObject icon;
+	public Color unselectedColor;
 	private Color selectedColor;
 	private TextMesh textMesh;
 
@@ -22,7 +23,7 @@ abstract public class Selectable : MonoBehaviour {
 	public void UnSelect() {
 		if (map != null) map.SetActive(false);
 		if (icon != null) icon.SetActive(false);
-		textMesh.color = Color.white;
+		textMesh.color = unselectedColor;
 	}
 
 	abstract public void Run();
