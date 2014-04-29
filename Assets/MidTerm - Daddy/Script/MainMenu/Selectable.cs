@@ -11,7 +11,6 @@ abstract public class Selectable : MonoBehaviour {
 	public void Start() {
 		textMesh = this.GetComponent<TextMesh>();
 		selectedColor = textMesh.color;
-		textMesh.color = Color.white;
 	}
 
 	public void Select () {
