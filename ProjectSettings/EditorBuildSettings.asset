@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MidTerm - Daddy/Scenes/MainMenu.unity
+    path: Assets/MidTerm/Scenes/MainMenu.unity
   - enabled: 1
-    path: Assets/MidTerm - Daddy/Scenes/game.unity
+    path: Assets/MidTerm/Scenes/game.unity
