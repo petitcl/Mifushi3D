@@ -20,6 +20,13 @@ public class HUDManager : MonoBehaviour {
 	public	Camera			HUDCamera;
 	public	Transform		HUDPopupPosition;
 
+	public	GameObject		HUDToolTip;
+	public	Transform		HUDToolTipPosition;
+	public	GameObject		HUDToolTipLinePrefab;
+
+	//private attributes
+	public	GameObject		CurrentToolTip;
+
 
 	//public methods
 	public	void		DrawTooltip(GameObject tooltip) {
@@ -31,15 +38,47 @@ public class HUDManager : MonoBehaviour {
 		this.StartCoroutine(this.DrawTooltipCoroutine(tooltip, duration));
 	}
 
+	public	void		DrawTooltip(string[] texts, float duration) {
+		if (this.CurrentToolTip != null) this.CurrentToolTip.SetActive(false);
+		this.HUDToolTip.SetActive(true);
+		this.CurrentToolTip = this.HUDToolTip;
+		foreach (Transform t in this.HUDToolTipPosition.transform) {
+			GameObject.Destroy(t.gameObject);
+		}
+
+		int i = 0;
+		foreach (string text in texts) {
+			GameObject newLine = GameObject.Instantiate(this.HUDToolTipLinePrefab,
+			                                            this.HUDToolTipPosition.transform.position  + new Vector3(0.0f, -0.4f, 0.0f) * i,
+			                                            Quaternion.Euler(0.0f, 90.0f, 0.0f)) as GameObject;
+			TextMesh tm = newLine.GetComponent<TextMesh>();
+			newLine.transform.parent = this.HUDToolTipPosition.transform;
+			tm.text = text;
+			++i;
+		}
+		if (duration > 0.0f)
+			this.StartCoroutine(this.DrawTooltipCoroutine(this.CurrentToolTip, duration));
+	}
+
 	public	void		DrawInfiniteTooltip(GameObject tooltip) {
 		tooltip.transform.position = this.HUDPopupPosition.position;
 		tooltip.SetActive(true);
+		if (this.CurrentToolTip != null) this.CurrentToolTip.SetActive(false);
+		this.CurrentToolTip = tooltip;
+	}
+
+	public void			HideCurrentToolTip() {
+		if (this.CurrentToolTip == null) return;
+		this.CurrentToolTip.SetActive(false);
+		this.CurrentToolTip = null;
 	}
 
 	//private methods
+	//some refactor to do on param tooltip
 	IEnumerator			DrawTooltipCoroutine(GameObject tooltip, float duration) {
 		yield return new WaitForSeconds(duration);
 		tooltip.SetActive(false);
+		this.CurrentToolTip = null;
 	}
 
 

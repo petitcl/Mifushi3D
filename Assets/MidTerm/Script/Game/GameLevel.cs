@@ -41,6 +41,8 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	public	GameObject	Player;
 
+	public	IGameScene	GameScene;
+
 	//public properties
 	public	int		RedLayerMask {get; private set;}
 	public	int		GreenLayerMask {get; private set;}
@@ -97,7 +99,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	}
 
 	private	void	Start() {
-		//GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
+		if (this.GameScene == null) GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
 	//public methods

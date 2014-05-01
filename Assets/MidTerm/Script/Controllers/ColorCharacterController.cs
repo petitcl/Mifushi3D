@@ -8,6 +8,7 @@ public class ColorCharacterController : MonoBehaviour {
 	public	Material	playerMaterial;
 	public	LayerMask	PlayerCollisionMask;
 	public	Transform	PickObjectSpawn;
+	public	float		PushPower = 5.0f;
 
 	//public properties
 	public	GameObject	PickedObject { get; private set; }
@@ -59,7 +60,7 @@ public class ColorCharacterController : MonoBehaviour {
 		if (obj == null) return;
 		if (!obj.Dropable) return;
 		obj.OnDrop(this.gameObject);
-		Runity.Messenger<GameObject>.Broadcast("Player.PickedObject", this.PickedObject, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		Runity.Messenger<GameObject>.Broadcast("Player.DroppedObject", this.PickedObject, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		this.PickedObject = null;
 	}
 	
@@ -71,6 +72,18 @@ public class ColorCharacterController : MonoBehaviour {
 
 	private	void	Start() {
 		this.SetupColor(this.StartColor);
+	}
+
+	private	void	OnControllerColliderHit(ControllerColliderHit hit) {
+		Rigidbody body = hit.collider.attachedRigidbody;
+		if (body == null || body.isKinematic)
+			return;
+		
+		if (hit.moveDirection.y < -0.3F)
+			return;
+		
+		Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+		body.AddForce(pushDir * this.PushPower);
 	}
 
 	//private methods
