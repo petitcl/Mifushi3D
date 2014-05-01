@@ -13,6 +13,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	//static attributes
 	private	static	GameLevel	_instance = null;
+	//TODO : refactor this in public static GameLevel xxx {get; priv set; } everywhere
 	public	static	GameLevel	Instance {
 		get {
 			return GameLevel._instance;
@@ -96,7 +97,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	}
 
 	private	void	Start() {
-		GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
+		//GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
 	//public methods

@@ -3,14 +3,46 @@ using System.Collections;
 
 public class HUDManager : MonoBehaviour {
 
+	//static attributes
+	private	static	HUDManager	_instance = null;
+	public	static	HUDManager	Instance {
+		get {
+			return HUDManager._instance;
+		}
+	}
+
 	//public attributes
+	public	float			ToolTipDuration = 2.0f;
+
 
 	public	GameObject		PauseScreen;
 	public	GameObject		FinishScreen;
+	public	Camera			HUDCamera;
+	public	Transform		HUDPopupPosition;
 
-	//private attributes
+
+	//public methods
+	public	void		DrawTooltip(GameObject tooltip) {
+		this.DrawTooltip(tooltip, 2.0f);
+	}
+
+	public	void		DrawTooltip(GameObject tooltip, float duration) {
+		this.DrawInfiniteTooltip(tooltip);
+		this.StartCoroutine(this.DrawTooltipCoroutine(tooltip, duration));
+	}
+
+	public	void		DrawInfiniteTooltip(GameObject tooltip) {
+		tooltip.transform.position = this.HUDPopupPosition.position;
+		tooltip.SetActive(true);
+	}
 
 	//private methods
+	IEnumerator			DrawTooltipCoroutine(GameObject tooltip, float duration) {
+		yield return new WaitForSeconds(duration);
+		tooltip.SetActive(false);
+	}
+
+
 	private	void		BeforeStartGUI() {
 
 	}
@@ -33,6 +65,10 @@ public class HUDManager : MonoBehaviour {
 	}
 
 	//private Unity callbacks
+	private	void		Awake() {
+		HUDManager._instance = this;
+	}
+
 	private	void		Start() {
 		Runity.Messenger.AddListener("Game.Pause", this.onGamePaused);
 		Runity.Messenger.AddListener("Game.Resume", this.onGameResumed);
@@ -50,7 +86,6 @@ public class HUDManager : MonoBehaviour {
 		} else if (GameLevel.Instance.Finished) {
 			this.FinishedGUI();
 		}
-
 	}
 
 	//private Runity callbacks
