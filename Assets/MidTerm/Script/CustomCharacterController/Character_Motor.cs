@@ -16,6 +16,7 @@ public class Character_Motor : MonoBehaviour {
 	public float	BackwardSpeedLimit = 4f;
 	public float	StrafingSpeedLimit = 12f;
 	public float	SlidingSpeedLimit = 10f;
+	public float	JumpSpeedLimit = 10f;
 	public LayerMask	SlidingLayerMask;
 
 	public float JumpImpulse = 10f;
@@ -65,7 +66,7 @@ public class Character_Motor : MonoBehaviour {
 		float mag = this.SlideVector.y;
 //		this.SlideVector.y = 0;
 		Vector3 realSlideVector = new Vector3(this.SlideVector.x, 0.0f, this.SlideVector.z);
-		if (hit.normal.y < 0.9f) {
+		if (hit.normal.y < 0.99f) {
 			if (mag < 0.7f) {
 				this.MoveVector = realSlideVector * this.SpeedLimit() * Time.deltaTime;
 			} else {
@@ -75,6 +76,9 @@ public class Character_Motor : MonoBehaviour {
 	}
 
 	private float SpeedLimit() {
+		if (this.IsSliding()) {
+			return this.SlidingSpeedLimit;
+		}
 		switch (Animation_Manager.Instance.CharacterMotionState) {
 		case Animation_Manager.MotionStateList.Backward:
 			return BackwardSpeedLimit;
@@ -95,17 +99,16 @@ public class Character_Motor : MonoBehaviour {
 		case Animation_Manager.MotionStateList.Right:
 			return StrafingSpeedLimit;
 
+		case Animation_Manager.MotionStateList.Jump:
+			return JumpSpeedLimit;
+
 		default:
-			if (this.IsSliding()) {
-				return this.SlidingSpeedLimit;
-			} else {
-				return 0.0f;
-			}
+			return 0.0f;
 		}
 	}
 
 	private bool IsSliding() {
-		return (this.SlideVector.y > 0.0f);
+		return (this.SlideVector.x != 0.0f || this.SlideVector.z != 0.0f);
 	}
 
 	private void ApplyGravity() {
@@ -121,7 +124,6 @@ public class Character_Motor : MonoBehaviour {
 	public void Jump() {
 		if (Character_Manager.CharacterControllerComponent.isGrounded) {
 			Character_Manager.Instance.VerticalVelocity = this.JumpImpulse;
-			Animation_Manager.Instance.CharacterMotionState = Animation_Manager.MotionStateList.Jump;
 		}
 	}
 

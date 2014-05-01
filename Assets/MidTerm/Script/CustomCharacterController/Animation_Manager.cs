@@ -27,6 +27,7 @@ public class Animation_Manager : MonoBehaviour {
 		RightBackward,
 		Jump
 	}
+
 	[System.Serializable]
 	public class AnimationStateDefinition
 	{
@@ -39,9 +40,11 @@ public class Animation_Manager : MonoBehaviour {
 	private void Awake() {
 		Instance = this;
 	}
+
 	private void update() {
 		this.CurrentMotionState ();
 	}
+
 	public void CurrentAnimation() {
 		foreach (AnimationStateDefinition st in this.animations) {
 			if (this.CharacterMotionState == st.state) {
@@ -51,25 +54,10 @@ public class Animation_Manager : MonoBehaviour {
 				}
 			}
 		}
-		//Debug.Log(this.CharacterMotionState);
 	}
+
 	public void CurrentMotionState() {
-		if (this.CharacterMotionState == Animation_Manager.MotionStateList.Jump) {
-			//Debug.Log("jumping");
-			GameObject l_go = GameObject.FindGameObjectWithTag("Player");
-			if (l_go != null) {
-				CharacterController cc = l_go.GetComponent<CharacterController>();
-				if (Character_Manager.Instance.isJumping()) {
-					CurrentAnimation();
-					return ;
-				}
-				if (!cc.isGrounded) {
-					CurrentAnimation();
-					return ;
-				}
-			}
-			this.CharacterMotionState = Animation_Manager.MotionStateList.Stationary;
-		}
+
 		this.Left = false;
 		this.Right = false;
 		this.Forward = false;
@@ -87,6 +75,13 @@ public class Animation_Manager : MonoBehaviour {
 		} else if (moveVector.x < 0) {
 			this.Left = true;
 		}
+
+		if (Character_Manager.Instance.isJumping() || !Character_Manager.CharacterControllerComponent.isGrounded) {
+		    Animation_Manager.Instance.CharacterMotionState = Animation_Manager.MotionStateList.Jump;
+			CurrentAnimation();
+			return;
+		}
+		  
 
 		if (this.Left) {
 			if (this.Forward) {
