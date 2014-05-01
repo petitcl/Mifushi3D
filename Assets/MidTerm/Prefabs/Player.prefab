@@ -2377,6 +2377,7 @@ MonoBehaviour:
   PlayerCollisionMask:
     serializedVersion: 2
     m_Bits: 0
+  PickObjectSpawn: {fileID: 0}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
