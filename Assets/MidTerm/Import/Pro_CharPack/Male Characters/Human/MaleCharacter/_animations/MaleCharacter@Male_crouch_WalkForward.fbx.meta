@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e012a61a8a6758844833169fba6b36d5
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: LeftHandIndex4
     100002: RightFingerBase
@@ -222,4 +222,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  additionalBone: 0
   userData: 

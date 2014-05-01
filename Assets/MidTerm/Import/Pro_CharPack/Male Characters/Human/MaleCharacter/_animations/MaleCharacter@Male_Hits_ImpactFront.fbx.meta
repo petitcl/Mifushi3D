@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 0b52f5fdfdbb387489f78bf9563f0d03
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: RightHandThumb2
     100002: Neck
@@ -222,4 +222,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  additionalBone: 0
   userData: 

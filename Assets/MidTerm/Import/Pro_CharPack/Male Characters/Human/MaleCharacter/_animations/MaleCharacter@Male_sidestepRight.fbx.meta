@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: d2bc70ecac21b0e4f8efa82fe5265ea0
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: RightToeBase
     100002: Spine1
@@ -222,4 +222,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  additionalBone: 0
   userData: 

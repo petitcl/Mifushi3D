@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: f711d9be018becd418f4bf9e6d69d97d
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: RightHandPinky2
     100002: RightHandPinky4
@@ -222,4 +222,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  additionalBone: 0
   userData: 
