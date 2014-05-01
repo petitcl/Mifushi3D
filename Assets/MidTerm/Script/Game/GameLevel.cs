@@ -15,9 +15,6 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	private	static	GameLevel	_instance = null;
 	public	static	GameLevel	Instance {
 		get {
-//			if (GameLevel._instance == null) {
-//				GameLevel._instance = new GameLevel();
-//			}
 			return GameLevel._instance;
 		}
 	}
@@ -87,6 +84,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 				as GameObject;
 		} else {
 			this.Player = player;
+			this.Player.transform.position = this.PlayerSpawnPoint.position;
 		}
 		this.Started = false;
 		this.Finished = false;
@@ -101,7 +99,6 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	public	void	StartGame() {
 		this.Started = true;
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
-		Debug.Log("Game.Start");
 	}
 
 	public	void	EndGame() {
@@ -172,17 +169,13 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		switch (color) {
 		case GameColor.Red:
 			return this.RedLayerMask;
-			break;
 		case GameColor.Green:
 			return this.GreenLayerMask;
-			break;
 		case GameColor.Blue:
 			return this.BlueLayerMask;
-			break;
 		default:
 			//TODO : fix this thing (flemme)
 			return this.PlayerLayerMask;
-			break;
 		}
 	}
 

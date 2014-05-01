@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Runity.ExtensionMethods;
 
 public class SceneObject : MonoBehaviour {
 
@@ -7,7 +8,7 @@ public class SceneObject : MonoBehaviour {
 	public GameLevel.GameColor	StartColor = GameLevel.GameColor.Default;
 
 	//public properties
-	public GameLevel.GameColor	CurrentColor { get; private set; } 
+	public GameLevel.GameColor	CurrentColor { get; private set; }
 
 	//private attributes
 	private	Material	savedMaterial = null;

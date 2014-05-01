@@ -5,9 +5,13 @@ public class ColorCharacterController : MonoBehaviour {
 	
 	//public attributes
 	public	GameLevel.GameColor	StartColor = GameLevel.GameColor.Default;
-	public	GameLevel.GameColor	CurrentColor { get; private set; }
 	public	Material	playerMaterial;
 	public	LayerMask	PlayerCollisionMask;
+	public	Transform	PickObjectSpawn;
+
+	//public properties
+	public	IPickableObject	PickedObject { get; private set; }
+	public	GameLevel.GameColor	CurrentColor { get; private set; }
 	
 	//private attributes
 	private	LayerMask	defaultPlatformHit;
@@ -22,6 +26,31 @@ public class ColorCharacterController : MonoBehaviour {
 	
 	public	void	Kill(DeadlyZone killer) {
 		
+	}
+
+	public	void	PickObject(IPickableObject obj) {
+		if (this.PickedObject != null) return;
+		//		Runity.Messenger.Broadcast("Player.PickObject");
+		obj.OnPick(this.gameObject);
+		this.PickedObject = obj;
+	}
+
+	public	void	PickObject() {
+		if (this.PickedObject != null) return;
+
+		//for now dirty way
+		Collider[] colls = Physics.OverlapSphere(this.transform.position, 2.0f);
+		foreach (Collider coll in colls) {
+			IPickableObject obj = (IPickableObject) coll.gameObject.GetComponent(typeof(IPickableObject));
+			if (obj == null) continue;
+			this.PickObject(obj);
+		}
+	}
+
+	public	void	DropObject() {
+		if (this.PickedObject == null) return;
+		this.PickedObject.OnDrop(this.gameObject);
+		this.PickedObject = null;
 	}
 	
 	
