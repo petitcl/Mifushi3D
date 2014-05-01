@@ -36,28 +36,7 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Ramp
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _Illum
-        second:
-          m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
         second:
           m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
           m_Scale: {x: 1, y: 1}
@@ -78,9 +57,30 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ToonShade
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ParallaxMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -90,12 +90,12 @@ Material:
         second: .0792755485
       data:
         first:
-          name: _Outline
-        second: .00499999989
-      data:
-        first:
           name: _EmissionLM
         second: 11.8199997
+      data:
+        first:
+          name: _Outline
+        second: .00499999989
       data:
         first:
           name: _Parallax
