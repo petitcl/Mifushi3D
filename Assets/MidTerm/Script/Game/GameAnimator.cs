@@ -32,17 +32,12 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		switch (color) {
 		case GameLevel.GameColor.Red:
 			return this.Red;
-			break;
 		case GameLevel.GameColor.Green:
 			return this.Green;
-			break;
 		case GameLevel.GameColor.Blue:
 			return this.Blue;
-			break;
 		default:
-			//TODO : fix this thing (flemme)
 			return this.White;
-			break;
 		}
 	}
 

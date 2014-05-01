@@ -10,7 +10,7 @@ public class ColorCharacterController : MonoBehaviour {
 	public	Transform	PickObjectSpawn;
 
 	//public properties
-	public	IPickableObject	PickedObject { get; private set; }
+	public	GameObject	PickedObject { get; private set; }
 	public	GameLevel.GameColor	CurrentColor { get; private set; }
 	
 	//private attributes
@@ -28,28 +28,38 @@ public class ColorCharacterController : MonoBehaviour {
 		
 	}
 
-	public	void	PickObject(IPickableObject obj) {
+	public	void	PickObject(GameObject go) {
 		if (this.PickedObject != null) return;
-		//		Runity.Messenger.Broadcast("Player.PickObject");
+
+		IPickableObject obj = (IPickableObject) go.GetComponent(typeof(IPickableObject));
+		if (obj == null) return;
+		if (!obj.Pickable) return;
+
 		obj.OnPick(this.gameObject);
-		this.PickedObject = obj;
+		this.PickedObject = go;
+
+		Runity.Messenger<GameObject>.Broadcast("Player.PickedObject", go, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
 	public	void	PickObject() {
+		Debug.Log("PickObject");
 		if (this.PickedObject != null) return;
 
 		//for now dirty way
 		Collider[] colls = Physics.OverlapSphere(this.transform.position, 2.0f);
 		foreach (Collider coll in colls) {
-			IPickableObject obj = (IPickableObject) coll.gameObject.GetComponent(typeof(IPickableObject));
-			if (obj == null) continue;
-			this.PickObject(obj);
+			this.PickObject(coll.gameObject);
 		}
 	}
 
 	public	void	DropObject() {
+		Debug.Log("DropObject");
 		if (this.PickedObject == null) return;
-		this.PickedObject.OnDrop(this.gameObject);
+		IPickableObject obj = (IPickableObject) this.PickedObject.GetComponent(typeof(IPickableObject));
+		if (obj == null) return;
+		if (!obj.Dropable) return;
+		obj.OnDrop(this.gameObject);
+		Runity.Messenger<GameObject>.Broadcast("Player.PickedObject", this.PickedObject, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		this.PickedObject = null;
 	}
 	

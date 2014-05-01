@@ -74,6 +74,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		Runity.Messenger.Reset();
 		Runity.Messenger<GameColor>.Reset();
 		Runity.Messenger<string>.Reset();
+		Runity.Messenger<GameObject>.Reset();
 
 
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -183,17 +184,12 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		switch (color) {
 		case GameColor.Red:
 			return this.Red;
-			break;
 		case GameColor.Green:
 			return this.Green;
-			break;
 		case GameColor.Blue:
 			return this.Blue;
-			break;
 		default:
-			//TODO : fix this thing (flemme)
 			return this.White;
-			break;
 		}
 	}
 
