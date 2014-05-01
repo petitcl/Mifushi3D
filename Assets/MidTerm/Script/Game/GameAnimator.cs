@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameAnimator : Runity.MonoBehaviourExt {
 
 	//public types
+	//TODO : maybe refactor this into IEnumerator AnimationMethod(SimpleCallback cb)
 	public	delegate	void	AnimationMethod(SimpleCallback cb);
 
 	//static attributes
@@ -39,6 +40,12 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		default:
 			return this.White;
 		}
+	}
+
+	public	void	PlayAnimation(string animationName) {
+		if (!this.animations.ContainsKey(animationName)) return;
+		AnimationMethod method = this.animations[animationName];
+		method(this.emptyCallback);
 	}
 
 	public	void	PlayAnimation(string animationName, SimpleCallback callback) {
@@ -96,5 +103,9 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		default:
 			break;
 		}
+	}
+
+	private void emptyCallback() {
+
 	}
 }

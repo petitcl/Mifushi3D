@@ -10,6 +10,7 @@ public class ColorInputReader : MonoBehaviour {
 	}
 	
 	private void Update () {
+		if (!GameLevel.Instance.Running) return;
 		if (Input.GetButtonDown("Red")) {
 			this.gameController.ChangeColor(GameLevel.GameColor.Red);
 		} else if (Input.GetButtonDown("Green")) {

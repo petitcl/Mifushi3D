@@ -79,38 +79,28 @@ public class ColorCharacterController : MonoBehaviour {
 		Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, layer1, true);
 		Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, layer2, true);
 		
-		//special trick for Controller2D
 		//if we change controller, remove this line
 		Character_Motor.Instance.SlidingLayerMask = this.defaultPlatformHit | (1 << newCollisionLayer);
-//		this.Controller2D.platformMask = this.defaultPlatformHit | (1 << newCollisionLayer);
 	}
 
 	private	void	SetupColor(GameLevel.GameColor newColor) {
 		switch (newColor) {
 		case GameLevel.GameColor.Blue:
 			this.SetupPhysicsLayers(GameLevel.Instance.BlueLayerMask, GameLevel.Instance.RedLayerMask, GameLevel.Instance.GreenLayerMask);
-//			playerMaterial.color = GameLevel.Instance.Blue;
-			//			this.GetComponent<SpriteRenderer>().color = GameLevel.Instance.Blue;
 			break;
 		case GameLevel.GameColor.Red:
 			this.SetupPhysicsLayers(GameLevel.Instance.RedLayerMask, GameLevel.Instance.GreenLayerMask, GameLevel.Instance.BlueLayerMask);
-			//			this.GetComponent<SpriteRenderer>().color = GameLevel.Instance.Red;
-//			playerMaterial.color = GameLevel.Instance.Red;
 			break;
 		case GameLevel.GameColor.Green:
 			this.SetupPhysicsLayers(GameLevel.Instance.GreenLayerMask, GameLevel.Instance.RedLayerMask, GameLevel.Instance.BlueLayerMask);
-			//			this.GetComponent<SpriteRenderer>().color = GameLevel.Instance.Green;
-//			playerMaterial.color = GameLevel.Instance.Green;
 			break;
 		default:
 			//physics
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, GameLevel.Instance.RedLayerMask, true);
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, GameLevel.Instance.GreenLayerMask, true);
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, GameLevel.Instance.BlueLayerMask, true);
-			//			this.Controller2D.platformMask = this.defaultPlatformHit;
 			Character_Motor.Instance.SlidingLayerMask = this.defaultPlatformHit;
 			
-			//			this.GetComponent<SpriteRenderer>().color = Color.white;
 			playerMaterial.color = GameLevel.Instance.White;
 			break;
 		}

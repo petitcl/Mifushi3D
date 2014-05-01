@@ -55,11 +55,11 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		}
 	}
 
+	public	float	TimeSinceStart { get; private set; }
+
 	//private attributes
 	private CheckPoint	lastCheckPoint;
 
-	//Pause
-	public GameObject pauseScreen;
 
 	//private Unity methods 
 	private	void	Awake() {
@@ -87,9 +87,12 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			this.Player = player;
 			this.Player.transform.position = this.PlayerSpawnPoint.position;
 		}
+		this.Player.GetComponent<Character_Manager>().CanMove = false;
 		this.Started = false;
 		this.Finished = false;
 		this.Paused = false;
+
+		this.TimeSinceStart = 0.0f;
 	}
 
 	private	void	Start() {
@@ -98,13 +101,26 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	//public methods
 	public	void	StartGame() {
+		if (this.Started) return;
 		this.Started = true;
+
+
+
+		this.Player.GetComponent<Character_Manager>().CanMove = true;
+
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
 	public	void	EndGame() {
+		if (this.Finished) return;
 		this.Finished = true;
+
+		this.Player.GetComponent<Character_Manager>().CanMove = false;
+
 		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		GameAnimator.Instance.PlayAnimation("Game.End");
+
+		Debug.Log("Game.End");
 	}
 
 	public	void	onPlayerWalkedOnCheckPoint(CheckPoint checkPoint) {
@@ -136,10 +152,6 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		}
 	}
 
-	public bool IsPaused() {
-		return this.Paused;
-	}
-
 	public void TogglePause() {
 		if (this.Paused) {
 			this.Resume();
@@ -149,19 +161,23 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	}
 
 	public void Pause() {
+		if (this.Paused) return;
 		this.Paused = true;
 		Time.timeScale = 0.0f;
-		pauseScreen.SetActive(true);
+		Runity.Messenger.Broadcast("Game.Pause",
+		                             Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
 	public void Resume() {
+		if (!this.Paused) return;
 		this.Paused = false;
 		Time.timeScale = 1.0f;
-		pauseScreen.SetActive(false);
+		Runity.Messenger.Broadcast("Game.Resume",
+		                           Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
 	public void ReturnMainMenu() {
-		if (this.IsPaused()) {
+		if (this.Paused || this.Finished) {
 			Application.LoadLevel("MainMenu");
 		}
 	}
@@ -193,6 +209,10 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		}
 	}
 
+	//private Unity callbacks
+	private	void	Update() {
+		if (this.Running) this.TimeSinceStart += Time.deltaTime;
+	}
 
 	//private callbacks
 	private	void	onStartAnimationDone() {

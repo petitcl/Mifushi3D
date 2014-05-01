@@ -14,6 +14,8 @@ public class Character_Manager : MonoBehaviour {
 
 	public float VerticalVelocity;
 
+	public	bool	CanMove;
+
 	private bool inputUpdated;
 
 	public bool InputUpdated {
@@ -38,17 +40,22 @@ public class Character_Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	private void Update() {
-//		if (GetComponent<Camera>() != null) {
 		this.ControllerInput();
-			this.ActionInput();
-			Animation_Manager.Instance.CurrentMotionState();
-			Character_Motor.Instance.ControlledUpdate();
-//		}
+		if (this.CanMove) this.ActionInput();
+		Animation_Manager.Instance.CurrentMotionState();
+		Character_Motor.Instance.ControlledUpdate();
 	}
 
 	private void ControllerInput() {
-		float v = Input.GetAxis("Vertical");
-		float h = Input.GetAxis("Horizontal");
+		float v,h;
+		if (this.CanMove) {
+			v = Input.GetAxis("Vertical");
+			h = Input.GetAxis("Horizontal");
+		} else {
+			v = 0.0f;
+			h = 0.0f;
+		}
+
 
 		inputUpdated = false;
 
