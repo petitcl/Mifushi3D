@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 9a2cb70f7ab86bb4182cbb140e235496
 ModelImporter:
-  serializedVersion: 15
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: LeftHandIndex3
     100002: Hips
@@ -222,4 +222,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
+  additionalBone: 0
   userData: 
