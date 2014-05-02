@@ -96,9 +96,13 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		this.Paused = false;
 
 		this.TimeSinceStart = 0.0f;
+		Time.timeScale = 1.0f;
 	}
 
 	private	void	Start() {
+		this.Started = false;
+		this.Finished = false;
+		this.Paused = false;
 		if (this.GameScene == null) GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
@@ -181,6 +185,8 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	public void ReturnMainMenu() {
 		if (this.Paused || this.Finished) {
+//			GameLevel._instance = null;
+//			GameObject.DestroyImmediate(this.gameObject);
 			Application.LoadLevel("MainMenu");
 		}
 	}

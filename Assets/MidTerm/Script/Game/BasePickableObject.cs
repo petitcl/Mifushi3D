@@ -23,7 +23,7 @@ public class BasePickableObject : MonoBehaviour, IPickableObject {
 		ColorCharacterController ccc = picker.GetComponent<ColorCharacterController>();
 
 		this.collider.enabled = false;
-		this.rigidbody.isKinematic = true;
+//		this.rigidbody.isKinematic = true;
 		this.transform.localScale *= this.OnPickScale;
 		if (ccc == null) {
 			this.transform.position = picker.transform.position + picker.transform.forward * 2.0f;
@@ -43,7 +43,7 @@ public class BasePickableObject : MonoBehaviour, IPickableObject {
 		this.transform.localScale /= this.OnPickScale;
 		this.collider.enabled = true;
 		this.transform.position = picker.transform.position - picker.transform.up * 2.0f + picker.transform.forward;
-		this.rigidbody.isKinematic = false;
+//		this.rigidbody.isKinematic = false;
 		
 		this.Pickable = true;
 		this.Dropable = false;

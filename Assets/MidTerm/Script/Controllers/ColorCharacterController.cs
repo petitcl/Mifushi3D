@@ -75,6 +75,9 @@ public class ColorCharacterController : MonoBehaviour {
 	}
 
 	private	void	OnControllerColliderHit(ControllerColliderHit hit) {
+		if (hit.gameObject.tag == "Terrain") {
+			GameLevel.Instance.onPlayerWalkedOnDeadlyZone(hit.gameObject.GetComponent<DeadlyZone>());
+		}
 		Rigidbody body = hit.collider.attachedRigidbody;
 		if (body == null || body.isKinematic)
 			return;

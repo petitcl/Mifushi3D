@@ -34,6 +34,7 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 			this.ChangeColorAnimation();
 			break;
 		default:
+			this.DisplayToolTip(eventName);
 			break;
 		}
 	}
@@ -58,16 +59,11 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 	}
 
 	private	IEnumerator		StartScene() {
-//		HUDManager.Instance.DrawInfiniteTooltip(this.WelcomeToolTip);
 		this.DisplayToolTip("welcome");
 		yield return new WaitForSeconds(1.0f);
 		yield return this.StartCoroutine(this.WaitAnyKeyDown());
 		HUDManager.Instance.HideCurrentToolTip();
 		GameLevel.Instance.StartGame();
-		string[] labels = new string[2];
-		labels[0] = "this is a test lol";
-		labels[1] = "this is an elephant";
-		HUDManager.Instance.DrawTooltip(labels, 15.0f);
 	}
 
 	private	void			FirstCheckPointAnimation() {
