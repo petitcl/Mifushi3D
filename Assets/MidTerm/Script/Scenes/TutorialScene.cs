@@ -27,12 +27,12 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 
 	public	void			ProcessEvent(string eventName) {
 		switch (eventName) {
-		case "FirstCheckPoint":
-			this.FirstCheckPointAnimation();
-			break;
-		case "ChangeColor":
-			this.ChangeColorAnimation();
-			break;
+//		case "FirstCheckPoint":
+//			this.FirstCheckPointAnimation();
+//			break;
+//		case "ChangeColor":
+//			this.ChangeColorAnimation();
+//			break;
 		default:
 			this.DisplayToolTip(eventName);
 			break;

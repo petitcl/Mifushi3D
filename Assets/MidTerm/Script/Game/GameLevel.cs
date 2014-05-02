@@ -168,7 +168,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	}
 
 	public void Pause() {
-		if (this.Paused) return;
+		if (this.Paused || !this.Started || this.Finished) return;
 		this.Paused = true;
 		Time.timeScale = 0.0f;
 		Runity.Messenger.Broadcast("Game.Pause",
