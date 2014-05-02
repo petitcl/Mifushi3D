@@ -86,5 +86,7 @@ public class Character_Manager : MonoBehaviour {
 		Character_Motor.Instance.Jump();
 	}
 
-
+	public void ResetSpeed() {
+		//Character_Motor.Instance.MoveVector = Vector3.zero;
+	}
 }

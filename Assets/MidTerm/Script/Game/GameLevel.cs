@@ -150,6 +150,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			playerRespawnPoint = this.lastCheckPoint.transform;
 		}
 		this.Player.transform.position = playerRespawnPoint.position;
+		this.Player.GetComponent<Character_Manager>().ResetSpeed();
 	}
 
 	public	void	onPlayerWalkedOnTrigger(SceneTrigger trigger) {
