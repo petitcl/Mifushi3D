@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 01 - Default
+  m_Name: 02 - Default
   m_Shader: {fileID: 4800000, guid: 9ce107479d11178d11005b9844295342, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -36,7 +36,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: .65882355, b: .254901975, a: 1}
+        second: {r: 1, g: .68275857, b: 0, a: 1}
       data:
         first:
           name: _OutlineColor
