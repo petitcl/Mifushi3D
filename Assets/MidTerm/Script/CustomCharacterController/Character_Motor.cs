@@ -120,6 +120,7 @@ public class Character_Motor : MonoBehaviour {
 	}
 
 	public void Jump() {
+		if (IsSliding()) return;
 		if (Character_Manager.CharacterControllerComponent.isGrounded) {
 			Character_Manager.Instance.VerticalVelocity = this.JumpImpulse;
 		}
