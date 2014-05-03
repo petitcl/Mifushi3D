@@ -7,19 +7,31 @@ public class MovingPlatform : MonoBehaviour {
 	public	Transform	endPosition;
 	public	bool		flip;
 	public	float		speed;
+	public	float		delayFlip = 0;
+	public	float		delayUnFlip = 0;
+	private	float		timeLastFlip;
+
+	private void Start() {
+		timeLastFlip = 0;
+	}
 
 	private void	Update() {
 		float step = this.speed * Time.deltaTime;
 
 		Transform destination = this.flip ? this.endPosition : this.startPosition;
 
-		this.transform.position = Vector3.MoveTowards(this.transform.position, destination.position, step);
-//		Debug.Log(this.transform.position + " == " + destination);
-//		Debug.Log(Vector3.SqrMagnitude(this.transform.position - destination.position));
-//		if (this.transform.position == destination.position || this.transform.position.Equals(destination.position)) {
-		//wtf
-		if (Vector3.SqrMagnitude(this.transform.position - destination.position) < 0.01f) {
-			this.flip = !this.flip;
+		//Stop moving during flip
+		if (Time.time - timeLastFlip > GetDelay()) {
+			this.transform.position = Vector3.MoveTowards(this.transform.position, destination.position, step);
+			if (Vector3.SqrMagnitude(this.transform.position - destination.position) < 0.01f) {
+				this.flip = !this.flip;
+				timeLastFlip = Time.time;
+			}
 		}
+	}
+
+	private float GetDelay() {
+		if (flip) return delayFlip;
+		return delayUnFlip;
 	}
 }
