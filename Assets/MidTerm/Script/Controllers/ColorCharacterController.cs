@@ -9,6 +9,7 @@ public class ColorCharacterController : MonoBehaviour {
 	public	LayerMask	PlayerCollisionMask;
 	public	Transform	PickObjectSpawn;
 	public	float		PushPower = 5.0f;
+	public	CharacterController charCtrl;
 
 	//public properties
 	public	GameObject	PickedObject { get; private set; }
@@ -23,6 +24,8 @@ public class ColorCharacterController : MonoBehaviour {
 			return;
 		}
 		this.SetupColor(newColor);
+		//Tick to generate collision detection
+		charCtrl.Move(Vector3.forward * 0.00001f);
 	}
 	
 	public	void	Kill(DeadlyZone killer) {
@@ -72,6 +75,7 @@ public class ColorCharacterController : MonoBehaviour {
 
 	private	void	Start() {
 		this.SetupColor(this.StartColor);
+		charCtrl = this.GetComponent<CharacterController>();
 	}
 
 	private	void	OnControllerColliderHit(ControllerColliderHit hit) {
