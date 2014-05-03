@@ -76,8 +76,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: .717235625, z: 0, w: .696830809}
-  m_LocalPosition: {x: -.263465881, y: 1.86740875, z: 20.8902016}
+  m_LocalRotation: {x: 0, y: .625038505, z: 0, w: .780593991}
+  m_LocalPosition: {x: -3.80731916, y: -.0197715759, z: -6.10509491}
   m_LocalScale: {x: 3.96715999, y: 3.96716094, z: 3.96715999}
   m_Children:
   - {fileID: 400006}
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03cc2b55d71c7a54fb73e3e395adaa86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 0
+  order: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +225,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: .100000001
-  m_FarClipPlane: 10
+  m_FarClipPlane: 4
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 0
