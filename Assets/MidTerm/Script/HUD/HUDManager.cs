@@ -99,8 +99,9 @@ public class HUDManager : MonoBehaviour {
 	}
 
 	private	void		DrawTimer() {
-		GUI.Label(new Rect(20, 20, 100, 20), "Time : ");
-		GUI.Label(new Rect(130, 20, 100, 20), GameLevel.Instance.TimeSinceStart.ToString());
+		//TODO : make this more pretty
+//		GUI.Label(new Rect(20, 20, 100, 20), "Time : ");
+//		GUI.Label(new Rect(130, 20, 100, 20), GameLevel.Instance.TimeSinceStart.ToString());
 	}
 
 	//private Unity callbacks

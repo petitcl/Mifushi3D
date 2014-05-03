@@ -7,7 +7,7 @@ public class CheckPoint : MonoBehaviour {
 
 	//private Unity callbacks
 	private	void	Start() {
-		Runity.Messenger<string>.AddListener("Player.WalkedOnCheckPoint", this.onCheckPointActivated);
+		Runity.Messenger<int>.AddListener("Player.WalkedOnCheckPoint", this.onCheckPointActivated);
 	}
 
 	private	void	OnTriggerEnter(Collider collider) {
@@ -16,11 +16,10 @@ public class CheckPoint : MonoBehaviour {
 		}
 	}
 
-	//private Runity callbacks
-	private	void	onCheckPointActivated(string cname) {
-		if (this.name == cname) {
-			this.BroadcastMessage("CheckPointActivated");
-		}
+//	//private Runity callbacks
+	private	void	onCheckPointActivated(int corder) {
+		if (this.order != corder) return;
+		this.BroadcastMessage("CheckPointActivated");
 	}
 
 }

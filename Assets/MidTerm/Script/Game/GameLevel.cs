@@ -77,6 +77,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		Runity.Messenger.Reset();
 		Runity.Messenger<GameColor>.Reset();
 		Runity.Messenger<string>.Reset();
+		Runity.Messenger<int>.Reset();
 		Runity.Messenger<GameObject>.Reset();
 
 
@@ -135,7 +136,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			return;
 		}
 		this.lastCheckPoint = checkPoint;
-		Runity.Messenger<string>.Broadcast("Player.WalkedOnCheckPoint", checkPoint.gameObject.name,
+		Runity.Messenger<int>.Broadcast("Player.WalkedOnCheckPoint", checkPoint.order,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
