@@ -6,14 +6,13 @@ public class CustomSmoothFollow : MonoBehaviour {
 	public Transform target;
 	public float damping = 1;
 	public bool x = true,y = true,z = true;
-	private Vector3 startCam;
 	public Vector3 startCamToTarget;
+	public float minimumHeight;
 	private Vector3 velocity;
 
 	// Use this for initialization
 	void Start () {
 		startCamToTarget =  transform.position - target.position;
-		startCam = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -23,7 +22,7 @@ public class CustomSmoothFollow : MonoBehaviour {
 
 		Vector3 tmpTargetPosition = target.position + startCamToTarget;
 		if (!x ) tmpTargetPosition.x = transform.position.x;
-		if (!y || tmpTargetPosition.y < startCam.y) tmpTargetPosition.y = transform.position.y;
+		if (!y || tmpTargetPosition.y < minimumHeight) tmpTargetPosition.y = transform.position.y;
 		if (!z) tmpTargetPosition.z = transform.position.z;
 		transform.position = Vector3.SmoothDamp(transform.position, tmpTargetPosition, ref velocity, damping);
 	}
@@ -31,5 +30,5 @@ public class CustomSmoothFollow : MonoBehaviour {
 	public void RotateArroundTarget(Vector3 axis, float angle) {
 		startCamToTarget = Quaternion.AngleAxis(angle, axis) * startCamToTarget;
 	}
-
+	
 }
