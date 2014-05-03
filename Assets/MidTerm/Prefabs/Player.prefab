@@ -1259,6 +1259,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400166}
+  m_Layer: 0
+  m_Name: PickObjectSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -1266,12 +1281,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .707106829, y: 2.40439149e-05, z: 2.40286699e-05, w: -.707106829}
-  m_LocalPosition: {x: -22.828989, y: -5.78713083, z: -113.474388}
+  m_LocalPosition: {x: -27.9776077, y: -40.6283188, z: -104.79274}
   m_LocalScale: {x: .999999046, y: .999999046, z: .999999046}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400162}
   - {fileID: 400164}
+  - {fileID: 400166}
   m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
@@ -2254,6 +2270,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
+--- !u!4 &400166
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100166}
+  m_LocalRotation: {x: -.707106829, y: -2.40439149e-05, z: -2.40286699e-05, w: -.707106829}
+  m_LocalPosition: {x: 4.08898741e-05, y: -.601082087, z: 1.17744696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -2304,8 +2331,9 @@ MonoBehaviour:
   TerminalVelocity: 10
   ForwardSpeedLimit: 10
   BackwardSpeedLimit: 4
-  StrafingSpeedLimit: 12
+  StrafingSpeedLimit: 8
   SlidingSpeedLimit: 10
+  JumpSpeedLimit: 10
   SlidingLayerMask:
     serializedVersion: 2
     m_Bits: 257
@@ -2324,6 +2352,7 @@ MonoBehaviour:
   deadZone: 0
   Gravity: -1
   VerticalVelocity: -.0900000036
+  CanMove: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2372,12 +2401,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d1bb19a224f87429ad0a7fff5a6cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartColor: 0
+  StartColor: 1
   playerMaterial: {fileID: 2100000, guid: 0f12e5790d93ba9429fa1405ac9c58b4, type: 2}
   PlayerCollisionMask:
     serializedVersion: 2
     m_Bits: 0
-  PickObjectSpawn: {fileID: 0}
+  PickObjectSpawn: {fileID: 400166}
+  PushPower: 15
+  charCtrl: {fileID: 0}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
