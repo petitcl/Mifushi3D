@@ -24,6 +24,7 @@ public class HUDManager : MonoBehaviour {
 	public	Transform		HUDToolTipPosition;
 	public	GameObject		HUDToolTipLinePrefab;
 
+
 	//private attributes
 	public	GameObject		CurrentToolTip;
 
