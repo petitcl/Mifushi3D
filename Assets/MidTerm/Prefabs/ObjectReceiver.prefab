@@ -43,6 +43,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 136: {fileID: 13600000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: ObjectReceiver
   m_TagString: Untagged
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.7408457, y: 14.2922497, z: 154.786331}
+  m_LocalPosition: {x: 9.11209488, y: 12.2316704, z: 33.779953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -108,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.24910355, y: -1.11930084, z: -.453659058}
+  m_LocalPosition: {x: -1.07429886, y: .835400581, z: -.272109985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -124,7 +125,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectDropPosition: {fileID: 400006}
-  Label: 
+  Label: Tutorial_Death
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dca05d528e45543a319a8f58509187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputEvent: 1
+  Result: 2
+  TriggerLabel: Tutorial_Death
+  Color1: 0
+  Color2: 0
+  Platform: {fileID: 0}
 --- !u!119 &11900000
 Projector:
   m_ObjectHideFlags: 1
@@ -134,7 +152,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: .100000001
-  m_FarClipPlane: 10.1700001
+  m_FarClipPlane: 5.15999985
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 0
@@ -152,10 +170,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3.58999991
-  m_Height: 7.86000013
+  m_Radius: 1.78999996
+  m_Height: 3.75999999
   m_Direction: 1
-  m_Center: {x: 0, y: -1.00999999, z: 0}
+  m_Center: {x: -1.48000002, y: .409999996, z: -.25999999}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
