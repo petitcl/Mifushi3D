@@ -66,17 +66,14 @@ public class Character_Motor : MonoBehaviour {
 		Vector3 realSlideVector = new Vector3(this.SlideVector.x, 0.0f, this.SlideVector.z);
 		if (hit.normal.y < 0.99f) {
 			if (mag < 0.7f) {
-				this.MoveVector = realSlideVector * this.SpeedLimit() * Time.deltaTime;
+				this.MoveVector = realSlideVector * this.SlidingSpeedLimit * Time.deltaTime;
 			} else {
-				this.MoveVector += realSlideVector * this.SpeedLimit() * Time.deltaTime;
+				this.MoveVector += realSlideVector * this.SlidingSpeedLimit * Time.deltaTime;
 			}
 		}
 	}
 
 	private float SpeedLimit() {
-		if (this.IsSliding()) {
-			return this.SlidingSpeedLimit;
-		}
 		switch (Animation_Manager.Instance.CharacterMotionState) {
 		case Animation_Manager.MotionStateList.Backward:
 			return BackwardSpeedLimit;
@@ -105,7 +102,7 @@ public class Character_Motor : MonoBehaviour {
 		}
 	}
 
-	private bool IsSliding() {
+	public bool IsSliding() {
 		return (this.SlideVector.x != 0.0f || this.SlideVector.z != 0.0f);
 	}
 

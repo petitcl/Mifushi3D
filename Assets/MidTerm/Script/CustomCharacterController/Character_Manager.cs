@@ -62,7 +62,7 @@ public class Character_Manager : MonoBehaviour {
 		this.VerticalVelocity = Character_Motor.Instance.MoveVector.y;
 		Character_Motor.Instance.MoveVector = Vector3.zero;
 		//change how the input is fetched to deal with "normal" 
-		if (v > deadZone || v < -deadZone) {
+		if ((v > deadZone || v < -deadZone) && !Character_Motor.Instance.IsSliding()) {
 			Character_Motor.Instance.MoveVector.y = -v;
 			inputUpdated = true;
 		}
