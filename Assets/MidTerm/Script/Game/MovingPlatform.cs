@@ -9,10 +9,13 @@ public class MovingPlatform : MonoBehaviour {
 	public	float		speed;
 	public	float		delayFlip = 0;
 	public	float		delayUnFlip = 0;
+	public	bool		enabledAtStart = true;
+
 	private	float		timeLastFlip;
 
 	private void Start() {
 		timeLastFlip = 0;
+		if (!this.enabledAtStart) this.enabled = false;
 	}
 
 	private void	Update() {
