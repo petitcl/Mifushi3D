@@ -435,7 +435,7 @@ MonoBehaviour:
   TerminalVelocity: 10
   ForwardSpeedLimit: 10
   BackwardSpeedLimit: 4
-  StrafingSpeedLimit: 12
+  StrafingSpeedLimit: 8
   SlidingSpeedLimit: 10
   JumpSpeedLimit: 10
   SlidingLayerMask:
@@ -1770,8 +1770,8 @@ Transform:
   - {fileID: 1362226306}
   - {fileID: 1841465254}
   - {fileID: 309481900}
-  - {fileID: 1960975619}
   - {fileID: 1832742049}
+  - {fileID: 1960975619}
   - {fileID: 462403504}
   - {fileID: 1121242388}
   - {fileID: 152728412}
@@ -2191,6 +2191,14 @@ Prefab:
     - target: {fileID: 11400014, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
       propertyPath: PushPower
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
+      propertyPath: StrafingSpeedLimit
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
+      propertyPath: BackwardSpeedLimit
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
@@ -3442,12 +3450,12 @@ Transform:
   m_LocalPosition: {x: 10.3405247, y: 9.94920635, z: 21.5826187}
   m_LocalScale: {x: .878250241, y: .87825048, z: .878250241}
   m_Children:
-  - {fileID: 1460031223}
-  - {fileID: 1087846281}
-  - {fileID: 407377192}
-  - {fileID: 805361363}
-  - {fileID: 565073155}
   - {fileID: 781467583}
+  - {fileID: 1087846281}
+  - {fileID: 1460031223}
+  - {fileID: 407377192}
+  - {fileID: 565073155}
+  - {fileID: 805361363}
   m_Father: {fileID: 949707115}
 --- !u!1 &407377191
 GameObject:
@@ -13264,11 +13272,11 @@ Transform:
   m_LocalScale: {x: .878249943, y: .878250182, z: .878249943}
   m_Children:
   - {fileID: 1090578732}
-  - {fileID: 819677800}
-  - {fileID: 544318404}
-  - {fileID: 1867222336}
   - {fileID: 430055295}
   - {fileID: 759813865}
+  - {fileID: 544318404}
+  - {fileID: 1867222336}
+  - {fileID: 819677800}
   m_Father: {fileID: 949707115}
 --- !u!1 &1556190156
 GameObject:
@@ -15757,11 +15765,11 @@ Transform:
   m_LocalPosition: {x: 9.37481308, y: 14.0543385, z: 25.2648849}
   m_LocalScale: {x: .878249943, y: .878250182, z: .878249943}
   m_Children:
-  - {fileID: 1301663174}
   - {fileID: 286052478}
-  - {fileID: 1860344207}
   - {fileID: 1468612994}
+  - {fileID: 1301663174}
   - {fileID: 1575551275}
+  - {fileID: 1860344207}
   - {fileID: 552727259}
   m_Father: {fileID: 949707115}
 --- !u!1 &1831314130

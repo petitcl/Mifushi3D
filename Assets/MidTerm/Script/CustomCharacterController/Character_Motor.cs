@@ -50,14 +50,12 @@ public class Character_Motor : MonoBehaviour {
 		if (!Character_Manager.CharacterControllerComponent.isGrounded) {
 			return;
 		}
-		this.SlideVector = Vector3.zero;
 		RaycastHit hit;
-		if (!Physics.Raycast(this.transform.position + Vector3.up,
+		if (Physics.Raycast(this.transform.position + Vector3.up,
 		                    Vector3.down,
 		                    out hit, Mathf.Infinity, this.SlidingLayerMask)) {
-			return;
+			this.SlideVector = hit.normal.normalized;
 		}
-		this.SlideVector = hit.normal.normalized;
 //		Vector3 hitNormal = hit.normal;
 //
 //		moveDirection = Vector3(hitNormal.x, -hitNormal.y, hitNormal.z);
