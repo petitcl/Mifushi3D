@@ -19,7 +19,7 @@ public class CheckPoint : MonoBehaviour {
 //	//private Runity callbacks
 	private	void	onCheckPointActivated(int corder) {
 		if (this.order != corder) return;
-		this.BroadcastMessage("CheckPointActivated");
+		this.BroadcastMessage("CheckPointActivated", SendMessageOptions.DontRequireReceiver);
 	}
 
 }
