@@ -3407,6 +3407,7 @@ MonoBehaviour:
   x: 1
   y: 1
   z: 1
+  startCamToTarget: {x: 0, y: 0, z: 0}
 --- !u!114 &510355020
 MonoBehaviour:
   m_ObjectHideFlags: 0
