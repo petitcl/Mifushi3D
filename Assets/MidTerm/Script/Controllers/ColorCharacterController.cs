@@ -30,6 +30,7 @@ public class ColorCharacterController : MonoBehaviour {
 	
 	public	void	Kill(DeadlyZone killer) {
 		
+		SoundManager.Instance.Play(SoundManager.GameEvent.PlayerDie);
 	}
 
 	public	void	PickObject(GameObject go) {
@@ -54,6 +55,7 @@ public class ColorCharacterController : MonoBehaviour {
 		foreach (Collider coll in colls) {
 			this.PickObject(coll.gameObject);
 		}
+		SoundManager.Instance.Play(SoundManager.GameEvent.PickObject);
 	}
 
 	public	void	DropObject() {
@@ -65,6 +67,7 @@ public class ColorCharacterController : MonoBehaviour {
 		obj.OnDrop(this.gameObject);
 		Runity.Messenger<GameObject>.Broadcast("Player.DroppedObject", this.PickedObject, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		this.PickedObject = null;
+		SoundManager.Instance.Play(SoundManager.GameEvent.DropObject);
 	}
 	
 	

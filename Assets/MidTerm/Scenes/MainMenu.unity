@@ -418,48 +418,6 @@ MonoBehaviour:
   map: {fileID: 1524319314}
   icon: {fileID: 0}
   unselectedColor: {r: .996078432, g: .490196079, b: 0, a: .392156869}
---- !u!1 &882554475
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: 790e02015be38ee44a8475b82db3fa43, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 882554477}
-  - 95: {fileID: 882554476}
-  m_Layer: 0
-  m_Name: DeathBlock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &882554476
-Animator:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 790e02015be38ee44a8475b82db3fa43,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 882554475}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 10c79b0e0277cc045b58cd6de4458ab5, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
-  m_HasTransformHierarchy: 1
---- !u!4 &882554477
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: 790e02015be38ee44a8475b82db3fa43, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 882554475}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 240.827682, y: 214.689743, z: 141.954773}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &955190310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,10 +1170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2413c93f52c65304a990f710eef05345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerJumpSound: {fileID: 8300000, guid: d1724e3a68bfef84b9c8c9e2603c35e9, type: 3}
-  PlayerDieSound: {fileID: 0}
-  PickObjectSound: {fileID: 0}
-  DropObjectSound: {fileID: 0}
+  PlayerJumpSound: {fileID: 8300000, guid: ed4f96f38660b76469d60722ad0ea0ad, type: 3}
+  PlayerDieSound: {fileID: 8300000, guid: d1724e3a68bfef84b9c8c9e2603c35e9, type: 3}
+  PickObjectSound: {fileID: 8300000, guid: b23540bb8a311d4468087332ab743372, type: 3}
+  DropObjectSound: {fileID: 8300000, guid: b23540bb8a311d4468087332ab743372, type: 3}
+  CheckPointSound: {fileID: 8300000, guid: 43d6aec2402348441937a44c115e430c, type: 3}
 --- !u!4 &2103016757
 Transform:
   m_ObjectHideFlags: 0
