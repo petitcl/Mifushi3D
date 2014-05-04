@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip DropObjectSound;
 	void Awake(){
 		if (Instance != null) {
-			throw new UnityException();
+			return ;
 		}
 		DontDestroyOnLoad (this);
 		Instance = this;
