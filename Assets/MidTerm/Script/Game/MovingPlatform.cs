@@ -14,7 +14,7 @@ public class MovingPlatform : MonoBehaviour {
 	private	float		timeLastFlip;
 
 	private void Start() {
-		timeLastFlip = 0;
+		timeLastFlip = Time.fixedTime;;
 		if (!this.enabledAtStart) this.enabled = false;
 	}
 
@@ -24,11 +24,11 @@ public class MovingPlatform : MonoBehaviour {
 		Transform destination = this.flip ? this.endPosition : this.startPosition;
 
 		//Stop moving during flip
-		if (Time.time - timeLastFlip > GetDelay()) {
+		if (Time.fixedTime - timeLastFlip > GetDelay()) {
 			this.transform.position = Vector3.MoveTowards(this.transform.position, destination.position, step);
 			if (Vector3.SqrMagnitude(this.transform.position - destination.position) < 0.01f) {
 				this.flip = !this.flip;
-				timeLastFlip = Time.time;
+				timeLastFlip = Time.fixedTime;
 			}
 		}
 	}
