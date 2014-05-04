@@ -18,8 +18,7 @@ public class ColorInputReader : MonoBehaviour {
 		} else if (Input.GetButtonDown("Blue")) {
 			this.gameController.ChangeColor(GameLevel.GameColor.Blue);
 		} else if (Input.GetButtonDown("Pick")) {
-			if (this.gameController.PickedObject != null) this.gameController.DropObject();
-			else this.gameController.PickObject(); 
+			this.gameController.PickObject(); 
 		}
 	}
 }

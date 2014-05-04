@@ -45,7 +45,7 @@ public class BasePickableObject : MonoBehaviour, IPickableObject {
 		this.transform.position = picker.transform.position - picker.transform.up * 2.0f + picker.transform.forward;
 //		this.rigidbody.isKinematic = false;
 		
-		this.Pickable = true;
+		this.Pickable = false;
 		this.Dropable = false;
 	}
 

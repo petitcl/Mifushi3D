@@ -15,9 +15,9 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 	}
 
 	//public attributes
-	public	GameObject		WelcomeToolTip;
-	public	GameObject		CheckPointToolTip;
-	public	GameObject		ChangeColorToolTip;
+//	public	GameObject		WelcomeToolTip;
+//	public	GameObject		CheckPointToolTip;
+//	public	GameObject		ChangeColorToolTip;
 
 	public	List<ToolTipDatas>	OnRespawnLabels = new List<ToolTipDatas>();
 	public	List<ToolTipDatas>	ToolTips = new List<ToolTipDatas>();
@@ -66,12 +66,12 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 		GameLevel.Instance.StartGame();
 	}
 
-	private	void			FirstCheckPointAnimation() {
-		HUDManager.Instance.DrawTooltip(this.CheckPointToolTip, 5.0f);
-	}
-	private	void			ChangeColorAnimation() {
-		HUDManager.Instance.DrawTooltip(this.ChangeColorToolTip, 10.0f);
-	}
+//	private	void			FirstCheckPointAnimation() {
+//		HUDManager.Instance.DrawTooltip(this.CheckPointToolTip, 5.0f);
+//	}
+//	private	void			ChangeColorAnimation() {
+//		HUDManager.Instance.DrawTooltip(this.ChangeColorToolTip, 10.0f);
+//	}
 	//private Unity callbacks
 
 	private	void		Start() {
