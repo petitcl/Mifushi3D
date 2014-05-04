@@ -109,7 +109,7 @@ public class Character_Motor : MonoBehaviour {
 	private void ApplyGravity() {
 		if (!Character_Manager.CharacterControllerComponent.isGrounded) {
 			if (Mathf.Abs(MoveVector.y) < this.TerminalVelocity) {
-				MoveVector.y += Character_Manager.Instance.Gravity * Time.deltaTime;
+				MoveVector.y += Character_Manager.Instance.Gravity * Time.fixedDeltaTime;
 			}
 		} else if (!Character_Manager.Instance.isJumping()) {
 			MoveVector.y = -0.1f;
