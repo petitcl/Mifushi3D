@@ -33243,6 +33243,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
   m_RootGameObject: {fileID: 1336552874}
@@ -34165,7 +34169,7 @@ MonoBehaviour:
   startPosition: {fileID: 1030887779}
   endPosition: {fileID: 651764785}
   flip: 0
-  speed: 3
+  speed: 6
   delayFlip: 0
   delayUnFlip: 0
   enabledAtStart: 0
@@ -48752,7 +48756,7 @@ MonoBehaviour:
   startPosition: {fileID: 725439898}
   endPosition: {fileID: 55761890}
   flip: 0
-  speed: 3
+  speed: 6
   delayFlip: 0
   delayUnFlip: 0
   enabledAtStart: 0
