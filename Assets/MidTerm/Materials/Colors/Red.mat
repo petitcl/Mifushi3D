@@ -29,6 +29,27 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _Illum
+        second:
+          m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ParallaxMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _Ramp
         second:
           m_Texture: {fileID: 0}
@@ -50,13 +71,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Illum
-        second:
-          m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _ShadowTex
         second:
           m_Texture: {fileID: 0}
@@ -69,25 +83,7 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
-        second:
-          m_Texture: {fileID: 2800000, guid: 367ac17796343154895158bfc47fc28e, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _Outline
-        second: .00499999989
       data:
         first:
           name: _Shininess
@@ -100,15 +96,15 @@ Material:
         first:
           name: _Parallax
         second: .0532142855
+      data:
+        first:
+          name: _Outline
+        second: .00499999989
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .964705884, g: .627451003, b: .121568628, a: 1}
-      data:
-        first:
-          name: _OutlineColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: .960784316, g: .694550395, b: .121568605, a: .443137258}
       data:
         first:
           name: _SpecColor
@@ -117,3 +113,7 @@ Material:
         first:
           name: _ReflectColor
         second: {r: 1, g: 1, b: 1, a: .5}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}
