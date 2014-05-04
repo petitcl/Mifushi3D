@@ -10894,7 +10894,6 @@ MonoBehaviour:
   HUDToolTip: {fileID: 1386046570}
   HUDToolTipPosition: {fileID: 1246429142}
   HUDToolTipLinePrefab: {fileID: 100000, guid: 2872cdbbd4b5cfa48b772a9250c637e1, type: 2}
-  CurrentToolTip: {fileID: 0}
 --- !u!1 &463614491
 GameObject:
   m_ObjectHideFlags: 0
@@ -17573,7 +17572,7 @@ MonoBehaviour:
   - name: nice_die_00
     texts:
     - Oops! You just died!
-    - When you die, you respawn
+    - When you die, you repop
     - at the last checkpoint
     - you walked into
     duration: 5
@@ -17581,7 +17580,7 @@ MonoBehaviour:
   - name: nice_die_01
     texts:
     - It's ok
-    - You will do better next time! :)
+    - You will do better next time!
     duration: 5
     infinite: 0
   - name: nice_die_02
@@ -17592,7 +17591,37 @@ MonoBehaviour:
     infinite: 0
   - name: nice_die_03
     texts:
-    - Take your time :D
+    - Take your time!
+    duration: 5
+    infinite: 0
+  - name: mean_die_01
+    texts:
+    - You are a little bad
+    duration: 5
+    infinite: 0
+  - name: mean_die_02
+    texts:
+    - Do you have brain damage?
+    duration: 5
+    infinite: 0
+  - name: mean_die_03
+    texts:
+    - Please stop dying!
+    duration: 5
+    infinite: 0
+  - name: mean_die_04
+    texts:
+    - My dog can do better!
+    duration: 5
+    infinite: 0
+  - name: mean_die_05
+    texts:
+    - Why don't you alt F4?
+    duration: 5
+    infinite: 0
+  - name: mean_die_06
+    texts:
+    - Again?
     duration: 5
     infinite: 0
   ToolTips:
@@ -17615,7 +17644,7 @@ MonoBehaviour:
     - You can change color
     - with keys Z, X and C
     - or keys 1, 2 and 3 on the num pad
-    duration: 10
+    duration: 0
     infinite: 1
   - name: FirstCheckPoint
     texts:

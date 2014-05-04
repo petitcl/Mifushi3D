@@ -14,29 +14,16 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 		public	bool			infinite = false;
 	}
 
-	//public attributes
-//	public	GameObject		WelcomeToolTip;
-//	public	GameObject		CheckPointToolTip;
-//	public	GameObject		ChangeColorToolTip;
+	//private attributes
+	private	int		dieCount = 0;
 
 	public	List<ToolTipDatas>	OnRespawnLabels = new List<ToolTipDatas>();
 	public	List<ToolTipDatas>	ToolTips = new List<ToolTipDatas>();
 	#region IGameScene implementation
 
 	//public methods
-
 	public	void			ProcessEvent(string eventName) {
-		switch (eventName) {
-//		case "FirstCheckPoint":
-//			this.FirstCheckPointAnimation();
-//			break;
-//		case "ChangeColor":
-//			this.ChangeColorAnimation();
-//			break;
-		default:
-			this.DisplayToolTip(eventName);
-			break;
-		}
+		this.DisplayToolTip(eventName);
 	}
 
 	#endregion
@@ -52,6 +39,12 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 		}
 	}
 
+	public	void			DisplayDeathToolTip(int idx) {
+		ToolTipDatas tdata = this.OnRespawnLabels[idx];
+		float duration = tdata.duration;
+		if (tdata.infinite) duration = -1.0f;
+		HUDManager.Instance.DrawTooltip(tdata.texts, duration);
+	}
 
 	//private methods
 	private IEnumerator		WaitAnyKeyDown() {
@@ -66,16 +59,22 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 		GameLevel.Instance.StartGame();
 	}
 
-//	private	void			FirstCheckPointAnimation() {
-//		HUDManager.Instance.DrawTooltip(this.CheckPointToolTip, 5.0f);
-//	}
-//	private	void			ChangeColorAnimation() {
-//		HUDManager.Instance.DrawTooltip(this.ChangeColorToolTip, 10.0f);
-//	}
 	//private Unity callbacks
-
 	private	void		Start() {
 		GameLevel.Instance.GameScene = this;
 		this.StartCoroutine(this.StartScene());
+		Runity.Messenger<string>.AddListener("Player.Dead", this.onPlayerDied);
+	}
+
+	//private Runity callbacks
+	private	void		onPlayerDied(string goname) {
+		this.dieCount++;
+		if (this.dieCount == 1) {
+			this.DisplayDeathToolTip(0);
+		} else if (this.dieCount >= 2 && this.dieCount <= 4) {
+			this.DisplayDeathToolTip(Random.Range(1,4));
+		} else {
+			this.DisplayDeathToolTip(Random.Range(4,10));
+		}
 	}
 }

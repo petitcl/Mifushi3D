@@ -3,6 +3,22 @@ using System.Collections;
 
 public class HUDManager : MonoBehaviour {
 
+	//public types
+	public	class 	ToolTip {
+		public	GameObject	gameObject;
+		public	float		duration;
+
+		public	ToolTip(GameObject pgameObject) {
+			this.gameObject = pgameObject;
+			this.duration = 2.0f;
+		}
+
+		public	ToolTip(GameObject pgameObject, float pduration) {
+			this.gameObject = pgameObject;
+			this.duration = pduration;
+		}
+	}
+
 	//static attributes
 	private	static	HUDManager	_instance = null;
 	public	static	HUDManager	Instance {
@@ -26,7 +42,7 @@ public class HUDManager : MonoBehaviour {
 
 
 	//private attributes
-	public	GameObject		CurrentToolTip;
+	private	ToolTip			CurrentToolTip;
 
 
 	//public methods
@@ -35,14 +51,16 @@ public class HUDManager : MonoBehaviour {
 	}
 
 	public	void		DrawTooltip(GameObject tooltip, float duration) {
-		this.DrawInfiniteTooltip(tooltip);
-		this.StartCoroutine(this.DrawTooltipCoroutine(tooltip, duration));
+		ToolTip	ttObj = new ToolTip(tooltip, duration);
+		this.DrawInfiniteTooltip(ttObj);
+		this.StartCoroutine(this.DrawTooltipCoroutine(ttObj));
 	}
 
 	public	void		DrawTooltip(string[] texts, float duration) {
-		if (this.CurrentToolTip != null) this.CurrentToolTip.SetActive(false);
+		if (this.CurrentToolTip != null) this.CurrentToolTip.gameObject.SetActive(false);
 		this.HUDToolTip.SetActive(true);
-		this.CurrentToolTip = this.HUDToolTip;
+		ToolTip	ttObj = new ToolTip(this.HUDToolTip, duration);
+		this.CurrentToolTip = ttObj;
 		foreach (Transform t in this.HUDToolTipPosition.transform) {
 			GameObject.Destroy(t.gameObject);
 		}
@@ -58,28 +76,30 @@ public class HUDManager : MonoBehaviour {
 			++i;
 		}
 		if (duration > 0.0f)
-			this.StartCoroutine(this.DrawTooltipCoroutine(this.CurrentToolTip, duration));
+			this.StartCoroutine(this.DrawTooltipCoroutine(ttObj));
 	}
 
-	public	void		DrawInfiniteTooltip(GameObject tooltip) {
-		tooltip.transform.position = this.HUDPopupPosition.position;
-		tooltip.SetActive(true);
-		if (this.CurrentToolTip != null) this.CurrentToolTip.SetActive(false);
-		this.CurrentToolTip = tooltip;
+	public	void		DrawInfiniteTooltip(ToolTip	ttObj) {
+		ttObj.gameObject.transform.position = this.HUDPopupPosition.position;
+		ttObj.gameObject.SetActive(true);
+		if (this.CurrentToolTip != null) this.CurrentToolTip.gameObject.SetActive(false);
+		this.CurrentToolTip = ttObj;
 	}
 
 	public void			HideCurrentToolTip() {
 		if (this.CurrentToolTip == null) return;
-		this.CurrentToolTip.SetActive(false);
+		this.CurrentToolTip.gameObject.SetActive(false);
 		this.CurrentToolTip = null;
 	}
 
 	//private methods
 	//some refactor to do on param tooltip
-	IEnumerator			DrawTooltipCoroutine(GameObject tooltip, float duration) {
-		yield return new WaitForSeconds(duration);
-		tooltip.SetActive(false);
-		this.CurrentToolTip = null;
+	IEnumerator			DrawTooltipCoroutine(ToolTip ttObj) {
+		yield return new WaitForSeconds(ttObj.duration);
+		if (this.CurrentToolTip != null && this.CurrentToolTip.Equals(ttObj)) {
+			ttObj.gameObject.SetActive(false);
+			this.CurrentToolTip = null;
+		}
 	}
 
 
