@@ -44,6 +44,7 @@ public class ColorCharacterController : MonoBehaviour {
 		this.PickedObject = go;
 
 		Runity.Messenger<GameObject>.Broadcast("Player.PickedObject", go, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		SoundManager.Instance.Play(SoundManager.GameEvent.PickObject);
 	}
 
 	public	void	PickObject() {
@@ -55,7 +56,6 @@ public class ColorCharacterController : MonoBehaviour {
 		foreach (Collider coll in colls) {
 			this.PickObject(coll.gameObject);
 		}
-		SoundManager.Instance.Play(SoundManager.GameEvent.PickObject);
 	}
 
 	public	void	DropObject() {
