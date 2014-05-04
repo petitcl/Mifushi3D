@@ -9,13 +9,17 @@ public class SoundManager : MonoBehaviour {
 		PlayerDie,
 		PickObject,
 		DropObject,
-		NewCheckpoint
+		NewCheckpoint,
+		SelectMenu
 	};
+
 	public AudioClip PlayerJumpSound;
 	public AudioClip PlayerDieSound;
 	public AudioClip PickObjectSound;
 	public AudioClip DropObjectSound;
 	public AudioClip CheckPointSound;
+	public AudioClip SelectMenu;
+
 	void Awake(){
 		if (Instance != null) {
 			return ;
@@ -23,6 +27,7 @@ public class SoundManager : MonoBehaviour {
 		DontDestroyOnLoad (this);
 		Instance = this;
 	}
+
 	public void Play(SoundManager.GameEvent e)
 	{
 		switch (e) {
@@ -56,6 +61,13 @@ public class SoundManager : MonoBehaviour {
 				}
 				this.audio.PlayOneShot (this.CheckPointSound);
 				break;
+			case GameEvent.SelectMenu: 
+				if (this.SelectMenu == null) {
+					return;
+				}
+				this.audio.PlayOneShot (this.SelectMenu);
+				break;
+
 			}
 	}
 }

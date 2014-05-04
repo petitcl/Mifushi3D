@@ -1081,6 +1081,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: a73a6b9778dd7ce42b95ae3746f0e2fc, type: 2}
+      propertyPath: SelectMenu
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ee06873042f85f48b39ab49068c7ab9, type: 3}
+    - target: {fileID: 11400000, guid: a73a6b9778dd7ce42b95ae3746f0e2fc, type: 2}
+      propertyPath: CheckPointSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 43d6aec2402348441937a44c115e430c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a73a6b9778dd7ce42b95ae3746f0e2fc, type: 2}
   m_RootGameObject: {fileID: 2103016755}
@@ -1216,6 +1224,7 @@ MonoBehaviour:
   PickObjectSound: {fileID: 8300000, guid: b23540bb8a311d4468087332ab743372, type: 3}
   DropObjectSound: {fileID: 8300000, guid: b23540bb8a311d4468087332ab743372, type: 3}
   CheckPointSound: {fileID: 8300000, guid: 43d6aec2402348441937a44c115e430c, type: 3}
+  SelectMenu: {fileID: 8300000, guid: 3ee06873042f85f48b39ab49068c7ab9, type: 3}
 --- !u!4 &2103016757
 Transform:
   m_ObjectHideFlags: 0
