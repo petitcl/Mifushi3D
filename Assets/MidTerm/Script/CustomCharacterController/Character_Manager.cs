@@ -39,7 +39,7 @@ public class Character_Manager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	private void Update() {
+	private void FixedUpdate() {
 		this.ControllerInput();
 		if (this.CanMove) this.ActionInput();
 		Animation_Manager.Instance.CurrentMotionState();
