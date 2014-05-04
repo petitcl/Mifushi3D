@@ -639,7 +639,7 @@ MonoBehaviour:
   ForwardSpeedLimit: 10
   BackwardSpeedLimit: 4
   StrafingSpeedLimit: 8
-  SlidingSpeedLimit: 25
+  SlidingSpeedLimit: 50
   JumpSpeedLimit: 10
   SlidingLayerMask:
     serializedVersion: 2
@@ -2056,7 +2056,7 @@ Prefab:
       objectReference: {fileID: 2100960574}
     - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
       propertyPath: SlidingSpeedLimit
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
       propertyPath: BackwardSpeedLimit
@@ -15323,7 +15323,6 @@ MonoBehaviour:
   HUDToolTip: {fileID: 1755245417}
   HUDToolTipPosition: {fileID: 1428285569}
   HUDToolTipLinePrefab: {fileID: 100000, guid: 2872cdbbd4b5cfa48b772a9250c637e1, type: 2}
-  CurrentToolTip: {fileID: 0}
 --- !u!1 &1459942837
 GameObject:
   m_ObjectHideFlags: 0
