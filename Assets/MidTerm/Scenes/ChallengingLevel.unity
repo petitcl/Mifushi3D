@@ -4382,8 +4382,8 @@ Transform:
   m_LocalPosition: {x: 5.02598381, y: 3.74878263, z: 38.4354706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 880303638}
   - {fileID: 1249882608}
+  - {fileID: 880303638}
   m_Father: {fileID: 1878965211}
 --- !u!1 &448342347
 GameObject:
@@ -6307,18 +6307,18 @@ Transform:
   - {fileID: 260297280}
   - {fileID: 1685724363}
   - {fileID: 709166629}
-  - {fileID: 1536005290}
-  - {fileID: 1031574147}
   - {fileID: 1205629354}
+  - {fileID: 1031574147}
+  - {fileID: 1536005290}
+  - {fileID: 1385778224}
+  - {fileID: 809740609}
   - {fileID: 567315742}
   - {fileID: 176345925}
-  - {fileID: 809740609}
-  - {fileID: 1385778224}
+  - {fileID: 548448882}
+  - {fileID: 665554218}
   - {fileID: 1120606646}
   - {fileID: 315051926}
   - {fileID: 77105055}
-  - {fileID: 665554218}
-  - {fileID: 548448882}
   m_Father: {fileID: 1719563167}
 --- !u!1 &644359086
 GameObject:
@@ -6550,22 +6550,22 @@ Transform:
   - {fileID: 1904023872}
   - {fileID: 1546866774}
   - {fileID: 2031744693}
+  - {fileID: 355254993}
+  - {fileID: 862766670}
+  - {fileID: 1477265482}
+  - {fileID: 768205931}
   - {fileID: 1845597104}
   - {fileID: 826267150}
   - {fileID: 1324601382}
-  - {fileID: 355254993}
-  - {fileID: 1477265482}
-  - {fileID: 768205931}
   - {fileID: 1659903909}
-  - {fileID: 862766670}
-  - {fileID: 1517083112}
-  - {fileID: 1519118776}
-  - {fileID: 950293083}
-  - {fileID: 1666075390}
-  - {fileID: 1760167681}
   - {fileID: 291341477}
-  - {fileID: 465386388}
+  - {fileID: 1760167681}
+  - {fileID: 1517083112}
+  - {fileID: 950293083}
+  - {fileID: 1519118776}
   - {fileID: 948160547}
+  - {fileID: 465386388}
+  - {fileID: 1666075390}
   m_Father: {fileID: 327245706}
 --- !u!1 &678742348
 GameObject:
@@ -17710,6 +17710,8 @@ MonoBehaviour:
   Green: {fileID: 2100000, guid: 8bdd58cb01006354eb112be108df9764, type: 2}
   Blue: {fileID: 2100000, guid: 4022554bf168c4f4586a1d1dabc21023, type: 2}
   White: {fileID: 2100000, guid: 2c72e633dcc3e2d428e18878a15820cf, type: 2}
+  SolidColorShader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  FadedColorShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1650339912
 GameObject:
   m_ObjectHideFlags: 0
@@ -21367,10 +21369,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 890948875}
-  - {fileID: 428840712}
-  - {fileID: 679397234}
   - {fileID: 2074053451}
+  - {fileID: 428840712}
   - {fileID: 1315844504}
+  - {fileID: 679397234}
   - {fileID: 322718592}
   - {fileID: 1353399320}
   - {fileID: 735243682}

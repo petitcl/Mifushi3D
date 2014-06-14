@@ -13,12 +13,15 @@ public class ColorInputReader : MonoBehaviour {
 		if (!GameLevel.Instance.Running) return;
 		if (Input.GetButtonDown("Red")) {
 			this.gameController.ChangeColor(GameLevel.GameColor.Red);
-		} else if (Input.GetButtonDown("Green")) {
-			this.gameController.ChangeColor(GameLevel.GameColor.Green);
-		} else if (Input.GetButtonDown("Blue")) {
-			this.gameController.ChangeColor(GameLevel.GameColor.Blue);
-		} else if (Input.GetButtonDown("Pick")) {
-			this.gameController.PickObject(); 
 		}
+		else if (Input.GetButtonDown("Green")) {
+			this.gameController.ChangeColor(GameLevel.GameColor.Green);
+		}
+		else if (Input.GetButtonDown("Blue")) {
+			this.gameController.ChangeColor(GameLevel.GameColor.Blue);
+		}
+//		else if (Input.GetButtonDown("Pick")) {
+//			this.gameController.PickObject(); 
+//		}
 	}
 }
