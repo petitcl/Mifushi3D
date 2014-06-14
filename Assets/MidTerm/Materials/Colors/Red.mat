@@ -29,13 +29,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _Detail
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _Ramp
         second:
           m_Texture: {fileID: 0}
@@ -44,6 +37,13 @@ Material:
       data:
         first:
           name: _ToonShade
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Detail
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -86,12 +86,12 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Shininess
-        second: .0792755485
-      data:
-        first:
           name: _Outline
         second: .00499999989
+      data:
+        first:
+          name: _Shininess
+        second: .0792755485
       data:
         first:
           name: _EmissionLM
@@ -107,12 +107,12 @@ Material:
         second: {r: .964705884, g: .627451003, b: .121568628, a: 1}
       data:
         first:
-          name: _SpecColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
           name: _OutlineColor
         second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _ReflectColor

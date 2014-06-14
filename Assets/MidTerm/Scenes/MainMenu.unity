@@ -130,6 +130,7 @@ MonoBehaviour:
   menuItemList:
   - {fileID: 721706403}
   - {fileID: 1970792872}
+  - {fileID: 577420805}
   - {fileID: 1893055010}
 --- !u!82 &121261391
 AudioSource:
@@ -415,6 +416,91 @@ Prefab:
   m_RootGameObject: {fileID: 254192062}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &577420803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 577420804}
+  - 23: {fileID: 577420807}
+  - 102: {fileID: 577420806}
+  - 114: {fileID: 577420805}
+  m_Layer: 12
+  m_Name: Score Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577420804
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577420803}
+  m_LocalRotation: {x: 0, y: 0, z: 8.74227766e-08, w: 1}
+  m_LocalPosition: {x: 9.53674316e-07, y: -9.61248016, z: -.440008163}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1838933390}
+--- !u!114 &577420805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577420803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add074111e8b2b44f86434f23e56a723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 0}
+  icon: {fileID: 0}
+  unselectedColor: {r: .862745106, g: 0, b: .411764711, a: .392156869}
+--- !u!102 &577420806
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577420803}
+  m_Text: Score
+  m_OffsetZ: 0
+  m_CharacterSize: .5
+  m_LineSpacing: 1
+  m_Anchor: 4
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 120
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4285071581
+--- !u!23 &577420807
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 577420803}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
 --- !u!1 &721706399
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +526,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 721706399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .94149971, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1838933390}
@@ -929,6 +1015,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1970792869}
+  - {fileID: 577420804}
   - {fileID: 1893055007}
   - {fileID: 721706400}
   m_Father: {fileID: 1208883877}
@@ -983,7 +1070,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1893055006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.90734863e-06, y: -12.5253906, z: 0}
+  m_LocalPosition: {x: 2.86102295e-06, y: -14.7849884, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1838933390}
@@ -1068,7 +1155,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1970792868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.53674316e-07, y: -5.84648132, z: 0}
+  m_LocalPosition: {x: 9.53674316e-07, y: -4.34008312, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1838933390}
@@ -1122,7 +1209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1970792868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add074111e8b2b44f86434f23e56a723, type: 3}
+  m_Script: {fileID: 11500000, guid: f985628c46f960044badf765b42caf0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 521746416}
