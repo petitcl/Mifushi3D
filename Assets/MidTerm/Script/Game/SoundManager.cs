@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class SoundManager : MonoBehaviour {
-	public static SoundManager Instance = null;
+
 	public enum GameEvent
 	{
 		PlayerJump,
@@ -19,14 +19,6 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip DropObjectSound;
 	public AudioClip CheckPointSound;
 	public AudioClip SelectMenu;
-
-	void Awake(){
-		if (Instance != null) {
-			return ;
-		}
-		DontDestroyOnLoad (this);
-		Instance = this;
-	}
 
 	public void Play(SoundManager.GameEvent e)
 	{

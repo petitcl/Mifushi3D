@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
   m_Layer: 0
-  m_Name: ConstantObject
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   PickObjectSound: {fileID: 8300000, guid: b23540bb8a311d4468087332ab743372, type: 3}
   DropObjectSound: {fileID: 8300000, guid: b23540bb8a311d4468087332ab743372, type: 3}
   CheckPointSound: {fileID: 8300000, guid: 43d6aec2402348441937a44c115e430c, type: 3}
+  SelectMenu: {fileID: 8300000, guid: 3ee06873042f85f48b39ab49068c7ab9, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
