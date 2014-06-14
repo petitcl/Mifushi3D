@@ -27,6 +27,7 @@ namespace Runity {
 			
 
 			public	void		FadeTo(Color newColor) {
+				this.callback = null;
 				if (this.TargetMaterial.color.Equals(newColor)) return;
 				this.startColor = this.TargetMaterial.color;
 				this.endColor = newColor;

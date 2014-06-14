@@ -89,7 +89,8 @@ public class GameLevel : Runity.MonoBehaviourExt {
 				as GameObject;
 		} else {
 			this.Player = player;
-			this.Player.transform.position = this.PlayerSpawnPoint.position;
+			if (this.PlayerSpawnPoint) this.Player.transform.position = this.PlayerSpawnPoint.position;
+			
 		}
 		this.Player.GetComponent<Character_Manager>().CanMove = false;
 		this.Started = false;
