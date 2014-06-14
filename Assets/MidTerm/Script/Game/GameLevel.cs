@@ -208,6 +208,23 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		}
 	}
 
+	public	Color	GameColorToFadedColor(GameColor color) {
+		GameColor currentColor = this.Player.GetComponent<ColorCharacterController>().CurrentColor;
+		switch (color) {
+		case GameColor.Red:
+			if (currentColor == GameColor.Red) return this.Red;
+			else return this.FadedRed;
+		case GameColor.Green:
+			if (currentColor == GameColor.Green) return this.Green;
+			else return this.FadedGreen;
+		case GameColor.Blue:
+			if (currentColor == GameColor.Blue) return this.Blue;
+			else return this.FadedBlue;
+		default:
+			return this.White;
+		}
+	}
+
 	public	Color	GameColorToColor(GameColor color) {
 		switch (color) {
 		case GameColor.Red:

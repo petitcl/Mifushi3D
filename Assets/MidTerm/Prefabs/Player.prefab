@@ -1281,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .707106829, y: 2.40439149e-05, z: 2.40286699e-05, w: -.707106829}
-  m_LocalPosition: {x: -27.9776077, y: -40.6283188, z: -104.79274}
+  m_LocalPosition: {x: 305.223877, y: 249.151138, z: -376.479675}
   m_LocalScale: {x: .999999046, y: .999999046, z: .999999046}
   m_Children:
   - {fileID: 400002}
@@ -2337,7 +2337,7 @@ MonoBehaviour:
   SlidingLayerMask:
     serializedVersion: 2
     m_Bits: 257
-  JumpImpulse: .300000012
+  JumpImpulse: .349999994
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   - state: 4
     clip: {fileID: 7400000, guid: a246736d87314ff4fa5fcf10551a6e0f, type: 3}
   - state: 8
-    clip: {fileID: 7400000, guid: c04379efa9994ba4fb52acedb8ec9ab8, type: 3}
+    clip: {fileID: 7400000, guid: a246736d87314ff4fa5fcf10551a6e0f, type: 3}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1

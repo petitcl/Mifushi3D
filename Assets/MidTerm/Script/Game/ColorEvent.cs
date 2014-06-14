@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ColorEvent : MonoBehaviour {
@@ -40,7 +40,7 @@ public class ColorEvent : MonoBehaviour {
 
 	//private methods
 	private	void	ChangeColor() {
-		SceneObject so = this.gameObject.GetComponent<SceneObject>();
+		ColorBlock so = this.gameObject.GetComponent<ColorBlock>();
 		if (!so) return;
 		so.SetColor(this.Color1);
 	}

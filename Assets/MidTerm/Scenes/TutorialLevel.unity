@@ -1046,7 +1046,7 @@ MonoBehaviour:
   SlidingLayerMask:
     serializedVersion: 2
     m_Bits: 257
-  JumpImpulse: .300000012
+  JumpImpulse: .349999994
 --- !u!114 &72675836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,6 +2938,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
       propertyPath: SlidingSpeedLimit
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
+      propertyPath: JumpImpulse
+      value: .349999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
@@ -15546,7 +15550,7 @@ MonoBehaviour:
   - state: 4
     clip: {fileID: 7400000, guid: a246736d87314ff4fa5fcf10551a6e0f, type: 3}
   - state: 8
-    clip: {fileID: 7400000, guid: a1e63f81f7c8e3942ab433c25ad7ce54, type: 3}
+    clip: {fileID: 7400000, guid: a246736d87314ff4fa5fcf10551a6e0f, type: 3}
 --- !u!1 &690032675
 GameObject:
   m_ObjectHideFlags: 0
@@ -17990,6 +17994,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a73a6b9778dd7ce42b95ae3746f0e2fc, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: a73a6b9778dd7ce42b95ae3746f0e2fc, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a73a6b9778dd7ce42b95ae3746f0e2fc, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
