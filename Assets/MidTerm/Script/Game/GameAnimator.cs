@@ -122,7 +122,6 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 	}
 
 	private	void	TransitionToSolidEnded(Material mat) {
-		Debug.Log(mat.name);
 		mat.shader = this.SolidColorShader;
 	}
 

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PickObjectTrigger : MonoBehaviour {
 
-	GameObject		ToPick;
+	public GameObject		ToPick;
 
 	private	void	OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
