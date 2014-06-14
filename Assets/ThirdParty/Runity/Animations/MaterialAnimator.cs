@@ -48,9 +48,6 @@ namespace Runity {
 				this.TargetMaterial.color = nColor;
 				if (nColor.Equals(this.endColor)) {
 					this.Enabled = false;
-					Debug.Log("Material Animation Ended:");
-					Debug.Log("Name: " + this.Name);
-					Debug.Log("Enabled: " + this.Enabled);
 					if (this.callback != null) this.callback(this.TargetMaterial);
 					this.callback = null;
 				}
