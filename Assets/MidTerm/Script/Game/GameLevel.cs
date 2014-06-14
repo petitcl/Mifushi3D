@@ -124,7 +124,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		this.Finished = true;
 
 		this.Player.GetComponent<Character_Manager>().CanMove = false;
-
+		
 		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		GameAnimator.Instance.PlayAnimation("Game.End");
 
