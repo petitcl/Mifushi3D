@@ -7,7 +7,9 @@ using System.Collections.Generic;
 //TODO : add method AddMaterial (string, Material, float)
 namespace Runity {
 	public class MaterialAnimator : MonoBehaviourExt {
-		
+
+		public	delegate void	EndTransitionCallback(Material mat);
+
 		//public types
 		[System.Serializable]
 		public class MaterialAnimation {
@@ -21,7 +23,7 @@ namespace Runity {
 			private	float		startTime = 0.0f;
 			private	Color		startColor;
 			private	Color		endColor;
-			private	SimpleCallback	callback = null;
+			private	EndTransitionCallback	callback = null;
 			
 
 			public	void		FadeTo(Color newColor) {
@@ -32,7 +34,7 @@ namespace Runity {
 				this.Enabled = true;
 			}
 
-			public	void		FadeTo(Color newColor, SimpleCallback cb) {
+			public	void		FadeTo(Color newColor, EndTransitionCallback cb) {
 				this.FadeTo(newColor);
 				this.callback = cb;
 			}
@@ -46,7 +48,11 @@ namespace Runity {
 				this.TargetMaterial.color = nColor;
 				if (nColor.Equals(this.endColor)) {
 					this.Enabled = false;
-					if (this.callback != null) this.callback();
+					Debug.Log("Material Animation Ended:");
+					Debug.Log("Name: " + this.Name);
+					Debug.Log("Enabled: " + this.Enabled);
+					if (this.callback != null) this.callback(this.TargetMaterial);
+					this.callback = null;
 				}
 			}
 		}
@@ -60,6 +66,10 @@ namespace Runity {
 
 		//public methods
 
+		public	MaterialAnimation	FindAnimationByName(string	name) {
+			return this.Materials.Find(anim => anim.Name == name);
+		}
+
 		public void		FadeTo(string label, Color newColor) {
 			foreach (MaterialAnimation matAnim in this.Materials) {
 				if (!matAnim.Name.Equals(label)) continue;
@@ -68,7 +78,7 @@ namespace Runity {
 			}
 		}
 
-		public void		FadeTo(string label, Color newColor, SimpleCallback cb) {
+		public void		FadeTo(string label, Color newColor, EndTransitionCallback cb) {
 			foreach (MaterialAnimation matAnim in this.Materials) {
 				if (!matAnim.Name.Equals(label)) continue;
 				matAnim.FadeTo(newColor, cb);
@@ -86,7 +96,7 @@ namespace Runity {
 			this.TemporaryMaterials.Add(newMatAnim);
 		}
 		
-		public	void	TempFade(Material mat, Color newColor, float time, SimpleCallback cb) {
+		public	void	TempFade(Material mat, Color newColor, float time, EndTransitionCallback cb) {
 			MaterialAnimation newMatAnim = new MaterialAnimation();
 			newMatAnim.Enabled = true;
 			newMatAnim.TargetMaterial = mat;

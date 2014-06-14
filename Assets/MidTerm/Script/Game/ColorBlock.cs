@@ -34,16 +34,16 @@ public class ColorBlock : MonoBehaviour {
 		this.CurrentColor = this.StartColor;
 	}
 
-	private	void	Update() {
-		if (Input.GetKeyDown(KeyCode.P) && this.CurrentColor == GameLevel.GameColor.Blue) {
-			this.SetColor(GameLevel.GameColor.Red);
-		} else if (Input.GetKeyDown(KeyCode.P) && this.CurrentColor == GameLevel.GameColor.Red) {
-			this.SetColor(GameLevel.GameColor.Blue);
-		}
-	}
+//	private	void	Update() {
+//		if (Input.GetKeyDown(KeyCode.P) && this.CurrentColor == GameLevel.GameColor.Blue) {
+//			this.SetColor(GameLevel.GameColor.Red);
+//		} else if (Input.GetKeyDown(KeyCode.P) && this.CurrentColor == GameLevel.GameColor.Red) {
+//			this.SetColor(GameLevel.GameColor.Blue);
+//		}
+//	}
 
 //	//private callbacks
-	private	void	_onMaterialAnimationDone() {
+	private	void	_onMaterialAnimationDone(Material mat) {
 		this.renderer.material = GameAnimator.Instance.GameColorToMaterial(this.CurrentColor);
 	}
 }

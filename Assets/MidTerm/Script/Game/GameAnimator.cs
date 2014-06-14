@@ -6,7 +6,7 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 
 	//public types
 	//TODO : maybe refactor this into IEnumerator AnimationMethod(SimpleCallback cb)
-	public	delegate	void	AnimationMethod(SimpleCallback cb);
+	public	delegate	void	AnimationMethod(EndTransitionCallback cb);
 
 	//static attributes
 	private	static	GameAnimator	_instance = null;
@@ -24,6 +24,10 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 	public	Material	Green;
 	public	Material	Blue;
 	public	Material	White;
+	public	Shader		SolidColorShader;
+	public	Shader		FadedColorShader;
+
+
 
 	//private attributes
 	private	Dictionary<string, AnimationMethod>	animations = new Dictionary<string, AnimationMethod>();
@@ -48,7 +52,7 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		method(this.emptyCallback);
 	}
 
-	public	void	PlayAnimation(string animationName, SimpleCallback callback) {
+	public	void	PlayAnimation(string animationName, EndTransitionCallback callback) {
 		if (!this.animations.ContainsKey(animationName)) {
 			callback();
 			return;
@@ -69,7 +73,7 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 	}
 
 	//private animation methods
-	private	void	gameStartAnimation(SimpleCallback callback) {
+	private	void	gameStartAnimation(EndTransitionCallback callback) {
 		float fadeTime = this.FadeInOut.fadeTime;
 		this.FadeInOut.gameObject.SetActive(true);
 		this.FadeInOut.FadeIn();
@@ -82,27 +86,44 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		case GameLevel.GameColor.Blue:
 			this.MatAnimator.FadeTo("Player", GameLevel.Instance.Blue);
 
+			this.Red.shader = this.FadedColorShader;
+			this.Green.shader = this.FadedColorShader;
+
+
 			this.MatAnimator.FadeTo("Red", GameLevel.Instance.FadedRed);
 			this.MatAnimator.FadeTo("Green", GameLevel.Instance.FadedGreen);
-			this.MatAnimator.FadeTo("Blue", GameLevel.Instance.Blue);
+			this.MatAnimator.FadeTo("Blue", GameLevel.Instance.Blue, this.TransitionToSolidEnded);
 			break;
 		case GameLevel.GameColor.Red:
 			this.MatAnimator.FadeTo("Player", GameLevel.Instance.Red);
 
-			this.MatAnimator.FadeTo("Red", GameLevel.Instance.Red);
+			this.Green.shader = this.FadedColorShader;
+			this.Blue.shader = this.FadedColorShader;
+			
+
+			this.MatAnimator.FadeTo("Red", GameLevel.Instance.Red, this.TransitionToSolidEnded);
 			this.MatAnimator.FadeTo("Green", GameLevel.Instance.FadedGreen);
 			this.MatAnimator.FadeTo("Blue", GameLevel.Instance.FadedBlue);
 			break;
 		case GameLevel.GameColor.Green:
 			this.MatAnimator.FadeTo("Player", GameLevel.Instance.Green);
 
+			this.Red.shader = this.FadedColorShader;
+			this.Blue.shader = this.FadedColorShader;
+
+
 			this.MatAnimator.FadeTo("Red", GameLevel.Instance.FadedRed);
-			this.MatAnimator.FadeTo("Green", GameLevel.Instance.Green);
+			this.MatAnimator.FadeTo("Green", GameLevel.Instance.Green, this.TransitionToSolidEnded);
 			this.MatAnimator.FadeTo("Blue", GameLevel.Instance.FadedBlue);
 			break;
 		default:
 			break;
 		}
+	}
+
+	private	void	TransitionToSolidEnded(Material mat) {
+		Debug.Log(mat.name);
+		mat.shader = this.SolidColorShader;
 	}
 
 	private void emptyCallback() {
