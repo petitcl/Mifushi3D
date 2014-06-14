@@ -10,6 +10,7 @@ public class ColorCharacterController : MonoBehaviour {
 	public	Transform	PickObjectSpawn;
 	public	float		PushPower = 5.0f;
 	public	CharacterController charCtrl;
+	public	float		ColorChangeCooldown = 0.3f;
 
 	//public properties
 	public	GameObject	PickedObject { get; private set; }
@@ -17,13 +18,16 @@ public class ColorCharacterController : MonoBehaviour {
 	
 	//private attributes
 	private	LayerMask	defaultPlatformHit;
+	private	float		lastColorChangeTime = 0.0f;
 	
 	//public methods
 	public	void	ChangeColor(GameLevel.GameColor newColor) {
 		if (this.CurrentColor == newColor) {
 			return;
 		}
+		if (Time.time < this.lastColorChangeTime + this.ColorChangeCooldown) return; 
 		this.SetupColor(newColor);
+		this.lastColorChangeTime = Time.time;
 		//Tick to generate collision detection
 		charCtrl.Move(Vector3.forward * 0.00001f);
 	}
