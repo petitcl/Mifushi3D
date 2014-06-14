@@ -19,7 +19,7 @@ public class MainMenuScript : MonoBehaviour {
 	// Use this for initialization
 	public void SelectUp () {
 		indexSelected--;
-		SoundManager.Instance.Play(SoundManager.GameEvent.SelectMenu);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.SelectMenu);
 		if(indexSelected < 0) indexSelected = menuItemList.Length - 1;
 		UpdateMenu();
 	}
@@ -27,7 +27,7 @@ public class MainMenuScript : MonoBehaviour {
 	// Update is called once per frame
 	public void SelectDown () {
 		indexSelected++;
-		SoundManager.Instance.Play(SoundManager.GameEvent.SelectMenu);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.SelectMenu);
 		if(indexSelected > menuItemList.Length - 1) indexSelected = 0;
 		UpdateMenu();
 	}

@@ -135,7 +135,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		if (this.lastCheckPoint && checkPoint.order <= this.lastCheckPoint.order) {
 			return;
 		}
-		SoundManager.Instance.Play(SoundManager.GameEvent.NewCheckpoint);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.NewCheckpoint);
 		this.lastCheckPoint = checkPoint;
 		Runity.Messenger<int>.Broadcast("Player.WalkedOnCheckPoint", checkPoint.order,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);

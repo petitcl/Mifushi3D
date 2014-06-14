@@ -11,17 +11,9 @@ public class Mifushi : MonoBehaviour {
 
 	void Awake () {
 		if (Mifushi.SoundManagerInst == null) {
-			Mifushi.SoundManagerInst = GameObject.Instantiate(SoundManagerPrefab);
+			Mifushi.SoundManagerInst = GameObject.Instantiate(SoundManagerPrefab) as SoundManager;
+			Object.DontDestroyOnLoad(Mifushi.SoundManagerInst);
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-		SoundManagerInst.Play(
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
