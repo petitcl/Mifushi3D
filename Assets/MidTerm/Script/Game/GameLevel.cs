@@ -105,7 +105,8 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		this.Started = false;
 		this.Finished = false;
 		this.Paused = false;
-		if (this.GameScene == null) GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
+//		if (this.GameScene == null) GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
+		GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
 	//public methods

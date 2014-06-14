@@ -17,13 +17,25 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 	//private attributes
 	private	int		dieCount = 0;
 
+	public	GameObject			KeysHint;
 	public	List<ToolTipDatas>	OnRespawnLabels = new List<ToolTipDatas>();
 	public	List<ToolTipDatas>	ToolTips = new List<ToolTipDatas>();
+
 	#region IGameScene implementation
 
 	//public methods
 	public	void			ProcessEvent(string eventName) {
-		this.DisplayToolTip(eventName);
+		switch (eventName) {
+		case  "DisplayKeysHint":
+			this.KeysHint.SetActive(true);
+			break;
+		case  "HideKeysHint":
+			this.KeysHint.SetActive(false);
+			break;
+		default:
+			break;
+		}
+//		this.DisplayToolTip(eventName);
 	}
 
 	#endregion
@@ -62,8 +74,9 @@ public class TutorialScene : MonoBehaviour, IGameScene {
 	//private Unity callbacks
 	private	void		Start() {
 		GameLevel.Instance.GameScene = this;
-		this.StartCoroutine(this.StartScene());
-		Runity.Messenger<string>.AddListener("Player.Dead", this.onPlayerDied);
+//		GameLevel.Instance.StartGame();
+//		this.StartCoroutine(this.StartScene());
+//		Runity.Messenger<string>.AddListener("Player.Dead", this.onPlayerDied);
 	}
 
 	//private Runity callbacks
