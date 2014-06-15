@@ -10,6 +10,11 @@ public class ScoreManager : MonoBehaviour {
 	IDictionary<float, List<string>> m_scores = new Dictionary<float, List<string>>();
 	// Use this for initialization
 	void Awake () {
+		loadScores();
+		Save();
+		loadScores();
+	}
+	void loadScores(){
 		for (int l_index = 1; l_index <= 10; l_index++) {
 			float l_score = PlayerPrefs.GetFloat("Score" + l_index.ToString() + "Value");
 			string l_username = PlayerPrefs.GetString("Score" + l_index.ToString() + "Name");
@@ -26,7 +31,6 @@ public class ScoreManager : MonoBehaviour {
 				}
 			}
 		}
-		Save();
 	}
 
 	void Start () {
