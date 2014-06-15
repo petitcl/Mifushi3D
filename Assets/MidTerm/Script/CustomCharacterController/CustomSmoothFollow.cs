@@ -16,7 +16,7 @@ public class CustomSmoothFollow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void FixedUpdate () {
 		if (target == null)
 			return;
 

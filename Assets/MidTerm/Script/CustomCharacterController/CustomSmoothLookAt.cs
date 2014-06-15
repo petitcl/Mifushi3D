@@ -11,7 +11,8 @@ public class CustomSmoothLookAt : MonoBehaviour {
 		if(target == null)
 			return;
 
-
+		Debug.DrawLine(target.position, transform.position, Color.yellow);
+		//transform.LookAt(target.position);
 		Quaternion rotation = Quaternion.LookRotation(target.position - transform.position);
 		Vector3 euler = new Vector3();
 		euler.x = x ? rotation.eulerAngles.x : transform.rotation.eulerAngles.x;

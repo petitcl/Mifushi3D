@@ -6,7 +6,7 @@ public class ColorCharacterController : MonoBehaviour {
 	//public attributes
 	public	GameLevel.GameColor	StartColor = GameLevel.GameColor.Default;
 	public	Material	playerMaterial;
-	public	LayerMask	PlayerCollisionMask;
+//	public	LayerMask	PlayerCollisionMask;
 	public	Transform	PickObjectSpawn;
 	public	float		PushPower = 5.0f;
 	public	CharacterController charCtrl;
@@ -77,7 +77,7 @@ public class ColorCharacterController : MonoBehaviour {
 	
 	//private Unity methods
 	private	void	Awake() {
-		this.defaultPlatformHit = Character_Motor.Instance.SlidingLayerMask;
+		this.defaultPlatformHit = this.gameObject.GetComponent<CharacterMotor>().SlidingLayerMask;
 	}
 
 	private	void	Start() {
@@ -107,7 +107,7 @@ public class ColorCharacterController : MonoBehaviour {
 		Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, layer2, true);
 		
 		//if we change controller, remove this line
-		Character_Motor.Instance.SlidingLayerMask = this.defaultPlatformHit | (1 << newCollisionLayer);
+		this.gameObject.GetComponent<CharacterMotor>().SlidingLayerMask = this.defaultPlatformHit | (1 << newCollisionLayer);
 	}
 
 	private	void	SetupColor(GameLevel.GameColor newColor) {
@@ -126,7 +126,7 @@ public class ColorCharacterController : MonoBehaviour {
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, GameLevel.Instance.RedLayerMask, true);
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, GameLevel.Instance.GreenLayerMask, true);
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, GameLevel.Instance.BlueLayerMask, true);
-			Character_Motor.Instance.SlidingLayerMask = this.defaultPlatformHit;
+			this.gameObject.GetComponent<CharacterMotor>().SlidingLayerMask = this.defaultPlatformHit;
 			
 			playerMaterial.color = GameLevel.Instance.White;
 			break;

@@ -2060,6 +2060,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
+      propertyPath: JumpImpulse
+      value: .349999994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
   m_RootGameObject: {fileID: 72675829}
