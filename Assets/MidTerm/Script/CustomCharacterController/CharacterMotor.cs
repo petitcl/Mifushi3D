@@ -11,7 +11,6 @@ public class CharacterMotor : MonoBehaviour {
 	private float JumpFallSpeed = 0;
 	private bool HasToJump = false;
 
-
 	private bool boost;
 	private float CurrentBoostMultiplcator = 1;
 	public float BoostMultiplicator = 2;
@@ -53,6 +52,7 @@ public class CharacterMotor : MonoBehaviour {
 		this.manager.animator.SetFloat("HorizontalSpeed", this.MoveVector.magnitude);
 		this.manager.animator.SetFloat("SpeedForward", this.MoveVector.x);
 		this.manager.animator.SetFloat("SpeedStraf", this.MoveVector.z);
+		this.manager.animator.SetBool("IsSliding", this.IsSliding);
 		this.Ctrl.Move(resultVector * Time.deltaTime);
 	}
 
