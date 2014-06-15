@@ -41,6 +41,10 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	public	GameObject	Player;
 
+	//ManageRagdoll
+	public	Animator	animator;
+	public	GameObject	ragdoll;
+
 	public	IGameScene	GameScene;
 
 	//public properties
@@ -144,10 +148,18 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
-	public	void	onPlayerWalkedOnDeadlyZone(DeadlyZone killer) {
+	IEnumerator		onPlayerDiedCoroutine(DeadlyZone killer) {
+
 		this.Player.GetComponent<ColorCharacterController>().Kill(killer);
 		Runity.Messenger<string>.Broadcast("Player.Dead", killer.gameObject.name,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
+		GameObject player = GameLevel.Instance.Player;
+		animator.enabled = false;
+		ragdoll.SetActive(true);
+		yield return new WaitForSeconds(1.0f);
+		animator.enabled = true;
+		ragdoll.SetActive(false);
+
 		Transform playerRespawnPoint;
 		if (this.lastCheckPoint == null) {
 			playerRespawnPoint = this.PlayerSpawnPoint;
@@ -155,6 +167,11 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			playerRespawnPoint = this.lastCheckPoint.transform;
 		}
 		this.Player.transform.position = playerRespawnPoint.position;
+	}
+
+	public	void	onPlayerWalkedOnDeadlyZone(DeadlyZone killer) {
+		this.StartCoroutine(this.onPlayerDiedCoroutine(killer));
+//		this.Player.GetComponent<ColorCharacterController>().Kill(killer);
 //		this.Player.GetComponent<Character_Manager>().ResetSpeed();
 	}
 
