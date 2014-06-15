@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace Runity {
@@ -7,7 +7,7 @@ namespace Runity {
 	public class MonoBehaviourExt : MonoBehaviour {
 		
 		//public types
-		public	delegate	void	SimpleCallback();
+		public	delegate	void	EndTransitionCallback();
 
 //		//public attributes
 //		public	string		timeLayerName = "default";
@@ -27,32 +27,32 @@ namespace Runity {
 //			}
 //		}
 
-		public	void		WaitForAnimation(Animation anim, SimpleCallback cb) {
+		public	void		WaitForAnimation(Animation anim, EndTransitionCallback cb) {
 			this.StartCoroutine(this._WaitForAnimation(anim, cb));
 		}
 		
-		public void			WaitForNSeconds(float time, SimpleCallback cb) {
+		public void			WaitForNSeconds(float time, EndTransitionCallback cb) {
 			this.StartCoroutine(this._WaitForNSeconds(time, cb));
 		}
 		
-		public void			WaitForSound(AudioSource source, SimpleCallback cb) {
+		public void			WaitForSound(AudioSource source, EndTransitionCallback cb) {
 			this.StartCoroutine(this._WaitForSound(source, cb));
 		}
 		
 		//private methods
-		private	IEnumerator	_WaitForAnimation(Animation anim, SimpleCallback cb) {
+		private	IEnumerator	_WaitForAnimation(Animation anim, EndTransitionCallback cb) {
 			do {
 		        yield return null;
 		    } while (anim.isPlaying);
 			cb();
 		}
 		
-		private IEnumerator	_WaitForNSeconds(float time, SimpleCallback cb) {
+		private IEnumerator	_WaitForNSeconds(float time, EndTransitionCallback cb) {
 			yield return new WaitForSeconds(time);
 			cb();
 		}
 		
-		private	IEnumerator	_WaitForSound(AudioSource source, SimpleCallback cb) {
+		private	IEnumerator	_WaitForSound(AudioSource source, EndTransitionCallback cb) {
 			do {
 		        yield return null;
 		    } while (source.isPlaying);

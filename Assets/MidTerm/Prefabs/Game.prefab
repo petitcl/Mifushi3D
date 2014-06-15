@@ -51,21 +51,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400006}
-  m_Layer: 0
-  m_Name: PlayerSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 1
@@ -176,7 +161,6 @@ Transform:
   m_Children:
   - {fileID: 400014}
   - {fileID: 400012}
-  - {fileID: 400006}
   m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
@@ -200,17 +184,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400012}
---- !u!4 &400006
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.9372406, y: -6.0254879, z: 1.77002704}
-  m_LocalScale: {x: 1, y: 1, z: .459534675}
-  m_Children: []
-  m_Father: {fileID: 400000}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -239,8 +212,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
-  m_LocalRotation: {x: 0, y: -.707082927, z: 0, w: .70713073}
-  m_LocalPosition: {x: -34.2355919, y: 178.213455, z: 396.105377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -254,8 +227,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
-  m_LocalRotation: {x: 0, y: -.707082927, z: 0, w: .70713073}
-  m_LocalPosition: {x: -108.851212, y: -8.56370544, z: -4.07886457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -443,20 +416,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Red: {r: .963235319, g: .626102984, b: .120404415, a: 1}
-  Green: {r: .128406152, g: .91911763, b: .39561221, a: 1}
-  Blue: {r: .148680776, g: .91911763, b: .855357289, a: 1}
+  Green: {r: .215686277, g: .643137276, b: 0, a: 1}
+  Blue: {r: 0, g: .588235319, b: 1, a: 1}
   White: {r: 1, g: 1, b: 1, a: .984313726}
   FadedRed: {r: .960784316, g: .694550395, b: .121568605, a: .443137258}
-  FadedGreen: {r: .129411757, g: .913725495, b: .524273157, a: .478431374}
+  FadedGreen: {r: .215686277, g: .647058845, b: 0, a: .478431374}
   FadedBlue: {r: .180392131, g: .61849916, b: .835294127, a: .470588237}
   RedLayerName: Physics_Red
   GreenLayerName: Physics_Green
   BlueLayerName: Physics_Blue
   PlayerLayerName: Player
   PlayerPrefab: {fileID: 100000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
-  PlayerSpawnPoint: {fileID: 400006}
+  PlayerSpawnPoint: {fileID: 0}
   Player: {fileID: 0}
-  pauseScreen: {fileID: 100012}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,6 +498,8 @@ MonoBehaviour:
   Green: {fileID: 2100000, guid: 8bdd58cb01006354eb112be108df9764, type: 2}
   Blue: {fileID: 2100000, guid: 4022554bf168c4f4586a1d1dabc21023, type: 2}
   White: {fileID: 2100000, guid: 2c72e633dcc3e2d428e18878a15820cf, type: 2}
+  SolidColorShader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  FadedColorShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

@@ -10,6 +10,7 @@ public class ColorCharacterController : MonoBehaviour {
 	public	Transform	PickObjectSpawn;
 	public	float		PushPower = 5.0f;
 	public	CharacterController charCtrl;
+	public	float		ColorChangeCooldown = 0.3f;
 
 	//public properties
 	public	GameObject	PickedObject { get; private set; }
@@ -17,20 +18,23 @@ public class ColorCharacterController : MonoBehaviour {
 	
 	//private attributes
 	private	LayerMask	defaultPlatformHit;
+	private	float		lastColorChangeTime = 0.0f;
 	
 	//public methods
 	public	void	ChangeColor(GameLevel.GameColor newColor) {
 		if (this.CurrentColor == newColor) {
 			return;
 		}
+		if (Time.time < this.lastColorChangeTime + this.ColorChangeCooldown) return; 
 		this.SetupColor(newColor);
+		this.lastColorChangeTime = Time.time;
 		//Tick to generate collision detection
 		charCtrl.Move(Vector3.forward * 0.00001f);
 	}
 	
 	public	void	Kill(DeadlyZone killer) {
 		
-		SoundManager.Instance.Play(SoundManager.GameEvent.PlayerDie);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.PlayerDie);
 	}
 
 	public	void	PickObject(GameObject go) {
@@ -44,7 +48,7 @@ public class ColorCharacterController : MonoBehaviour {
 		this.PickedObject = go;
 
 		Runity.Messenger<GameObject>.Broadcast("Player.PickedObject", go, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
-		SoundManager.Instance.Play(SoundManager.GameEvent.PickObject);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.PickObject);
 	}
 
 	public	void	PickObject() {
@@ -67,7 +71,7 @@ public class ColorCharacterController : MonoBehaviour {
 		obj.OnDrop(this.gameObject);
 		Runity.Messenger<GameObject>.Broadcast("Player.DroppedObject", this.PickedObject, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		this.PickedObject = null;
-		SoundManager.Instance.Play(SoundManager.GameEvent.DropObject);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.DropObject);
 	}
 	
 	

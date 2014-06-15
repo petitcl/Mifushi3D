@@ -89,7 +89,8 @@ public class GameLevel : Runity.MonoBehaviourExt {
 				as GameObject;
 		} else {
 			this.Player = player;
-			this.Player.transform.position = this.PlayerSpawnPoint.position;
+			if (this.PlayerSpawnPoint) this.Player.transform.position = this.PlayerSpawnPoint.position;
+			
 		}
 		this.Player.GetComponent<Character_Manager>().CanMove = false;
 		this.Started = false;
@@ -104,7 +105,8 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		this.Started = false;
 		this.Finished = false;
 		this.Paused = false;
-		if (this.GameScene == null) GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
+//		if (this.GameScene == null) GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
+		GameAnimator.Instance.PlayAnimation("Game.Start", this.onStartAnimationDone);
 	}
 
 	//public methods
@@ -124,7 +126,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		this.Finished = true;
 
 		this.Player.GetComponent<Character_Manager>().CanMove = false;
-
+		
 		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		GameAnimator.Instance.PlayAnimation("Game.End");
 
@@ -135,7 +137,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		if (this.lastCheckPoint && checkPoint.order <= this.lastCheckPoint.order) {
 			return;
 		}
-		SoundManager.Instance.Play(SoundManager.GameEvent.NewCheckpoint);
+		Mifushi.SoundManagerInst.Play(SoundManager.GameEvent.NewCheckpoint);
 		this.lastCheckPoint = checkPoint;
 		Runity.Messenger<int>.Broadcast("Player.WalkedOnCheckPoint", checkPoint.order,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
@@ -205,6 +207,23 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		default:
 			//TODO : fix this thing (flemme)
 			return this.PlayerLayerMask;
+		}
+	}
+
+	public	Color	GameColorToFadedColor(GameColor color) {
+		GameColor currentColor = this.Player.GetComponent<ColorCharacterController>().CurrentColor;
+		switch (color) {
+		case GameColor.Red:
+			if (currentColor == GameColor.Red) return this.Red;
+			else return this.FadedRed;
+		case GameColor.Green:
+			if (currentColor == GameColor.Green) return this.Green;
+			else return this.FadedGreen;
+		case GameColor.Blue:
+			if (currentColor == GameColor.Blue) return this.Blue;
+			else return this.FadedBlue;
+		default:
+			return this.White;
 		}
 	}
 

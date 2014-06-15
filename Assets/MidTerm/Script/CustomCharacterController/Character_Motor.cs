@@ -26,6 +26,7 @@ public class Character_Motor : MonoBehaviour {
 	// Use this for initialization
 	private void Awake () {
 		Instance = this;
+		Application.targetFrameRate = 100;
 	}
 
 	// Update is called once per frame
@@ -43,7 +44,9 @@ public class Character_Motor : MonoBehaviour {
 
 		this.Slide();
 		this.ApplyGravity();
-		Character_Manager.CharacterControllerComponent.Move(this.MoveVector * Time.timeScale);
+		if (Time.timeScale > 0.0f) {
+			Character_Manager.CharacterControllerComponent.Move(this.MoveVector);
+		}
 	}
 
 	private void Slide() {
@@ -109,10 +112,11 @@ public class Character_Motor : MonoBehaviour {
 	private void ApplyGravity() {
 		if (!Character_Manager.CharacterControllerComponent.isGrounded) {
 			if (Mathf.Abs(MoveVector.y) < this.TerminalVelocity) {
-				MoveVector.y += Character_Manager.Instance.Gravity * Time.fixedDeltaTime;
+				MoveVector.y += Character_Manager.Instance.Gravity * Time.deltaTime;
 			}
-		} else if (!Character_Manager.Instance.isJumping()) {
-			MoveVector.y = -0.1f;
+		}
+		else if (!Character_Manager.Instance.isJumping()) {
+			MoveVector.y = -1.0f;
 		}
 	}
 
@@ -122,7 +126,7 @@ public class Character_Motor : MonoBehaviour {
 		}
 		if (Character_Manager.CharacterControllerComponent.isGrounded) {
 			Character_Manager.Instance.VerticalVelocity = this.JumpImpulse;
-			SoundManager.Instance.Play(SoundManager.GameEvent.PlayerJump);
+//			SoundManager.Instance.Play(SoundManager.GameEvent.PlayerJump);
 		}
 	}
 
