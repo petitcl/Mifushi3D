@@ -16,6 +16,9 @@ public class ScoreManager : MonoBehaviour {
 			string[] l_array = l_line.Split(" "[0]);
 			float l_score = float.Parse(l_array[1]);
 			string l_username = l_array[0];
+			if (!m_scores.ContainsKey(l_score)) {
+				m_scores.Add(new KeyValuePair<float, List<string>>(l_score, new List<string>()));
+			}
 			m_scores[l_score].Add(l_username);
 		}
 		// load scores;
@@ -36,7 +39,6 @@ public class ScoreManager : MonoBehaviour {
 	void Save() {
 		// save scores;
 		int num_max = 10;
-		Debug.Log(Application.dataPath + "/" + m_filename);
 		StreamWriter l_writer;
 		if (!File.Exists(Application.dataPath + "/" + m_filename)) {
 			l_writer = File.CreateText(Application.dataPath + "/" + m_filename);
@@ -77,6 +79,9 @@ public class ScoreManager : MonoBehaviour {
 	void AddScoreTo(string _username)
 	{
 		float l_score = this.gameObject.GetComponent<Clock> ().timer;
+		if (!m_scores.ContainsKey(l_score)) {
+			m_scores.Add(new KeyValuePair<float, List<string>>(l_score, new List<string>()));
+		}
 		m_scores [l_score].Add(_username);
 		Save ();
 	}

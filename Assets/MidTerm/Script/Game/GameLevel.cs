@@ -190,7 +190,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		if (this.Paused || this.Finished) {
 //			GameLevel._instance = null;
 //			GameObject.DestroyImmediate(this.gameObject);
-			Application.LoadLevel("MainMenu");
+			//Application.LoadLevel("MainMenu");
 		}
 	}
 
