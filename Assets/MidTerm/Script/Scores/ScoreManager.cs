@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 public class ScoreManager : MonoBehaviour {
 	public TextMesh[] scores_usernames = new TextMesh[10];
 	public TextMesh[] scores = new TextMesh[10];
-	IDictionary<float, List<string>> m_scores = new SortedDictionary<float, List<string>>();
+	IDictionary<float, List<string>> m_scores = new Dictionary<float, List<string>>();
 	// Use this for initialization
 	void Awake () {
 		for (int l_index = 1; l_index <= 10; l_index++) {
@@ -25,6 +26,7 @@ public class ScoreManager : MonoBehaviour {
 				}
 			}
 		}
+		Save();
 	}
 
 	void Start () {
@@ -55,7 +57,7 @@ public class ScoreManager : MonoBehaviour {
 	void Save() {
 		// save scores;
 		int l_index = 1;
-		foreach (KeyValuePair<float, List<string>> l_list in m_scores) {
+		foreach (KeyValuePair<float, List<string>> l_list in m_scores.OrderBy(kvp => kvp.Key)) {
 			float l_score = l_list.Key;
 			foreach (string l_name in l_list.Value) {
 				Debug.Log("Score" + l_index.ToString() + "Value");
