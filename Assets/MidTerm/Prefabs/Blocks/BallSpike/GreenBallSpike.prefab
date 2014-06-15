@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 33: {fileID: 3300002}
   - 23: {fileID: 2300002}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Cone_011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,10 +44,10 @@ GameObject:
   - 4: {fileID: 400004}
   - 95: {fileID: 9500000}
   - 135: {fileID: 13500000}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  m_Layer: 9
-  m_Name: RedBallSpike
+  - 114: {fileID: 11400002}
+  m_Layer: 10
+  m_Name: GreenBallSpike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.7656488, y: 7.82693958, z: -88.3193054}
+  m_LocalPosition: {x: -13.5305719, y: 7.82693958, z: -88.3606567}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400002}
@@ -100,7 +100,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3c6d9a10ce4793048bd40c75bd4129a0, type: 2}
+  - {fileID: 2100000, guid: 8bdd58cb01006354eb112be108df9764, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -121,7 +121,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 3c6d9a10ce4793048bd40c75bd4129a0, type: 2}
+  - {fileID: 2100000, guid: 8bdd58cb01006354eb112be108df9764, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -166,9 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a108a9f3f2dc14e99a39d1c221538d, type: 3}
+  m_Script: {fileID: 11500000, guid: 089f04b90cdbcac4abd64cd2b05e9db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartColor: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,10 +178,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089f04b90cdbcac4abd64cd2b05e9db5, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a108a9f3f2dc14e99a39d1c221538d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartColor: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

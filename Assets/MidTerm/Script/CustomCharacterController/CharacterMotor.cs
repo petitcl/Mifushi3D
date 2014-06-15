@@ -11,7 +11,6 @@ public class CharacterMotor : MonoBehaviour {
 	private float JumpFallSpeed = 0;
 	private bool HasToJump = false;
 
-
 	private bool boost;
 	private float CurrentBoostMultiplcator = 1;
 	public float BoostMultiplicator = 2;
@@ -23,6 +22,7 @@ public class CharacterMotor : MonoBehaviour {
 	public float BackwardCoefSpeed = 1;
 
 	private Vector3 MoveVector = new Vector3();
+	private Vector3 SlideVector = new Vector3();
 
 	public float SlidingCoefSpeed = 1;
 	public LayerMask	SlidingLayerMask;
@@ -53,6 +53,8 @@ public class CharacterMotor : MonoBehaviour {
 		this.manager.animator.SetFloat("HorizontalSpeed", this.MoveVector.magnitude);
 		this.manager.animator.SetFloat("SpeedForward", this.MoveVector.x);
 		this.manager.animator.SetFloat("SpeedStraf", this.MoveVector.z);
+		this.manager.animator.SetBool("IsSliding", this.IsSliding);
+		this.manager.animator.SetFloat("SlidingSpeed", this.SlideVector.magnitude);
 		this.Ctrl.Move(resultVector * Time.deltaTime);
 	}
 
@@ -100,13 +102,13 @@ public class CharacterMotor : MonoBehaviour {
 		}
 		//TODO mettre en parametre les coefs de pente
 		if (this.SlideHit.normal.y < 0.99f) {
-			Vector3 slideVector = CreateSlideVector(this.SlideHit.normal);
-			slideVector *= this.SlidingCoefSpeed;
-			Debug.DrawRay(this.transform.position, slideVector, Color.red);
+			this.SlideVector = CreateSlideVector(this.SlideHit.normal);
+			this.SlideVector *= this.SlidingCoefSpeed;
+			Debug.DrawRay(this.transform.position, this.SlideVector, Color.red);
 			if (this.SlideHit.normal.y < 0.7f) {
-				resultVector = slideVector;
+				resultVector = this.SlideVector;
 			} else {
-				resultVector += slideVector;
+				resultVector += this.SlideVector;
 			}
 			this.IsSliding = true;
 		} else {
