@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100000
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -139,7 +139,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100016
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -156,7 +156,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100018
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -178,10 +178,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.7962875, y: 1.30114067, z: -.00382713228}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .576347411, y: -1.78526306, z: 5.67505886e-05}
+  m_LocalScale: {x: .102261536, y: .102261536, z: .102261536}
   m_Children: []
-  m_Father: {fileID: 400002}
+  m_Father: {fileID: 400010}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -189,12 +189,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.45887852, y: -1.9183197, z: .000446689286}
-  m_LocalScale: {x: .102261536, y: .102261536, z: .102261536}
-  m_Children:
-  - {fileID: 400018}
-  - {fileID: 400000}
-  - {fileID: 400016}
+  m_LocalPosition: {x: -6.07815266, y: -1.9183197, z: .000422295125}
+  m_LocalScale: {x: .00170046755, y: .00170046755, z: .00170046755}
+  m_Children: []
   m_Father: {fileID: 400010}
 --- !u!4 &400004
 Transform:
@@ -242,9 +239,12 @@ Transform:
   - {fileID: 400008}
   - {fileID: 400004}
   - {fileID: 400002}
+  - {fileID: 400018}
+  - {fileID: 400016}
   - {fileID: 400012}
   - {fileID: 400014}
   - {fileID: 400006}
+  - {fileID: 400000}
   m_Father: {fileID: 0}
 --- !u!4 &400012
 Transform:
@@ -274,11 +274,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
-  m_LocalRotation: {x: 0, y: -2.86348657e-12, z: 0, w: 1}
-  m_LocalPosition: {x: 68.5018539, y: 8.15063095, z: -.00724839419}
-  m_LocalScale: {x: .668501377, y: .668501556, z: .668501377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .546238005, y: -1.08482361, z: -.000293112942}
+  m_LocalScale: {x: .0683619827, y: .0683619976, z: .0683619827}
   m_Children: []
-  m_Father: {fileID: 400002}
+  m_Father: {fileID: 400010}
 --- !u!4 &400018
 Transform:
   m_ObjectHideFlags: 1
@@ -286,10 +286,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.2807045, y: 8.15063095, z: -.00572925759}
-  m_LocalScale: {x: .668502569, y: .668503582, z: .668502569}
+  m_LocalPosition: {x: -2.30916619, y: -1.08482361, z: -.000100861173}
+  m_LocalScale: {x: .00822310336, y: .00822311267, z: .00822310336}
   m_Children: []
-  m_Father: {fileID: 400002}
+  m_Father: {fileID: 400010}
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -521,7 +521,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4278224127
 --- !u!102 &10200002
 TextMesh:
   serializedVersion: 3
@@ -536,7 +536,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 1000
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
@@ -563,7 +563,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281856122
 --- !u!102 &10200006
 TextMesh:
   serializedVersion: 3
@@ -626,7 +626,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4293357865
 --- !u!102 &10200012
 TextMesh:
   serializedVersion: 3
@@ -634,14 +634,14 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100018}
-  m_Text: 'Score:'
+  m_Text: 'Score :'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 1000
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}

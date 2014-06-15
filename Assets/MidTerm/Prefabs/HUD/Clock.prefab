@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.15510225, y: -1.75349426, z: 9.68052959}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .0252311826, y: .0252311826, z: .0252311826}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &2300000
@@ -65,7 +65,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 1000
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 434ad2a446e5d4243b0aa0a9ea598ff5, type: 3}
@@ -96,6 +96,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82239a0592ee2e47a0b703a579d5d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scores_usernames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scores:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
