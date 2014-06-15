@@ -18,7 +18,7 @@ public class MovingPlatform : MonoBehaviour {
 		if (!this.enabledAtStart) this.enabled = false;
 	}
 
-	private void	Update() {
+	private void	FixedUpdate() {
 		float step = this.speed * Time.deltaTime;
 
 		Transform destination = this.flip ? this.endPosition : this.startPosition;

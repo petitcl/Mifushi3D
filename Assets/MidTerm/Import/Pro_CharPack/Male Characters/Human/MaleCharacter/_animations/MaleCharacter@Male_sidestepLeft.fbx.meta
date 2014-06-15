@@ -188,13 +188,13 @@ ModelImporter:
       name: Male_sidestepLeft
       takeName: sidestepLeft
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
