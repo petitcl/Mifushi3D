@@ -25,7 +25,6 @@ abstract public class Selectable : MonoBehaviour {
 		if (icon != null) icon.SetActive(false);
 		textMesh.color = unselectedColor;
 	}
-
+	
 	abstract public void Run();
-
 }

@@ -4,27 +4,30 @@ using System.Collections.Generic;
 using System.IO;
 
 public class ScoreManager : MonoBehaviour {
+	public TextMesh[] scores = new TextMesh[10];
 	IDictionary<float, List<string>> m_scores = new SortedDictionary<float, List<string>>();
 	// Use this for initialization
-	string m_filename = "score.txt";
 	void Awake () {
-		if (!File.Exists (Application.dataPath + "/" + m_filename))
-			return;
-		StreamReader l_reader = new StreamReader(Application.dataPath + "/" + m_filename);
-		while (!l_reader.EndOfStream) {
-			string l_line = l_reader.ReadLine();
-			string[] l_array = l_line.Split(" "[0]);
-			float l_score = float.Parse(l_array[1]);
-			string l_username = l_array[0];
-			if (!m_scores.ContainsKey(l_score)) {
-				m_scores.Add(new KeyValuePair<float, List<string>>(l_score, new List<string>()));
+		for (int l_index = 1; l_index <= 10; l_index++) {
+			float l_score = PlayerPrefs.GetFloat("Score" + l_index.ToString() + "Value");
+			string l_username = PlayerPrefs.GetString("Score" + l_index.ToString() + "Name");
+			if (scores[l_index - 1]) {
+				scores[l_index - 1].text = "";
+				if (l_score > 0) {
+					if (!m_scores.ContainsKey(l_score)) {
+						m_scores.Add(new KeyValuePair<float, List<string>>(l_score, new List<string>()));
+					}
+					m_scores[l_score].Add(l_username);
+					scores[l_index - 1].text = l_username + " " + l_score.ToString();
+				}
 			}
-			m_scores[l_score].Add(l_username);
 		}
-		// load scores;
 	}
 
 	void Start () {
+		if (!this.gameObject.GetComponent<Clock> ()) {
+			return ;
+		}
 		Runity.Messenger.AddListener("Game.Start", this.ClockStart);
 		Runity.Messenger.AddListener("Game.Pause", this.ClockPause);
 		Runity.Messenger.AddListener("Game.Resume", this.ClockResume);
@@ -34,6 +37,9 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!this.gameObject.GetComponent<Clock> ()) {
+			return ;
+		}
 		GameObject obj = GameObject.Find("score_value");
 		Debug.Log("test1");
 		if (obj == null) {
@@ -45,26 +51,21 @@ public class ScoreManager : MonoBehaviour {
 	}
 	void Save() {
 		// save scores;
-		int num_max = 10;
-		StreamWriter l_writer;
-		if (!File.Exists(Application.dataPath + "/" + m_filename)) {
-			l_writer = File.CreateText(Application.dataPath + "/" + m_filename);
-		}
-		else {
-			l_writer = new StreamWriter(Application.dataPath + "/" + m_filename);
-		}
+		int l_index = 1;
 		foreach (KeyValuePair<float, List<string>> l_list in m_scores) {
 			float l_score = l_list.Key;
-			foreach (string name in l_list.Value) {
-				l_writer.WriteLine("{0} {1}", name, l_score);
-				num_max--;
-				if (num_max <= 0) {
-					l_writer.Close();
+			foreach (string l_name in l_list.Value) {
+				Debug.Log("Score" + l_index.ToString() + "Value");
+				PlayerPrefs.SetFloat("Score" + l_index.ToString() + "Value", l_score);
+				PlayerPrefs.SetString("Score" + l_index.ToString() + "Name", l_name);
+				l_index++;
+				if (l_index > 10) {
+					PlayerPrefs.Save();
 					return ;
 				}
 			}
 		}
-		l_writer.Close();
+		PlayerPrefs.Save();
 	}
 
 	void ClockStart()
