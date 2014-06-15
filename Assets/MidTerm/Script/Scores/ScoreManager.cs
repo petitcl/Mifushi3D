@@ -34,6 +34,13 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		GameObject obj = GameObject.Find("score_value");
+		Debug.Log("test1");
+		if (obj == null) {
+			return ;
+		}
+		Debug.Log("test2");
+		obj.GetComponent<TextMesh>().text = this.gameObject.GetComponent<Clock> ().timer.ToString();
 		
 	}
 	void Save() {
