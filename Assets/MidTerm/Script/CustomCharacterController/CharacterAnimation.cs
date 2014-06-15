@@ -3,9 +3,11 @@ using System.Collections;
 
 public class CharacterAnimation : MonoBehaviour {
 
+	public Animator animator;
+
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -18,7 +20,7 @@ public class CharacterAnimation : MonoBehaviour {
 	}
 
 	public void Jump() {
-		Debug.Log ("CharacterAnimation.Jump()");
+		animator.SetBool("IsJumping", true);
 	}
 
 }

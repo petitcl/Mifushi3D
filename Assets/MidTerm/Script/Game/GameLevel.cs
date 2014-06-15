@@ -85,14 +85,15 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 		if (player == null) {
 			Debug.Log("GameLevel.Awake: Player object not found, creating it!");
-			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
-				as GameObject;
+//			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Character_Motor.MODEL_3DSMAX)
+			this.Player = GameObject.Instantiate(this.PlayerPrefab, this.PlayerSpawnPoint.position, Quaternion.identity)
+					as GameObject;
 		} else {
 			this.Player = player;
 			if (this.PlayerSpawnPoint) this.Player.transform.position = this.PlayerSpawnPoint.position;
 			
 		}
-		this.Player.GetComponent<Character_Manager>().CanMove = false;
+//		this.Player.GetComponent<CharacterManager>().CanMove = false;
 		this.Started = false;
 		this.Finished = false;
 		this.Paused = false;
@@ -116,7 +117,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 
 
-		this.Player.GetComponent<Character_Manager>().CanMove = true;
+//		this.Player.GetComponent<Character_Manager>().CanMove = true;
 
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
@@ -125,7 +126,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		if (this.Finished) return;
 		this.Finished = true;
 
-		this.Player.GetComponent<Character_Manager>().CanMove = false;
+//		this.Player.GetComponent<Character_Manager>().CanMove = false;
 		
 		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		GameAnimator.Instance.PlayAnimation("Game.End");

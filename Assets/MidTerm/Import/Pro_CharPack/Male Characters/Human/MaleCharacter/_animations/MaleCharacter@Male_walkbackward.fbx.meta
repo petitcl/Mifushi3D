@@ -166,6 +166,7 @@ ModelImporter:
     3300002: Male_LOD1
     3300004: Male_LOD2
     7400000: walkbackward
+    9500000: //RootNode
     11100000: //RootNode
     20500000: //RootNode
   materials:
@@ -176,7 +177,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -221,6 +222,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   additionalBone: 0
   userData: 
