@@ -50,7 +50,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .963235319, g: .626102984, b: .120404415, a: 1}
+        second: {r: .265620917, g: .642091513, b: .00810457487, a: 1}
       data:
         first:
           name: _OutlineColor
