@@ -2463,7 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ctrl: {fileID: 0}
-  JumpForce: 20
+  JumpForce: 17
   GravityForce: -1
   BoostMultiplicator: 2
   BoostSmooth: 2
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   StrafCoefSpeed: 10
   ForwardCoefSpeed: 10
   BackwardCoefSpeed: 5
-  SlidingCoefSpeed: 10
+  SlidingCoefSpeed: 20
   SlidingLayerMask:
     serializedVersion: 2
     m_Bits: 4294967039
