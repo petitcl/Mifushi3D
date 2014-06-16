@@ -50,6 +50,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: SlidingSpeed
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -134,6 +140,10 @@ Transition:
   - m_ConditionMode: 1
     m_ConditionEvent: IsSliding
     m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 3
+    m_ConditionEvent: SlidingSpeed
+    m_EventTreshold: .100000001
     m_ExitTime: .899999976
   m_Atomic: 1
   m_Solo: 0
@@ -429,9 +439,13 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110214361}
+      first: {fileID: 110248226}
       second:
-      - {fileID: 110152383}
+      - {fileID: 110163698}
+    data:
+      first: {fileID: 110231197}
+      second:
+      - {fileID: 110143045}
     data:
       first: {fileID: 0}
       second:
@@ -458,13 +472,9 @@ StateMachine:
       second:
       - {fileID: 110172717}
     data:
-      first: {fileID: 110231197}
+      first: {fileID: 110214361}
       second:
-      - {fileID: 110143045}
-    data:
-      first: {fileID: 110248226}
-      second:
-      - {fileID: 110163698}
+      - {fileID: 110152383}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -108, y: 168, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
