@@ -154,9 +154,18 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		Runity.Messenger<string>.Broadcast("Player.Dead", killer.gameObject.name,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		GameObject player = GameLevel.Instance.Player;
+
+		GameColor pcolor = player.GetComponent<ColorCharacterController>().CurrentColor;
+		Debug.Log(killer.gameObject.name);
+		if (killer.InsideBlock) {
+			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), true);
+		}
+
 		animator.enabled = false;
 		ragdoll.SetActive(true);
+
 		yield return new WaitForSeconds(1.0f);
+
 		animator.enabled = true;
 		ragdoll.SetActive(false);
 
@@ -167,6 +176,18 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			playerRespawnPoint = this.lastCheckPoint.transform;
 		}
 		this.Player.transform.position = playerRespawnPoint.position;
+
+//		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForFixedUpdate();
+
+		if (killer.InsideBlock) {
+			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), false);
+		}
+		//		yield return new WaitForSeconds(1.0f);
+		
+
+//		animator.enabled = true;
+//		ragdoll.SetActive(false);
 	}
 
 	public	void	onPlayerWalkedOnDeadlyZone(DeadlyZone killer) {
