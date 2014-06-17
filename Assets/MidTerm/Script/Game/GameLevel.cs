@@ -19,7 +19,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			return GameLevel._instance;
 		}
 	}
-
+		
 	//public attributes
 	public	Color	Red;
 	public	Color	Green;
@@ -164,13 +164,16 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			//Physics.IgnoreCollision(player.GetComponent<CharacterController>(), killer.gameObject.collider, true);
 		}
 
+		player.GetComponent<CharacterInput>().enabled = false;
 		animator.enabled = false;
 		ragdoll.SetActive(true);
 
 		yield return new WaitForSeconds(1.0f);
 
-		animator.enabled = true;
 		ragdoll.SetActive(false);
+		animator.enabled = true;
+		player.GetComponent<CharacterInput>().enabled = true;
+
 
 		Transform playerRespawnPoint;
 		if (this.lastCheckPoint == null) {
