@@ -98,7 +98,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 			if (this.PlayerSpawnPoint) this.Player.transform.position = this.PlayerSpawnPoint.position;
 			
 		}
-//		this.Player.GetComponent<CharacterManager>().CanMove = false;
+		this.Player.GetComponent<CharacterInput>().enabled = false;
 		this.Started = false;
 		this.Finished = false;
 		this.Paused = false;
@@ -122,7 +122,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 
 
-//		this.Player.GetComponent<Character_Manager>().CanMove = true;
+		this.Player.GetComponent<CharacterInput>().enabled = true;
 
 		Runity.Messenger.Broadcast("Game.Start", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
@@ -130,12 +130,9 @@ public class GameLevel : Runity.MonoBehaviourExt {
 	public	void	EndGame() {
 		if (this.Finished) return;
 		this.Finished = true;
-
-//		this.Player.GetComponent<Character_Manager>().CanMove = false;
-		
+		this.Player.GetComponent<CharacterInput>().enabled = false;
 		Runity.Messenger.Broadcast("Game.End", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		GameAnimator.Instance.PlayAnimation("Game.End");
-
 		Debug.Log("Game.End");
 	}
 
@@ -155,16 +152,15 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		this.Player.GetComponent<ColorCharacterController>().Kill(killer);
 		Runity.Messenger<string>.Broadcast("Player.Dead", killer.gameObject.name,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
-		GameObject player = GameLevel.Instance.Player;
 
-		GameColor pcolor = player.GetComponent<ColorCharacterController>().CurrentColor;
+		GameColor pcolor = this.Player.GetComponent<ColorCharacterController>().CurrentColor;
 		Debug.Log(killer.gameObject.name);
 		if (killer.InsideBlock) {
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), true);
 			//Physics.IgnoreCollision(player.GetComponent<CharacterController>(), killer.gameObject.collider, true);
 		}
 
-		player.GetComponent<CharacterInput>().enabled = false;
+		this.Player.GetComponent<CharacterInput>().enabled = false;
 		animator.enabled = false;
 		ragdoll.SetActive(true);
 
@@ -172,7 +168,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 		ragdoll.SetActive(false);
 		animator.enabled = true;
-		player.GetComponent<CharacterInput>().enabled = true;
+		this.Player.GetComponent<CharacterInput>().enabled = true;
 
 
 		Transform playerRespawnPoint;
