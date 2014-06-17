@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.67572021e-06, y: 0, z: 7.92962646}
   m_LocalScale: {x: 5, y: .300000012, z: 5}
   m_Children:
   - {fileID: 400002}
@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.402148247, y: -2.08502388, z: 38.4275513}
+  m_LocalPosition: {x: -.402153969, y: -2.01622009, z: 38.4276428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 12.3699646}
+  m_LocalPosition: {x: 1.05508137, y: 1.45169258, z: 14.6265564}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19832430db952ad4a9c17671f13a2c82, type: 3}
   m_Name: 
@@ -206,9 +206,10 @@ MonoBehaviour:
   startPosition: {fileID: 400008}
   endPosition: {fileID: 400006}
   flip: 0
-  speed: 3
+  speed: 6
   delayFlip: 0
   delayUnFlip: 0
+  enabledAtStart: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

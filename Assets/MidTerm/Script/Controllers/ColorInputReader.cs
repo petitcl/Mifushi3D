@@ -20,6 +20,10 @@ public class ColorInputReader : MonoBehaviour {
 		else if (Input.GetButtonDown("Blue")) {
 			this.gameController.ChangeColor(GameLevel.GameColor.Blue);
 		}
+		//tmp
+		else if (Input.GetKeyDown("l")) {
+			GameLevel.Instance.onPlayerWalkedOnDeadlyZone(GameObject.Find("RedBallSpike").GetComponent<DeadlyZone>());
+		}
 //		else if (Input.GetButtonDown("Pick")) {
 //			this.gameController.PickObject(); 
 //		}

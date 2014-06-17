@@ -66,6 +66,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	//private attributes
 	private CheckPoint	lastCheckPoint;
+	private bool		_DieCouroutineStarted = false;
 
 
 	//private Unity methods 
@@ -150,6 +151,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 	IEnumerator		onPlayerDiedCoroutine(DeadlyZone killer) {
 
+		this._DieCouroutineStarted = true;
 		this.Player.GetComponent<ColorCharacterController>().Kill(killer);
 		Runity.Messenger<string>.Broadcast("Player.Dead", killer.gameObject.name,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
@@ -159,6 +161,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		Debug.Log(killer.gameObject.name);
 		if (killer.InsideBlock) {
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), true);
+			//Physics.IgnoreCollision(player.GetComponent<CharacterController>(), killer.gameObject.collider, true);
 		}
 
 		animator.enabled = false;
@@ -182,16 +185,18 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 		if (killer.InsideBlock) {
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), false);
+			//Physics.IgnoreCollision(player.GetComponent<CharacterController>(), killer.gameObject.collider, false);
 		}
 		//		yield return new WaitForSeconds(1.0f);
 		
 
 //		animator.enabled = true;
 //		ragdoll.SetActive(false);
+		this._DieCouroutineStarted = false;
 	}
 
 	public	void	onPlayerWalkedOnDeadlyZone(DeadlyZone killer) {
-		this.StartCoroutine(this.onPlayerDiedCoroutine(killer));
+		if (!this._DieCouroutineStarted) this.StartCoroutine(this.onPlayerDiedCoroutine(killer));
 //		this.Player.GetComponent<ColorCharacterController>().Kill(killer);
 //		this.Player.GetComponent<Character_Manager>().ResetSpeed();
 	}
