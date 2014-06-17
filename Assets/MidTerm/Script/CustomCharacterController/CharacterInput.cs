@@ -15,7 +15,7 @@ public class CharacterInput : MonoBehaviour {
 	void Update () {
 		this.Move();
 		this.Jump ();
-		this.Boost();
+		//this.Boost();
 	}
 
 	void Move() {
