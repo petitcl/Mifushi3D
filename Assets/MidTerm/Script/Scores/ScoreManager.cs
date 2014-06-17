@@ -99,5 +99,6 @@ public class ScoreManager : MonoBehaviour {
 		}
 		m_scores [l_score].Add(_username);
 		Save ();
+		Application.LoadLevel("MainMenu");
 	}
 }
