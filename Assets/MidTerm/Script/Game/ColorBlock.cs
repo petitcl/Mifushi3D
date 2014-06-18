@@ -16,11 +16,13 @@ public class ColorBlock : MonoBehaviour {
 	//public methods
 	public	void	SetColor(GameLevel.GameColor newColor) {
 		if (this.CurrentColor.Equals(newColor)) return;
-		this.savedMaterial = this.renderer.sharedMaterial;
+		if (this.renderer != null) {
+			this.savedMaterial = this.renderer.sharedMaterial;
+			GameAnimator.Instance.MatAnimator.TempFade(this.renderer.material, GameLevel.Instance.GameColorToFadedColor(newColor),
+			                                           0.3f, this._onMaterialAnimationDone);
+		}
 		this.gameObject.SetLayerRecursively(GameLevel.Instance.GameColorToLayerMask(newColor));
 		this.CurrentColor = newColor;
-		GameAnimator.Instance.MatAnimator.TempFade(this.renderer.material, GameLevel.Instance.GameColorToFadedColor(newColor),
-		                                           0.3f, this._onMaterialAnimationDone);
 //		if (GameLevel.Instance.Player.GetComponent<ColorCharacterController>().CurrentColor == this.CurrentColor) {
 //		} else {
 //			GameAnimator.Instance.MatAnimator.TempFade(this.renderer.material, GameLevel.Instance.GameColorToColor(newColor),

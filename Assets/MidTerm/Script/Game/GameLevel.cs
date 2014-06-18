@@ -193,6 +193,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 //		animator.enabled = true;
 //		ragdoll.SetActive(false);
 		this._DieCouroutineStarted = false;
+		Runity.Messenger.Broadcast("Player.Respawn", Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 	}
 
 	public	void	onPlayerWalkedOnDeadlyZone(DeadlyZone killer) {

@@ -22,7 +22,11 @@ public class AutomaticColorChanger : MonoBehaviour {
 			CurrentColorIndex++;
 			if (CurrentColorIndex >= this.Colors.Length) CurrentColorIndex = 0; 
 
-			GetComponent<ColorBlock>().SetColor(this.Colors[this.CurrentColorIndex]);
+			ColorBlock[] colorBlocks = GetComponentsInChildren<ColorBlock>();
+			foreach (ColorBlock cb in colorBlocks) {
+				cb.SetColor(this.Colors[this.CurrentColorIndex]);
+			}
+//			GetComponent<ColorBlock>().SetColor(this.Colors[this.CurrentColorIndex]);
 			this.LastTransitionTime = Time.time;
 		}
 

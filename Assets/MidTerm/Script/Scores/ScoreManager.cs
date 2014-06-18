@@ -42,6 +42,8 @@ public class ScoreManager : MonoBehaviour {
 		Runity.Messenger.AddListener("Game.Resume", this.ClockResume);
 		Runity.Messenger.AddListener("Game.End", this.EndGame);
 		Runity.Messenger<string>.AddListener("Game.SetUsername", this.AddScoreTo);
+
+		Runity.Messenger.AddListener("Player.Respawn", this.ClockReset);
 	}
 	
 	// Update is called once per frame
@@ -86,6 +88,10 @@ public class ScoreManager : MonoBehaviour {
 	void ClockResume()
 	{
 		this.gameObject.GetComponent<Clock> ().Continue ();
+	}
+	void ClockReset()
+	{
+		this.gameObject.GetComponent<Clock> ().Restart ();
 	}
 	void EndGame()
 	{
