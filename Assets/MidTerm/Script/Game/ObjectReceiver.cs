@@ -18,6 +18,7 @@ public class ObjectReceiver : MonoBehaviour {
 			if (pobj.GetComponent<BasePickableObject>() == null) return;
 			ccc.DropObject();
 			pobj.transform.position = this.ObjectDropPosition.position;
+			pobj.transform.parent = this.transform;
 			this.CanReceive = false;
 			Runity.Messenger<string>.Broadcast("Player.DropObjectOnTrigger", this.Label, Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 		}
