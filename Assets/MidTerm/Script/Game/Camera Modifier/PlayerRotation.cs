@@ -16,7 +16,7 @@ public class PlayerRotation : MonoBehaviour {
 	// Update is called once per frame
 	void OnTriggerEnter () {
 		if (!once) {
-			player.transform.Rotate(Vector3.forward, rotation);
+			player.transform.Rotate(Vector3.up, rotation);
 			camera.RotateArroundTarget(Vector3.up, rotation);
 			if (!resetOnExit) {
 				once = true;
@@ -26,7 +26,7 @@ public class PlayerRotation : MonoBehaviour {
 
 	void OnTriggerExit() {
 		if (resetOnExit) {
-			player.transform.Rotate(Vector3.forward, -rotation);
+			player.transform.Rotate(Vector3.up, -rotation);
 			camera.RotateArroundTarget(Vector3.up, -rotation);
 		}
 	}
