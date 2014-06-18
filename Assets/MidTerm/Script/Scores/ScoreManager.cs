@@ -11,26 +11,29 @@ public class ScoreManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		loadScores();
-		Save();
-		loadScores();
 	}
 	void loadScores(){
+		int nb = 0;;
 		for (int l_index = 1; l_index <= 10; l_index++) {
 			float l_score = PlayerPrefs.GetFloat("Score" + l_index.ToString() + "Value");
 			string l_username = PlayerPrefs.GetString("Score" + l_index.ToString() + "Name");
 			if (scores[l_index - 1] && scores_usernames[l_index - 1]) {
 				scores[l_index - 1].text = "";
 				scores_usernames[l_index - 1].text = "";
-				if (l_score > 0) {
-					if (!m_scores.ContainsKey(l_score)) {
-						m_scores.Add(new KeyValuePair<float, List<string>>(l_score, new List<string>()));
-					}
-					m_scores[l_score].Add(l_username);
+			}
+			if (l_score > 0) {
+				if (!m_scores.ContainsKey(l_score)) {
+					m_scores.Add(new KeyValuePair<float, List<string>>(l_score, new List<string>()));
+				}
+				m_scores[l_score].Add(l_username);
+				if (scores[l_index - 1] && scores_usernames[l_index - 1]) {
 					scores[l_index - 1].text =  l_score.ToString();
 					scores_usernames[l_index - 1].text = l_username;
 				}
+				nb++;
 			}
 		}
+		Debug.Log ("nbscores:" + nb.ToString ());
 	}
 
 	void Start () {
