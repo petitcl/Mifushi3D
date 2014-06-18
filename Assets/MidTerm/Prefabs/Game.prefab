@@ -51,6 +51,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400006}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 1
@@ -92,6 +107,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400012}
+  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -161,6 +177,7 @@ Transform:
   m_Children:
   - {fileID: 400014}
   - {fileID: 400012}
+  - {fileID: 400006}
   m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
@@ -184,6 +201,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400012}
+--- !u!4 &400006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_LocalRotation: {x: 0, y: -.707082927, z: 0, w: .70713073}
+  m_LocalPosition: {x: -418.329803, y: 9.51675034, z: -22.260704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -415,13 +443,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efeaa07b36e5d745ab2a7f4c4ec0f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Red: {r: .963235319, g: .626102984, b: .120404415, a: 1}
+  Red: {r: .964705884, g: .627451003, b: .121568628, a: 1}
   Green: {r: .215686277, g: .643137276, b: 0, a: 1}
   Blue: {r: 0, g: .588235319, b: 1, a: 1}
   White: {r: 1, g: 1, b: 1, a: .984313726}
-  FadedRed: {r: .960784316, g: .694550395, b: .121568605, a: .443137258}
-  FadedGreen: {r: .215686277, g: .647058845, b: 0, a: .478431374}
-  FadedBlue: {r: .180392131, g: .61849916, b: .835294127, a: .470588237}
+  FadedRed: {r: .960784316, g: .623529434, b: .121568628, a: .443137258}
+  FadedGreen: {r: .215686277, g: .639215708, b: 0, a: .478431374}
+  FadedBlue: {r: 0, g: .58431375, b: .996078432, a: .470588237}
   RedLayerName: Physics_Red
   GreenLayerName: Physics_Green
   BlueLayerName: Physics_Blue
@@ -429,6 +457,8 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 100000, guid: 8aa2b84c25a367446ac486025b08d244, type: 2}
   PlayerSpawnPoint: {fileID: 0}
   Player: {fileID: 0}
+  animator: {fileID: 0}
+  ragdoll: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,6 +530,17 @@ MonoBehaviour:
   White: {fileID: 2100000, guid: 2c72e633dcc3e2d428e18878a15820cf, type: 2}
   SolidColorShader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
   FadedColorShader: {fileID: 30, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5000fa82727944b8b1f8a0ab79eb77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
