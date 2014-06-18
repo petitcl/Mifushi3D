@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour {
 		loadScores();
 	}
 	void loadScores(){
-		int nb = 0;;
 		for (int l_index = 1; l_index <= 10; l_index++) {
 			float l_score = PlayerPrefs.GetFloat("Score" + l_index.ToString() + "Value");
 			string l_username = PlayerPrefs.GetString("Score" + l_index.ToString() + "Name");
@@ -30,10 +29,8 @@ public class ScoreManager : MonoBehaviour {
 					scores[l_index - 1].text =  l_score.ToString();
 					scores_usernames[l_index - 1].text = l_username;
 				}
-				nb++;
 			}
 		}
-		Debug.Log ("nbscores:" + nb.ToString ());
 	}
 
 	void Start () {
