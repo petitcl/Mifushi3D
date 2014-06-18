@@ -13,6 +13,7 @@ public class AutomaticColorChanger : MonoBehaviour {
 	private	int				CurrentColorIndex = 0;
 
 	private void	Start() {
+		LastTransitionTime = Time.time;
 		LastTransitionTime += StartDelay;
 	}
 
