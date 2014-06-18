@@ -10,17 +10,23 @@ public class SetCameraToCharacter : MonoBehaviour {
 	public float				minimumHeight;
 	private float				savedMinimumHeight;
 
-	void OnTriggerEnter () {
-		Debug.Log("SetCameraToCharacter.Enter");
-		savedCamToTarget = camera.startCamToTarget;
-		camera.startCamToTarget = cameraToCharacter.position - player.transform.position;
-		savedMinimumHeight = camera.minimumHeight;
-		camera.minimumHeight = minimumHeight;
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Player") {
+
+			savedCamToTarget = camera.startCamToTarget;
+			camera.startCamToTarget = cameraToCharacter.position - player.transform.position;
+			savedMinimumHeight = camera.minimumHeight;
+			camera.minimumHeight = minimumHeight;
+			Debug.Log("SetCameraToCharacter.Enter");
+		}
 	}
 
-	void OnTriggerExit() {
-		Debug.Log("SetCameraToCharacter.Exit");
-		camera.startCamToTarget = savedCamToTarget;
-		camera.minimumHeight = savedMinimumHeight;
+	void OnTriggerExit(Collider other) {
+		if (other.gameObject.tag == "Player") {
+			
+			camera.startCamToTarget = savedCamToTarget;
+			camera.minimumHeight = savedMinimumHeight;
+			Debug.Log("SetCameraToCharacter.Exit");
+		}
 	}
 }

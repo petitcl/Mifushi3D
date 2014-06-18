@@ -77,13 +77,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: .199416637, y: .199897766, z: 70.4733276}
-  m_LocalScale: {x: 3.96716189, y: 3.96716094, z: 3.96716309}
+  m_LocalPosition: {x: -1.4439168, y: 1.04947376, z: 70.5357971}
+  m_LocalScale: {x: 3.96716166, y: 3.96716094, z: 3.96716332}
   m_Children:
   - {fileID: 400006}
   - {fileID: 400002}
   - {fileID: 400004}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -95,6 +96,7 @@ Transform:
   m_LocalScale: {x: .252069354, y: .252069414, z: .252069354}
   m_Children: []
   m_Father: {fileID: 400000}
+  m_RootOrder: 1
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -106,17 +108,19 @@ Transform:
   m_LocalScale: {x: .252069414, y: .252069443, z: .252069473}
   m_Children: []
   m_Father: {fileID: 400000}
+  m_RootOrder: 2
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: .492733777, y: -.507162154, z: .507162154, w: .492733777}
-  m_LocalPosition: {x: 0, y: .686168373, z: 0}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 0, y: 1.23031354, z: 0}
   m_LocalScale: {x: .252069384, y: .252069414, z: .252069473}
   m_Children: []
   m_Father: {fileID: 400000}
+  m_RootOrder: 0
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -135,9 +139,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -155,11 +158,11 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .49000001, y: 1.12, z: .49000001}
+  m_Size: {x: 1.22000003, y: 1.12, z: 1.12}
   m_Center: {x: 5.96046448e-08, y: .200000003, z: -8.94069672e-08}
 --- !u!95 &9500000
 Animator:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -168,8 +171,8 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 80b09c4ae6925284384c2f2f4fa2ac3e, type: 3}
   m_Controller: {fileID: 9100000, guid: a27b97be50409354880242420c578caa, type: 2}
   m_CullingMode: 0
+  m_UpdateMode: 0
   m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
 --- !u!102 &10200000
 TextMesh:
@@ -203,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03cc2b55d71c7a54fb73e3e395adaa86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 30
+  order: 40
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +228,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: .100000001
-  m_FarClipPlane: 4
+  m_FarClipPlane: 6
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 0
@@ -1304,9 +1307,8 @@ ParticleSystemRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   m_RenderMode: 0
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0

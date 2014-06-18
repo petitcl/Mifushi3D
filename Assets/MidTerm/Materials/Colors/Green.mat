@@ -72,13 +72,13 @@ Material:
         second: {r: .215686277, g: .639215708, b: 0, a: .478431374}
       data:
         first:
+          name: _Emission
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
           name: _SpecColor
         second: {r: 1, g: .952129781, b: .566176474, a: 1}
       data:
         first:
           name: _ReflectColor
         second: {r: .963235319, g: .786170006, b: .786170006, a: .501960814}
-      data:
-        first:
-          name: _Emission
-        second: {r: 0, g: 0, b: 0, a: 0}
