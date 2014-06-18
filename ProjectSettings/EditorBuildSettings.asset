@@ -11,3 +11,9 @@ EditorBuildSettings:
     path: Assets/MidTerm/Scenes/Level/TutorialLevel.unity
   - enabled: 1
     path: Assets/MidTerm/Scenes/Level/ChallengingLevel.unity
+  - enabled: 1
+    path: Assets/MidTerm/Scenes/Level/EasyLevel.unity
+  - enabled: 1
+    path: Assets/MidTerm/Scenes/Level/MediumLevel.unity
+  - enabled: 1
+    path: Assets/MidTerm/Scenes/Level/HardLevel.unity

@@ -3128,9 +3128,9 @@ MonoBehaviour:
   - {fileID: 521746416}
   - {fileID: 1027368344}
   level_names:
-  - ChallengingLevel
-  - ChallengingLevel
-  - ChallengingLevel
+  - EasyLevel
+  - MediumLevel
+  - HardLevel
   currentLevel: 0
 --- !u!1 &1970792868
 GameObject:
