@@ -96,12 +96,26 @@ public class CharacterMotor : MonoBehaviour {
 
 	private void ApplySlide(ref Vector3 resultVector) {
 		if (!Ctrl.isGrounded) return;
-		if (!Physics.Raycast(this.transform.position + Vector3.up,
+		RaycastHit _hit;
+		if (Physics.Raycast(this.transform.position + Vector3.up,
 		                    Vector3.down,
-		                    out this.SlideHit, Mathf.Infinity, this.SlidingLayerMask)) {
+		                    out _hit, 3.0f, this.SlidingLayerMask)) {
+			this.SlideHit = _hit;
 		}
+//		CharacterController charContr = this.transform.GetComponent<CharacterController>();
+//		Vector3 p1 = this.transform.position + Vector3.up * charContr.height * 0.5F;
+//		Vector3 p2 = p1 + Vector3.up * -charContr.height;
+//		if (Physics.CapsuleCast(p1, p2, charContr.radius, Vector3.down, out _hit, 3.0f, this.SlidingLayerMask)) {
+//			this.SlideHit = _hit;
+//		}
+
 		//TODO mettre en parametre les coefs de pente
-		if (this.SlideHit.normal.y < 0.99f) {
+//		if (this.SlideHit.collider != null) {
+//			Debug.Log(this.SlideHit.collider.name);
+//			Debug.DrawRay(this.transform.position, this.transform.position + this.SlideHit.normal * 10.0f);
+//		}
+
+		if (this.SlideHit.collider != null && this.SlideHit.normal.y < 0.99f) {
 			this.SlideVector = CreateSlideVector(this.SlideHit.normal);
 			this.SlideVector *= this.SlidingCoefSpeed;
 			Debug.DrawRay(this.transform.position, this.SlideVector, Color.red);
