@@ -34,8 +34,8 @@ LightmapSettings:
   m_ObjectHideFlags: 0
   m_LightProbes: {fileID: 0}
   m_Lightmaps:
-  - m_Lightmap: {fileID: 2800000, guid: 930a695050ccb824b8b528b48cf1ca5b, type: 3}
-    m_IndirectLightmap: {fileID: 2800000, guid: c488bdd205e9044458e5b43df3c227e3,
+  - m_Lightmap: {fileID: 2800000, guid: 7c876a762ff380c49a982e37a8aadc0b, type: 3}
+    m_IndirectLightmap: {fileID: 2800000, guid: 52a33954b9a2ed74a92f20544e733bae,
       type: 3}
   m_LightmapsMode: 1
   m_BakedColorSpace: 0
@@ -176,7 +176,7 @@ GameObject:
   - 154: {fileID: 6965263}
   - 114: {fileID: 6965262}
   - 114: {fileID: 6965261}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Terrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_CastShadows: 1
-  m_LightmapIndex: -1
+  m_LightmapIndex: 0
   m_LightmapSize: 1024
   m_DrawTreesAndFoliage: 1
   m_MaterialTemplate: {fileID: 0}
@@ -7672,7 +7672,7 @@ Transform:
   m_Children:
   - {fileID: 384645211}
   m_Father: {fileID: 998652002}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!95 &334945093
 Animator:
   serializedVersion: 3
@@ -8023,7 +8023,7 @@ Transform:
   m_Children:
   - {fileID: 1488587521}
   m_Father: {fileID: 998652002}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &367864423
 Animator:
   serializedVersion: 3
@@ -11811,7 +11811,7 @@ Transform:
   m_Children:
   - {fileID: 867358090}
   m_Father: {fileID: 1793062000}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &584313493
 Animator:
   serializedVersion: 3
@@ -17999,9 +17999,9 @@ Transform:
   m_LocalPosition: {x: -331.748138, y: -2.20309448, z: -.541725278}
   m_LocalScale: {x: .752300203, y: .752300203, z: .752300203}
   m_Children:
+  - {fileID: 1744673689}
   - {fileID: 334945092}
   - {fileID: 367864422}
-  - {fileID: 1744673689}
   m_Father: {fileID: 695917507}
   m_RootOrder: 3
 --- !u!1001 &1000054051
@@ -25017,7 +25017,7 @@ Transform:
   m_Children:
   - {fileID: 1547604584}
   m_Father: {fileID: 1793062000}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!95 &1384015775
 Animator:
   serializedVersion: 3
@@ -31402,7 +31402,7 @@ Transform:
   m_Children:
   - {fileID: 525289950}
   m_Father: {fileID: 998652002}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!95 &1744673690
 Animator:
   serializedVersion: 3
@@ -32093,9 +32093,9 @@ Transform:
   m_LocalPosition: {x: -331.749176, y: -.784515381, z: -.541679502}
   m_LocalScale: {x: .752300203, y: .752300203, z: .752300203}
   m_Children:
+  - {fileID: 2135075334}
   - {fileID: 1384015774}
   - {fileID: 584313492}
-  - {fileID: 2135075334}
   m_Father: {fileID: 695917507}
   m_RootOrder: 2
 --- !u!1 &1794528707
@@ -39204,7 +39204,7 @@ Transform:
   m_Children:
   - {fileID: 1207362818}
   m_Father: {fileID: 1793062000}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!95 &2135075335
 Animator:
   serializedVersion: 3
