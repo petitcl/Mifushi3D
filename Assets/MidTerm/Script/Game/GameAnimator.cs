@@ -77,7 +77,8 @@ public class GameAnimator : Runity.MonoBehaviourExt {
 		float fadeTime = this.FadeInOut.fadeTime;
 		this.FadeInOut.gameObject.SetActive(true);
 		this.FadeInOut.FadeIn();
-		this.WaitForNSeconds(fadeTime, callback);
+		this.WaitForNSeconds(fadeTime / 2, callback);
+//		callback();
 	}
 
 	//private Messenger callbacks

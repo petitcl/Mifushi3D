@@ -153,11 +153,12 @@ public class GameLevel : Runity.MonoBehaviourExt {
 		Runity.Messenger<string>.Broadcast("Player.Dead", killer.gameObject.name,
 		                                   Runity.MessengerMode.DONT_REQUIRE_LISTENER);
 
+
 		GameColor pcolor = this.Player.GetComponent<ColorCharacterController>().CurrentColor;
 		Debug.Log(killer.gameObject.name);
 		if (killer.InsideBlock) {
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), true);
-			//Physics.IgnoreCollision(player.GetComponent<CharacterController>(), killer.gameObject.collider, true);
+			Physics.IgnoreCollision(this.Player.GetComponent<CharacterController>(), killer.gameObject.collider, true);
 		}
 
 		this.Player.GetComponent<CharacterInput>().enabled = false;
@@ -184,7 +185,7 @@ public class GameLevel : Runity.MonoBehaviourExt {
 
 		if (killer.InsideBlock) {
 			Physics.IgnoreLayerCollision(GameLevel.Instance.PlayerLayerMask, this.GameColorToLayerMask(pcolor), false);
-			//Physics.IgnoreCollision(player.GetComponent<CharacterController>(), killer.gameObject.collider, false);
+			Physics.IgnoreCollision(this.Player.GetComponent<CharacterController>(), killer.gameObject.collider, false);
 		}
 		//		yield return new WaitForSeconds(1.0f);
 		

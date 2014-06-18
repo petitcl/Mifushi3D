@@ -14,7 +14,7 @@ public class MovingPlatform : MonoBehaviour {
 	private	float		timeLastFlip;
 
 	private void Start() {
-		timeLastFlip = Time.fixedTime;;
+		timeLastFlip = Time.fixedTime;
 		if (!this.enabledAtStart) this.enabled = false;
 	}
 
