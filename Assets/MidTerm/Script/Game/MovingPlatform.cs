@@ -28,7 +28,7 @@ public class MovingPlatform : MonoBehaviour {
 			Transform destination = this.flip ? this.endPosition : this.startPosition;
 			
 			//Stop moving during flip
-			if (Time.time - timeLastFlip > GetDelay()) {
+			if (Time.time > timeLastFlipEnded) {
 				this.transform.position = Vector3.MoveTowards(this.transform.position, destination.position, step);
 				if (Vector3.SqrMagnitude(this.transform.position - destination.position) < 0.01f) {
 					timeLastFlip = Time.time;
