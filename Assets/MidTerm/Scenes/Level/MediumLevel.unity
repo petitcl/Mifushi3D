@@ -7621,7 +7621,7 @@ Transform:
   m_Children:
   - {fileID: 384645211}
   m_Father: {fileID: 998652002}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!95 &334945093
 Animator:
   serializedVersion: 3
@@ -7972,7 +7972,7 @@ Transform:
   m_Children:
   - {fileID: 1488587521}
   m_Father: {fileID: 998652002}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!95 &367864423
 Animator:
   serializedVersion: 3
@@ -11702,7 +11702,7 @@ Transform:
   m_Children:
   - {fileID: 867358090}
   m_Father: {fileID: 1793062000}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!95 &584313493
 Animator:
   serializedVersion: 3
@@ -17867,9 +17867,9 @@ Transform:
   m_LocalPosition: {x: -331.748138, y: -2.20309448, z: -.541725278}
   m_LocalScale: {x: .752300203, y: .752300203, z: .752300203}
   m_Children:
-  - {fileID: 1744673689}
   - {fileID: 334945092}
   - {fileID: 367864422}
+  - {fileID: 1744673689}
   m_Father: {fileID: 695917507}
   m_RootOrder: 3
 --- !u!1001 &1000054051
@@ -24875,7 +24875,7 @@ Transform:
   m_Children:
   - {fileID: 1547604584}
   m_Father: {fileID: 1793062000}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!95 &1384015775
 Animator:
   serializedVersion: 3
@@ -31492,7 +31492,7 @@ Transform:
   m_Children:
   - {fileID: 525289950}
   m_Father: {fileID: 998652002}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!95 &1744673690
 Animator:
   serializedVersion: 3
@@ -32183,9 +32183,9 @@ Transform:
   m_LocalPosition: {x: -331.749176, y: -.784515381, z: -.541679502}
   m_LocalScale: {x: .752300203, y: .752300203, z: .752300203}
   m_Children:
-  - {fileID: 2135075334}
   - {fileID: 1384015774}
   - {fileID: 584313492}
+  - {fileID: 2135075334}
   m_Father: {fileID: 695917507}
   m_RootOrder: 2
 --- !u!1 &1794528707
@@ -38880,7 +38880,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2104937141}
   m_Layer: 0
-  m_Name: BlueMovingPlatform
+  m_Name: BlueMovingPlatformReceive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39248,7 +39248,7 @@ Transform:
   m_Children:
   - {fileID: 1207362818}
   m_Father: {fileID: 1793062000}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!95 &2135075335
 Animator:
   serializedVersion: 3
