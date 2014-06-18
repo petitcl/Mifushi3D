@@ -901,32 +901,6 @@ Transform:
   - {fileID: 324842080}
   - {fileID: 1604138504}
   m_Father: {fileID: 437633214}
---- !u!1 &55761889
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100004, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 55761890}
-  m_Layer: 0
-  m_Name: EndPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &55761890
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400006, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 55761889}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .115903854, y: 1.45169258, z: 13.6380768}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1770150106}
 --- !u!1 &57027157
 GameObject:
   m_ObjectHideFlags: 0
@@ -12306,11 +12280,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 54b6c3fcdf6ba4943a8f7d214dd8e59e, type: 2}
       propertyPath: delayFlip
-      value: .300000012
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 54b6c3fcdf6ba4943a8f7d214dd8e59e, type: 2}
       propertyPath: delayUnFlip
-      value: .300000012
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 54b6c3fcdf6ba4943a8f7d214dd8e59e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.10079956e-05
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 54b6c3fcdf6ba4943a8f7d214dd8e59e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -6.78936768
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 54b6c3fcdf6ba4943a8f7d214dd8e59e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.06728554
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54b6c3fcdf6ba4943a8f7d214dd8e59e, type: 2}
@@ -17886,32 +17872,6 @@ Prefab:
   m_RootGameObject: {fileID: 1865500068}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &725439897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100006, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 725439898}
-  m_Layer: 0
-  m_Name: StartPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &725439898
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 725439897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1770150106}
 --- !u!1 &732189943
 GameObject:
   m_ObjectHideFlags: 0
@@ -22780,7 +22740,6 @@ Transform:
   - {fileID: 1205976509}
   - {fileID: 627744100}
   - {fileID: 1087998540}
-  - {fileID: 1770150106}
   m_Father: {fileID: 824082347}
 --- !u!1 &949982744
 GameObject:
@@ -35700,11 +35659,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
       propertyPath: speed
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
       propertyPath: flip
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
+      propertyPath: delayFlip
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
+      propertyPath: delayUnFlip
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
@@ -36793,9 +36760,9 @@ MonoBehaviour:
   startPosition: {fileID: 1030887779}
   endPosition: {fileID: 651764785}
   flip: 0
-  speed: 6
-  delayFlip: 0
-  delayUnFlip: 0
+  speed: 10
+  delayFlip: .5
+  delayUnFlip: .5
   enabledAtStart: 0
 --- !u!23 &1454863736
 Renderer:
@@ -41893,7 +41860,7 @@ Transform:
   m_PrefabInternal: {fileID: 530198151}
   m_GameObject: {fileID: 1658521951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.05175781e-05, y: -11.1948204, z: .000610351562}
+  m_LocalPosition: {x: -4.10079956e-05, y: -7.06728554, z: -6.78936768}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2142525777}
@@ -42302,8 +42269,8 @@ MonoBehaviour:
   endPosition: {fileID: 1658521952}
   flip: 0
   speed: 6
-  delayFlip: .300000012
-  delayUnFlip: .300000012
+  delayFlip: .5
+  delayUnFlip: .5
   enabledAtStart: 0
 --- !u!23 &1683638631
 Renderer:
@@ -45924,34 +45891,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1843182419}
   m_GameObject: {fileID: 1766736930}
   m_Mesh: {fileID: 4300000, guid: 8e9bd645c86bf0d4cb952b59dbe8b5b2, type: 3}
---- !u!1 &1770150105
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1770150106}
-  m_Layer: 0
-  m_Name: RedMovingPlatform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1770150106
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400004, guid: b1a86ea2b3f4a0d4285bc2e76b7d52c9, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1770150105}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3604202, y: 12.125021, z: 43.3630829}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 725439898}
-  - {fileID: 55761890}
-  m_Father: {fileID: 949707115}
 --- !u!1001 &1770641625
 Prefab:
   m_ObjectHideFlags: 0
@@ -52158,9 +52097,9 @@ MonoBehaviour:
   startPosition: {fileID: 2086954458}
   endPosition: {fileID: 99967984}
   flip: 0
-  speed: 6
-  delayFlip: 0
-  delayUnFlip: 0
+  speed: 10
+  delayFlip: .5
+  delayUnFlip: .5
   enabledAtStart: 1
 --- !u!23 &2049539294
 Renderer:
